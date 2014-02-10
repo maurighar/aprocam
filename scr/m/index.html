@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link rel="icon" type="image/ico" href="../favicon.ico">
+		<link rel="stylesheet" href="../css/main.css" />
+	</head>
+
+	<body>
+		<div class="movil">
+		<H1>APROCAM</H1>
+
+		<p>Navegación</p>
+		<a href="../consultas_especiales/consulta_faltantes.php">Constancias faltantes</a>
+
+			<form method="get" action="consulta.php"> 
+			  </br>
+			  Tipo:
+			  <select NAME="Tipo"> 
+				 <option value=1> Por nombre
+				 <option value=2> Por CUIT
+				 <option value=3> Por dominio
+				 <option value=4> Por expediente
+				 <option value=5> Por lote
+				 <option value=6> Por rechazos activos
+			  </select>
+			  
+			  </br>
+			  Buscar:
+			  <input type="text" name="valorconsulta"/> 
+			  </br> 
+			  <input type="submit" value="Confirmar"/> 
+			  </br>
+			  </br>
+			</form>
+
+			<p class="webmaster">Desarrollado por Mauricio A. Ghilardi</p>
+		</div>
+	</body>
+</html>
