@@ -107,6 +107,15 @@ th, td {
 	padding: 3px ; 
 }
 
+
+td .pintra_rojo {
+	background-color: #FF0000;
+}
+
+td .pintra_verde {
+	background-color: #FF0000;
+}
+
 tr:nth-child(2n+1)  { 
 	background: #DFFFFF; 
 }

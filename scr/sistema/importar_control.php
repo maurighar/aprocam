@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Importaciónz</title>
+		<title>Importación</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link rel="icon" type="image/ico" href="../favicon.ico">
+		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 	<body>
-		<?php
+
+		<table>
+			<thead>
+				<tr>
+					<th>Importación</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			<?php
 			$fila = 1;
 			require 'connect_db.php';
 			if (($gestor = fopen("importar.csv", "r")) !== FALSE) {
@@ -24,17 +35,22 @@
 
 						$select = "INSERT INTO control (expediente, nombre, cuit, dominio, tipo, fecha, lote) VALUES ($expediente, '$nombre', $cuit, '$dominio', '$tipo', '$fecha', $lote)";
 						if($marcado = $mysqli->query("$select")) {
-							echo "Se importo correctamente $expediente - $dominio <br>" ;
+							echo '<tr> <td class="pintra_rojo">';
+							echo "Se importo correctamente $expediente - $dominio" ;
 						}else{
-							echo "No se importo correctamente $expediente - $dominio<br>" ;
-						}
+							echo '<tr> <td class="pintra_verde">';
+							echo "<strong>No se importo correctamente $expediente - $dominio</strong>" ;
+						} 
+						echo '</td> </tr>';
 					}
 					$fila++;
 				}
 				fclose($gestor);
 				$mysqli->close();
 			}
-		?>
+			?>
+			</tbody>
+		</table>
 	</body>
 </html>
 

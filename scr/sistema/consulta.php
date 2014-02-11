@@ -23,10 +23,6 @@
 					width: 60px;
 				}
 
-				td .pintra_rojo {
-					background: #FF0000;
-				}
-
 				.al_derecha {
 					text-align: right;
 				}
