@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Importación</title>
+		<title>Validar CIUTs</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<link rel="icon" type="image/ico" href="../favicon.ico">
@@ -35,10 +35,10 @@
 
 						$select = "INSERT INTO control (expediente, nombre, cuit, dominio, tipo, fecha, lote) VALUES ($expediente, '$nombre', $cuit, '$dominio', '$tipo', '$fecha', $lote)";
 						if($marcado = $mysqli->query("$select")) {
-							echo '<tr> <td class="pinta_rojo">';
+							echo '<tr> <td class="pintra_rojo">';
 							echo "Se importo correctamente $expediente - $dominio" ;
 						}else{
-							echo '<tr> <td class="pinta_verde">';
+							echo '<tr> <td class="pintra_verde">';
 							echo "<strong>No se importo correctamente $expediente - $dominio</strong>" ;
 						} 
 						echo '</td> </tr>';

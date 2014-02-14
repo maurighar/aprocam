@@ -79,18 +79,6 @@
 					</form>
 				</div>
 
-				<?php   
-					#consulto el archivo ini de la configuración
-					$config_ini = parse_ini_file("config/config.ini");
-					$mysqli = new mysqli($config_ini['server'], $config_ini['usuario'], $config_ini['pass'], $config_ini['base_ruta']);
-
-					if ($mysqli->connect_errno) {
-						echo "Fallo al contenctar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-					} else {
-						echo " MySQL Conectado OK";
-					}
-				?>
-
 			</section>
 
 			<div class="widgets">

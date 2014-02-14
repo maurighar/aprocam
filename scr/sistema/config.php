@@ -16,7 +16,7 @@
 				<legend>Importación</legend>
 				<p>
 					Antes de importar se debe generar el archivo <a href="importar.csv" target="_blank">importar.csv</a> <br>
-					<a href="importar_control.php" target="_blank">Importar Control
+					<a href="importar_control.php" target="_blank">Importar Control</a>
 				</p>
 			</fieldset>
 		</section>
