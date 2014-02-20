@@ -59,7 +59,6 @@ input[type="submit"],.btn {
 	background: #3498db;
 	background-image: linear-gradient(to bottom, #3498db, #1c6999);
 	border-radius: 9px;
-	font-family: Arial;
 	color: #ffffff;
 	font-size: 12px;
 	padding: 10px 20px 10px 20px;
@@ -85,10 +84,11 @@ li {
 }
 
 nav {
+	background: none repeat 0% 0% #000 ;
 	display: inline-block;
 	font-family: Arial, Helvetica;
-	padding: 0 0 5px 0;
-	width: 700px;
+	margin: 0 0 5px 0;
+	width: 100%;
 }
 
 table, td {
@@ -106,7 +106,6 @@ th, td {
 	font-size: 1em; 
 	padding: 3px ; 
 }
-
 
 td .pinta_rojo {
 	background-color: #FF0000;

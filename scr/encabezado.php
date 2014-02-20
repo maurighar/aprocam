@@ -8,7 +8,7 @@
 		<li><a href="<?php echo $raiz_sitio_web; ?>">#</a></li>
 		<li><a href="<?php echo $raiz_sitio_web; ?>m/index.html">Movil</a></li>
 		<li><a href="<?php echo $raiz_sitio_web; ?>sistema/rechazos.php">Rechazados</a>
-			<ul>
+			<ul class="menus">
 				<li><a href="<?php echo $raiz_sitio_web; ?>sistema/consulta.php?Tipo=6&valorconsulta=Rechazos">Listado rechazados</a></li>	
 			</ul></li>
 			
