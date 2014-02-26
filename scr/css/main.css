@@ -257,8 +257,9 @@ ul,ol {
 
 .version{
 	text-align: right;
+	color: #fff;
 	font-size: 10px;
-	padding: 5px;	
+	padding: 5px;
 }
 
 .webmaster {
