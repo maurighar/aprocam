@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>RUTA - Observaciones</title>
+		<title>RUTA - Rechazos Información</title>
 		<link rel="icon" image="type/ico" href="../favicon.ico" />
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../css/normalize.css" />
@@ -12,33 +12,30 @@
 
 		<?php
 			require '../encabezado.php';
-			require 'ver_obs_modif.php';
+			require 'rechazos_info_actualizar.php';
 		
 			$valor_id = $_GET["id"] ;
 
 			require 'connect_db.php';	
-			$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE id = " . $valor_id);
+			$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos WHERE id = " . $valor_id);
 			$fila = $resultado->fetch_assoc();
 
 		?>
 
 		<form class="divisor" method="post" action="?id=<?php echo $fila['id']?>" enctype="application/x-www-form-urlencoded">
 			<label>Empresa</label>
-			<?php echo $fila['nombre']; ?>
+			<?php echo $fila['razon']; ?>
 			<br />
 			<label>CUIT:</label>
 			<?php echo $fila['cuit']; ?>
 			<br />
-			<label>Dominio:</label>
-			<?php echo $fila['dominio']; ?>
-			<br />
-			<label>Fecha:</label>
-			<?php echo $fila['fecha']; ?>
+			<label>Obserbación:</label>
+			<?php echo $fila['obs']; ?>
 			<br /><br />
-			<label>Obser.:</label>
+			<label>Info.:</label>
 			<br />
 	
-			<textarea cols="50" rows="10" name="Obs"><?php echo ltrim($fila['obs']); ?></textarea>
+			<textarea cols="50" rows="10" name="info"><?php echo ltrim($fila['info']); ?></textarea>
 			<br />
 			<br />
 			

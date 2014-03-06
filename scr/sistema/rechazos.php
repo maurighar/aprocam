@@ -45,9 +45,9 @@
 				}
 			}
 
-			require 'rechazos_actualiza.php';
-			
+
 			require '../encabezado.php';
+			require 'rechazos_actualiza.php';
 			require 'encabezado_rechazos.php';
 		?>
 
@@ -60,11 +60,12 @@
 					<th class="col3">tipo</th>
 					<th class="col4">procesado</th>
 					<th class="col5">obs</th>
-					<th class="col6">cuit</th>
+					<th class="col6">CUIT</th>
 					<th class="col7">razon</th>
 					<th class="col8">fecha</th>
 					<th class="col12">planilla</th>
 					<th class="col13">envio</th>
+					<th>Info</th>
 				</tr>
 			</thead>
 			<tbody  class="consulta_tabla">
@@ -89,7 +90,13 @@
 						<td class="col8"><?php echo $fila['fecha']; ?></td>
 						<td class="col12"><?php echo $fila['planilla']; ?></td>
 						<td <?php echo color_envio($fila['envio']); ?>><?php enlace_ID($fila['envio'],$fila['id']); ?></td>
-					</tr>
+
+						<?php if (empty($fila['info']))
+							echo'<td>';
+						else 
+							echo '<td bgcolor="green">';?>
+							<?php echo '<a href="rechazos_info.php?id='. $fila['id'] . '">Info</a>'; ?></td>
+						</tr>
 
 				<?php
 					}
