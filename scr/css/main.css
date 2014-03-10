@@ -203,6 +203,10 @@ ul,ol {
 	color: yellow;
 }
 
+.menus {
+	margin: 0;
+}
+
 .menus li a {
 	background-color: #000;
 	color: #fff;
