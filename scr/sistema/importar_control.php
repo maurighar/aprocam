@@ -19,10 +19,13 @@
 
 			<?php
 			$fila = 1;
+			$contador = 0;
+			require 'funciones.php';
 			require 'connect_db.php';
 			if (($gestor = fopen("importar.csv", "r")) !== FALSE) {
 				while (($datos = fgetcsv($gestor, 1000, ',','"')) !== FALSE) {
 					$numero = count($datos);
+					$contador++;
 
 					if ($fila != 1) {
 						$expediente = $datos[0];						
@@ -40,7 +43,12 @@
 						}else{
 							echo '<tr> <td class="pinta_verde">';
 							echo "<strong>No se importo correctamente $expediente - $dominio</strong>" ;
+						}
+
+						if (!validarCUIT($cuit)) {
+							echo "<br><strong>CUIT no valido - Verificar $cuit</strong>" ;
 						} 
+
 						echo '</td> </tr>';
 					}
 					$fila++;
@@ -49,6 +57,12 @@
 				$mysqli->close();
 			}
 			?>
+			<tfoot>
+				<tr> <td>
+					<?php echo $contador; ?>
+				</td> </tr>
+			</tfoot>
+
 			</tbody>
 		</table>
 	</body>

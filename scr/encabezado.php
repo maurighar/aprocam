@@ -21,7 +21,7 @@
 			echo date("D  d-m-Y");
 		?>
 		<br>
-		Ver: 1.6.1
+		Ver: 1.6.2
 	</div>
 </nav>
 

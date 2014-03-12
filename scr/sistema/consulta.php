@@ -61,28 +61,29 @@
 
 			echo "Valor consultado: (" . $valor . ")</br>";
 
-			require 'connect_db.php';			
+			require 'connect_db.php';
+			$_selec = 'SELECT * FROM aprocam.control WHERE ';
 			switch ($tipo) {
 				case 1 :
-					$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE control.nombre like '%" . $valor . "%'");
+					$resultado = $mysqli->query("$_selec control.nombre like '%" . $valor . "%'");
 					break;
 				case 2 :
-					$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE control.cuit = " . $valor );
+					$resultado = $mysqli->query("$_selec control.cuit = " . $valor );
 					break;
 				case 3 :
-					$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE control.dominio =  '" . $valor . "'");
+					$resultado = $mysqli->query("$_selec control.dominio =  '" . $valor . "'");
 					break;
 				case "dp":
-					$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE control.dominio like '%" . $valor . "%'");
+					$resultado = $mysqli->query("$_selec control.dominio like '%" . $valor . "%'");
 					break;
 				case 4 :
-					$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE control.expediente = " . $valor );
+					$resultado = $mysqli->query("$_selec control.expediente = " . $valor );
 					break;
 				case 5 :
-					$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE control.lote = " . $valor );
+					$resultado = $mysqli->query("$_selec control.lote = " . $valor );
 					break;
 				case 6 :
-					$resultado = $mysqli->query("SELECT  * FROM aprocam.control WHERE  control.rechazo != ''  and control.envio = 0" );
+					$resultado = $mysqli->query("$_selec control.rechazo != ''  and control.envio = 0" );
 					break;
 			}
 		?>
