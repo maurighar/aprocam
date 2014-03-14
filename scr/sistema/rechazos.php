@@ -104,7 +104,7 @@
 				?>
 			</tbody>	
 			<tfoot>
-				<td align=right colspan="11" rowspan="1">
+				<td align=right colspan="12" rowspan="1">
 					Desarrollado por Mauricio A. Ghilardi
 				</td>
 			</tfoot>

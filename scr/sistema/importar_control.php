@@ -12,6 +12,7 @@
 		<table>
 			<thead>
 				<tr>
+					<th>Orden</th>
 					<th>Importación</th>
 				</tr>
 			</thead>
@@ -25,9 +26,10 @@
 			if (($gestor = fopen("importar.csv", "r")) !== FALSE) {
 				while (($datos = fgetcsv($gestor, 1000, ',','"')) !== FALSE) {
 					$numero = count($datos);
-					$contador++;
 
 					if ($fila != 1) {
+						$contador++;
+						echo "<tr> <td> $contador </td>";
 						$expediente = $datos[0];						
 						$nombre = $datos[1];
 						$cuit = $datos[2];
@@ -38,10 +40,10 @@
 
 						$select = "INSERT INTO control (expediente, nombre, cuit, dominio, tipo, fecha, lote) VALUES ($expediente, '$nombre', $cuit, '$dominio', '$tipo', '$fecha', $lote)";
 						if($marcado = $mysqli->query("$select")) {
-							echo '<tr> <td class="pinta_rojo">';
+							echo '<td class="pinta_rojo">';
 							echo "Se importo correctamente $expediente - $dominio" ;
 						}else{
-							echo '<tr> <td class="pinta_verde">';
+							echo '<td class="pinta_verde">';
 							echo "<strong>No se importo correctamente $expediente - $dominio</strong>" ;
 						}
 
@@ -58,8 +60,8 @@
 			}
 			?>
 			<tfoot>
-				<tr> <td>
-					<?php echo $contador; ?>
+				<tr> <td colspan="2" rowspan="1">
+					<?php echo "TOTAL: $contador"; ?>
 				</td> </tr>
 			</tfoot>
 

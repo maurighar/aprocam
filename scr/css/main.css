@@ -42,6 +42,9 @@ h2 {
 	margin: 1px 10px 0;
 }
 
+header {
+	padding: 42px;
+}
 
 input {
 	display: block;
@@ -87,6 +90,7 @@ nav {
 	background: none repeat 0% 0% #000 ;
 	display: inline-block;
 	font-family: Arial, Helvetica;
+	position: fixed;
 	margin: 0 0 5px 0;
 	width: 100%;
 }
@@ -158,7 +162,6 @@ select {
 ul,ol {
 	list-style: none;
 }
-
 
 
 
