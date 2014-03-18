@@ -191,6 +191,10 @@ ul,ol {
 	width: 95%;
 }
 
+.imprimir {
+	display: none;
+}
+
 .mensaje_mal, .mensaje_ok {
 	background: yellow;
 	border-radius: 0.5em;

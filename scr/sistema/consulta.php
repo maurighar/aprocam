@@ -7,26 +7,28 @@
 		<title>RUTA - Consulta</title>
 		<link rel="stylesheet" href="../css/normalize.css" />	
 		<link rel="stylesheet" href="../css/main.css" />
-			<style type="text/css">
-				thead .col0 {width: 50px;}
-				thead .col1 {width: 230px;}
-				thead .col2 {width: 70px;}
-				thead .col3 {width: 50px;}
-				thead .col4 {width: 84px;}
-				thead .col6 {width: 40px;}
-				thead .col7 {width: 77px;}
-				thead .col10 {width: 50px;}
-				thead .col12 {width: 45px;}
-				thead .col13 {width: 45px;}
+		<link rel="stylesheet" media="print" href="../css/imprimir.css" />
 
-				thead .fechas {
-					width: 60px;
-				}
+		<style type="text/css">
+			thead .col0 {width: 50px;}
+			thead .col1 {width: 230px;}
+			thead .col2 {width: 70px;}
+			thead .col3 {width: 50px;}
+			thead .col4 {width: 84px;}
+			thead .col6 {width: 40px;}
+			thead .col7 {width: 77px;}
+			thead .col10 {width: 50px;}
+			thead .col12 {width: 45px;}
+			thead .col13 {width: 45px;}
 
-				.al_derecha {
-					text-align: right;
-				}
-			</style>
+			thead .fechas {
+				width: 60px;
+			}
+
+			.al_derecha {
+				text-align: right;
+			}
+		</style>
 		
 	</head>
 	<body>
@@ -216,9 +218,16 @@
 		</tfoot>
 
 	</table>
-	<a href="../index.php">
-		Volver a Home
-	</a>
+	<div class="noprint">
+		<a href="../index.php">Volver a Home</a>		
+	</div>
+
+	<div class="imprimir">
+		<p class="firma">
+			Firma y aclaración
+		</p>
+	</div>
+
 	<?php require 'footer.php'; ?>
 	</body>
 </html>
