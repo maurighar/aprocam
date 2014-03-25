@@ -37,18 +37,35 @@
 				}
 			}
 
-			function enlace_ID($nro_fecha,$nro_id) {
+			function enlace_ID($nro_fecha,$nro_id,$enlace) {
 				if ($nro_fecha > 0) {
 					echo $nro_fecha;
 				} else {
-					echo '<a href="rechazos.php?id='. $nro_id . '">Marcar</a>';
+					echo '<a href="?' . $enlace . '&id='. $nro_id . '">Marcar</a>';
 				}
 			}
 
 
+			require 'connect_db.php';
+			$tipo = $_GET["tipo"] ;
+			switch ($tipo) {
+				case 'completo' :
+					$para_enlace = 'tipo=completo';
+					$para_enlace2 = 'tipo=solucionado';
+					$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos");
+					break;
+				case 'solucionado' :
+					$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos where envio = 0");
+					$para_enlace = 'tipo=solucionado';
+					$para_enlace2 = 'tipo=completo';
+					break;
+			}
+
 			require '../encabezado.php';
 			require 'rechazos_actualiza.php';
 			require 'encabezado_rechazos.php';
+			
+			echo "<a href=\"?$para_enlace2\">Cambiar vista</a>";
 		?>
 
 		<table>
@@ -70,11 +87,7 @@
 			</thead>
 			<tbody  class="consulta_tabla">
 			
-				<?php
-					require 'connect_db.php';
-					$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos");
-					while ($fila = $resultado->fetch_assoc()) {
-				?>
+				<?php while ($fila = $resultado->fetch_assoc()) { ?>
 				
 					<tr class="consulta_tabla">
 						<td class="col0"><?php echo $fila['estado']; ?></td>
@@ -89,7 +102,7 @@
 						<td class="col7"><?php echo $fila['razon']; ?></td>
 						<td class="col8"><?php echo $fila['fecha']; ?></td>
 						<td class="col12"><?php echo $fila['planilla']; ?></td>
-						<td <?php echo color_envio($fila['envio']); ?>><?php enlace_ID($fila['envio'],$fila['id']); ?></td>
+						<td <?php echo color_envio($fila['envio']); ?>><?php enlace_ID($fila['envio'],$fila['id'],$para_enlace); ?></td>
 
 						<?php if (empty($fila['info']))
 							echo'<td>';
@@ -98,7 +111,7 @@
 							<?php echo '<a href="rechazos_info.php?id='. $fila['id'] . '">Info</a>'; ?></td>
 						</tr>
 
-				<?php
+				<?php 
 					}
 					$mysqli->close();
 				?>
