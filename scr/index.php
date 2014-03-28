@@ -7,11 +7,13 @@
 		<link rel="icon" image="type/ico" href="favicon.ico" />
 		<link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/main.css" />
+
+		<script type="text/javascript" src="js/main.js"> </script>
 	</head>
 
-	<body>
+	<body onload="inicializar()">
 		<?php require 'encabezado.php'; ?>
-
+		
 		<section class="main-content">
 			<section class="news">
 				<div>

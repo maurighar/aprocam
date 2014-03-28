@@ -1,4 +1,4 @@
-@font-face {
+f@font-face {
 	font-family: 'source_code_pro';
 	src: url('..\fonts\sourcecodepro-regular-webfont.eot');
 	src: url('..\fonts\sourcecodepro-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -43,7 +43,7 @@ h2 {
 }
 
 header {
-	padding: 42px;
+	padding: 42px 0 0 0;
 }
 
 input {
@@ -162,6 +162,25 @@ select {
 ul,ol {
 	list-style: none;
 }
+
+
+
+
+
+
+
+/*-----------------------------*/
+#fecha {
+	text-align: right;
+}
+
+
+
+
+
+
+
+
 
 
 

@@ -46,6 +46,10 @@
 			}
 
 
+			require '../encabezado.php';
+			require 'rechazos_actualiza.php';
+			require 'encabezado_rechazos.php';
+
 			require 'connect_db.php';
 			$tipo = $_GET["tipo"] ;
 			switch ($tipo) {
@@ -60,11 +64,6 @@
 					$para_enlace2 = 'tipo=completo';
 					break;
 			}
-
-			require '../encabezado.php';
-			require 'rechazos_actualiza.php';
-			require 'encabezado_rechazos.php';
-			
 			echo "<a href=\"?$para_enlace2\">Cambiar vista</a>";
 		?>
 

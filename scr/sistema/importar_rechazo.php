@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Importación</title>
+		<title>Importación rechazos</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<link rel="icon" type="image/ico" href="../favicon.ico">
+		<link rel="stylesheet" href="../css/normalize.css" />
 		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 	<body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>RUTA - Modificación</title>
+		<title>RUTA - Configuración</title>
 		<link rel="icon" image="type/ico" href="../favicon.ico" />
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../css/normalize.css" />
@@ -17,6 +17,14 @@
 				<p>
 					Antes de importar se debe generar el archivo <a href="importar.csv" target="_blank">importar.csv</a>. <br>
 					<a href="importar_control.php" target="_blank">Importar Control</a>
+				</p>
+			</fieldset>
+
+			<fieldset>
+				<legend>Importación Rechazos</legend>
+				<p>
+					Antes de importar se debe generar el archivo <a href="rechazo.csv" target="_blank">rechazo.csv</a>. <br>
+					<a href="importar_rechazo.php" target="_blank">Importar Rechazo</a>
 				</p>
 			</fieldset>
 

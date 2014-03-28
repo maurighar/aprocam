@@ -13,7 +13,8 @@
 			</ul></li>
 			
 		<li><a href="<?php echo $raiz_sitio_web; ?>sistema/carga_certificados.php">Carga de certificados</a></li>
-		<li><a href="<?php echo $raiz_sitio_web; ?>sistema/cod_actividad.php">Nomenclador de Actividades</a></li>
+		<li><a href="<?php echo $raiz_sitio_web; ?>sistema/liquidacion.php">Liquidación</a>
+<!--		<li><a href="<?php echo $raiz_sitio_web; ?>sistema/cod_actividad.php">Nomenclador de Actividades</a></li>-->
 	</ul>
 
 	<div class="version">
@@ -30,6 +31,5 @@
 
 		<img src="<?php echo $raiz_sitio_web; ?>image/aprocam_logo.png" alt="APROCAM" height=81px width=159px />
 	</div>
-	
-
+	<div id="fecha"></div>
 </header>
