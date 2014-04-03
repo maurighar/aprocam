@@ -223,6 +223,7 @@
 	</div>
 
 	<div class="imprimir">
+		<br><br><br>
 		<p class="firma">
 			Firma y aclaración
 		</p>

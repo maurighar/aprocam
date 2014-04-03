@@ -1,3 +1,18 @@
+<?php
+	function imprime_suma($legajos) {
+		echo '<tr>';
+		echo '<td class="al_derecha"></td>';
+		echo '<td class="col1"></td>';
+		echo '<td class="col3"></td>';
+		echo '<td class="col4"></td>';
+		echo '<td class="fechas"></td>';
+		echo '<td class="al_derecha">L:' . $legajos . '</td>';
+		echo '<td class="al_derecha">$ ' . $legajos*80 . ',00</td>';
+		echo '</tr>';
+	}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -26,6 +41,16 @@
 	<body>
 
 		<?php
+			$empresa = 0;
+			$alta = 0;
+			$baja = 0;
+			$modif = 0;
+			$reimpre = 0;
+			$revalida = 0;
+			$contador = 0;
+			$exped_anterior = 0;
+
+
 			$valor = $_GET["lote"] ;
 			require 'connect_db.php';
 			$resultado = $mysqli->query("SELECT *, IF(tipo = 'EMPRESA','ALTA',tipo) as tipo2 FROM aprocam.control WHERE control.lote = $valor ORDER BY tipo2, expediente" );
@@ -34,18 +59,68 @@
 		<table>
 		<tbody>
 			<?php
+
+	// Falta la cabecera del listado
+
 				while ($fila = $resultado->fetch_assoc()) {
+					// La primera vez coloco el numero de expediente
+					if ($exped_anterior === 0)
+						$exped_anterior = $fila['expediente'] ;
+
+					// Compruebo que cambio de expediente
+					// Sino agrego una nueva linea
+					if ($exped_anterior != $fila['expediente']) {
+						imprime_suma($contador);
+						$exped_anterior = $fila['expediente'];
+						$contador = 0;
+					}
+
+
+
+
+	// Falta el nombre del tipo
+
+	// Falta la suma al pie
+
+
+
+
 					echo '<tr>';
-					echo '<td class="al_derecha">' . $fila['expediente']. '</td>';
-					echo '<td class="col1">' . $fila['nombre'] . '</td>';
-					echo '<td class="col2">' . $fila['cuit'] . '</td>';
+					echo '<td class="al_derecha">' . ($contador!=0?'':$fila['expediente']) . '</td>';
+					echo '<td class="col1">' . ($contador!=0?'':$fila['nombre'] . '</td>');
 					echo '<td class="col3">' . $fila['dominio'] . '</td>';
 					echo '<td class="col4">' . $fila['tipo'] . '</td>';
 					echo '<td class="fechas">' . $fila['fecha'] . '</td>';
-					echo '<td class="al_derecha">' . $fila['lote'] . '</td>';
-					echo '<td class="al_derecha">' . $fila['lote'] . '</td>';
+					echo '<td class="al_derecha"></td>';
+					echo '<td class="al_derecha"></td>';
 					echo '</tr>';
-				} 
+
+					//Controlo la cantidad de tramites
+					switch ($fila['tipo']) {
+						case 'ALTA' :
+							$alta++;
+							break;
+						case 'EMPRESA' :
+							$empresa++;
+							$contador++;
+							break;
+						case 'BAJA' :
+							$baja++;
+							break;
+						case 'MODIF' :
+							$modif++;
+							break;
+						case 'REIMPRE.' :
+							$reimpre++;
+							break;
+						case 'REVALIDA' :
+							$revalida++;
+							break;
+						}
+					$contador++;
+				}
+
+			imprime_suma($contador);
 			$mysqli->close();
 			?>
 

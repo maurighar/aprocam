@@ -59,7 +59,7 @@
 			echo "Valor consultado: (" . $valor . ")</br>";
 			
 			#consulto el archivo ini de la configuración
-			require '../config/connect_db.php';
+			require 'connect_db.php';
 			echo $mysqli->host_info . "\n" . "</br>";
 			
 			switch ($tipo) {

@@ -2,7 +2,7 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<link rel="icon" type="image/gif" href="../image/favicon.png">
+		<link rel="icon" type="image/gif" href="../favicon.png">
 		<title>Consulta</title>
 		<link rel="stylesheet" href="../css/normalize.css" />
 		<link rel="stylesheet" href="../css/main.css" />
@@ -48,7 +48,7 @@
 			$tipo = $_GET["Tipo"] ;
 			echo "Valor consultado: (" . $valor . ")</br>";
 			
-			require '../config/connect_db.php';
+			require 'connect_db.php';
 			echo $mysqli->host_info . "\n" . "</br>";
 			
 			switch ($tipo) {

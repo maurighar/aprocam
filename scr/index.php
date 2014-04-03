@@ -13,31 +13,37 @@
 
 	<body onload="inicializar()">
 		<?php require 'encabezado.php'; ?>
-		
+
 		<section class="main-content">
+		
 			<section class="news">
+			<h1 id="cabecera">Sistema RUTA</h1>
 				<div>
 					<form method="get" action="sistema/consulta.php" enctype="application/x-www-form-urlencoded">
 						<fieldset>
 							<legend>Consulta Normal</legend>
-
 							
-							<label> Tipo:</label>
-							<select NAME="Tipo"> 
-								<option value=1>Por nombre</option>
-								<option value=2>Por CUIT</option>
-								<option value=3>Por dominio</option>
-								<option value=4>Por expediente</option>
-								<option value=5>Por lote</option>
-								<option value=6>Por rechazos activos</option>
-								<option value="dp">Por dominio parcial</option>
-							</select>
-
+							<div class="flota">
+								<label> Tipo:</label>
+								<select NAME="Tipo"> 
+									<option value=1>Por nombre</option>
+									<option value=2>Por CUIT</option>
+									<option value=3>Por dominio</option>
+									<option value=4>Por expediente</option>
+									<option value=5>Por lote</option>
+									<option value=6>Por rechazos activos</option>
+									<option value="dp">Por dominio parcial</option>
+								</select>
+							</div>
 							
-							<label>Buscar:</label>
-							<input type="text" name="valorconsulta" placeholder="Valor a buscar"/> 
+							<div class="flota">
+								<label>Buscar:</label>
+								<input type="text" name="valorconsulta" placeholder="Valor a buscar"/>
+							</div>
 							
-							<input type="submit" name="submit" value="Buscar" />
+							<div class="clear">
+								<input type="submit" name="submit" value="Buscar" />
+							</div>
 						</fieldset>
 					</form>
 				</div>
@@ -47,16 +53,22 @@
 						<fieldset>
 							<legend>Consulta Sistema anterior</legend>
 
-							<label> Tipo:</label>
-							<select NAME="Tipo"> 
-								<option value=1> Por nombre</option>
-								<option value=2> Por CUIT</option>
-								<option value=3> Por dominio</option>
-								<option value=4> Por expediente</option>
-							</select>
-
-							<label>Buscar:</label>
-							<input type="text" name="valorconsulta" placeholder="Valor a buscar"> 
+							<div class="flota">
+								<label> Tipo:</label>
+								<select NAME="Tipo"> 
+									<option value=1> Por nombre</option>
+									<option value=2> Por CUIT</option>
+									<option value=3> Por dominio</option>
+									<option value=4> Por expediente</option>
+								</select>
+							</div>
+							
+							<div class="flota">
+								<label>Buscar:</label>
+								<input type="text" name="valorconsulta" placeholder="Valor a buscar"> 
+							</div>
+							
+							<div class="clear">
 							<input type="submit" value="Buscar"> 
 						</fieldset>
 					</form>
@@ -67,16 +79,23 @@
 						<fieldset>
 							<legend>Consulta tramites sin sistema</legend>
 							
-							<label> Tipo:</label>
-							<select NAME="Tipo"> 
-								<option value=1> Por nombre</option>
-								<option value=2> Por dominio</option>
-								<option value=3> Por expediente</option>
-							</select>
+							<div class="flota">
+								<label> Tipo:</label>
+								<select NAME="Tipo"> 
+									<option value=1> Por nombre</option>
+									<option value=2> Por dominio</option>
+									<option value=3> Por expediente</option>
+								</select>
+							</div>
 
-							<label>Buscar:</label>
-							<input type="text" name="valorconsulta" placeholder="Valor a buscar"/> 
-							<input type="submit" value="Buscar" /> 
+							<div class="flota">
+								<label>Buscar:</label>
+								<input type="text" name="valorconsulta" placeholder="Valor a buscar"/> 
+							</div>
+							
+							<div class="clear">
+								<input type="submit" value="Buscar" /> 
+							</div>
 						</fieldset>
 					</form>
 				</div>

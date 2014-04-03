@@ -1,7 +1,7 @@
 <?php
 	
 	#$server='admin03';
-	$server='admin03';
+	$server='localhost';
 	$usuario='aprocam';
 	$pass='aprocam2010';
 	$base_ruta='aprocam';
