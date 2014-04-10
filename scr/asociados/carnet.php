@@ -4,8 +4,9 @@
 		<title>Carnet ISCAMEN</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
-
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+		
+		<script type="text/javascript "src="../js/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript "src="../js/jquery.qrcode-0.7.0.min.js"></script>
 		<style>
 			.marco {
@@ -38,6 +39,9 @@
 
 	<body>
 
+<!-- Carnet de una unidad individual
+segun parametro enviado -->
+
 		<?php
 			$valor_id = $_GET["cuit"] ;
 
@@ -55,15 +59,19 @@
 				$domicilio .= ' Depto ' . $fila['depto'];
 			$domicilio2 = $fila['localidad'] . ', ' . $fila['provincia'];
 
-
-			$selec = "SELECT * FROM aprocam.unidades WHERE cuit = $valor_id";
+			$selec = 'SELECT * FROM aprocam.unidades WHERE';
+			if (isset($_GET["id"])){
+				$valor_id = $_GET["id"];
+				$selec .= " id = $valor_id";
+			}
+			else {
+				$selec .= " cuit = $valor_id";
+			}
 			$resultado = $mysqli->query("$selec");
 
-			$fila = $resultado->fetch_assoc();
+			 while ($fila = $resultado->fetch_assoc()) {
+
 		?>
-
-
-		<?php while ($fila = $resultado->fetch_assoc()) { ?>
 		<div class="marco">
 			<div class="carnet">
 				<img src="../image/aprocam_logo.png" alt="APROCAM" height=81px width=159px />

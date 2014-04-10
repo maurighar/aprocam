@@ -49,6 +49,7 @@
 			$revalida = 0;
 			$contador = 0;
 			$exped_anterior = 0;
+			$valor_tramite=80;
 
 
 			$valor = $_GET["lote"] ;
@@ -79,8 +80,6 @@
 
 
 	// Falta el nombre del tipo
-
-	// Falta la suma al pie
 
 
 
@@ -126,6 +125,37 @@
 
 		</tbody>
 	</table>
+
+
+	<!-- Falta la suma al pie -->
+
+	<table>
+
+		<tbody>
+			<tr>
+				<td>Forma de Pago: Cheque</td>
+				<td>Reg.Altas (V)</td>
+				<td><?php echo $alta?></td>
+				<td>$&nbsp;<?php echo $alta*$valor_tramite?>,00</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>(E)</td>
+				<td><?php echo $empresa?></td>
+				<td>$&nbsp;<?php echo $empresa*$valor_tramite*2?>,00</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Bajas</td>
+				<td><?php echo $baja?></td>
+				<td>$&nbsp;<?php echo $baja*$valor_tramite*2?>,00</td>
+			</tr>
+		</tbody>
+		
+	</table>
+
+
+
 
 	</body>
 </html>

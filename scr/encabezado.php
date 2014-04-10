@@ -26,15 +26,16 @@
 			echo date("D  d-m-Y");
 		?>
 		<br>
-		Ver: 1.7.0
+		Ver: 1.7.1
 	</div>
 </nav>
 
 <header>
 	<div class="encabezado">
-
 		<img src="<?php echo $raiz_sitio_web; ?>image/aprocam_logo.png" alt="APROCAM" height=81px width=159px />
-		<h2>CORRIENDO LOCALMENTE</h2>
+
+		<h1>local</h1>
+
 	</div>
 	<div id="fecha"></div>
 </header>

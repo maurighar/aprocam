@@ -16,14 +16,22 @@
 		<section>
 			<fieldset >
 				<legend>Datos liquidación</legend>
-				<p>
-					<a href="liquida_cabecera.php">Ingresar</a>
-				</p>
+				<a  class="enlace_boton" href="liquida_cabecera.php">Ingresar</a>
 			</fieldset>
 
 			<fieldset >
 				<legend>Imprimir liquidación</legend>
 				<form method="get" action="liquida_imprime.php" enctype="application/x-www-form-urlencoded">
+					<label>Buscar:</label>
+					<input type="text" name="lote" placeholder="Ingrese el Nº de lote" required/> 
+					
+					<input type="submit" name="submit" value="Buscar" /></a>
+				</form>
+			</fieldset>
+
+			<fieldset >
+				<legend>Controlar liquidación</legend>
+				<form method="get" action="liquida_control.php" enctype="application/x-www-form-urlencoded">
 					<label>Buscar:</label>
 					<input type="text" name="lote" placeholder="Ingrese el Nº de lote" required/> 
 					

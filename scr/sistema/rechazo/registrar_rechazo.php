@@ -10,7 +10,7 @@
 	$reqleng = strlen($nombre) * strlen($cuit);
 	
 	if ($reqleng > 0){
-		require '../../config/connect_db.php';
+		require '../connect_db.php';
 		$resultado = $mysqli->query("insert into clientes values('','$nombre','$cuit','$telefono')");
 		echo 'Se registrado exitosamente.';
 	}else{

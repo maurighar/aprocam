@@ -95,7 +95,7 @@
 		
 		<section class="divisor">
 			<p>
-				Pulse en <a href="carnet.php?cuit=<?php echo $fila['cuit'] ; ?>">aqui</a> para sacar todos los carnets de la empresa.
+				Pulse en <a href="carnet.php?cuit=<?php echo $fila['cuit'] ; ?>">aqui</a> para emitir todos los carnets de la empresa.
 			</p>
 		</section>
 
@@ -112,7 +112,9 @@
 				<tr>
 					<th>Dominio</th>
 					<th>Fecha Alta</th>
-					<th></th>
+					<th>..</th>
+					<th>..</th>
+					<th>..</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -120,12 +122,14 @@
 				<tr>
 					<td> <?php echo $fila['dominio']?> </td>
 					<td> <?php echo $fila['fecha']?> </td>
-					<td> modificar </td>
+					<td> <a href="unidades_modif.php?id=<?php echo $fila['id']; ?>">Modificar</a></td>
+					<td> <a href="unidades_baja.php?id=<?php echo $fila['id'] . '&cuit=' . $fila['cuit']; ?>">Baja</a> </td>
+					<td> <a href="carnet.php?cuit=<?php echo $fila['cuit'] . '&id=' . $fila['id']; ?>">Carné</a> </td>
 				</tr>
 				<?php } ?>
 			</tbody>
 			<tfoot>
-				<td align=right colspan="3" rowspan="1">
+				<td align=right colspan="5" rowspan="1">
 				Desarrollado por Mauricio A. Ghilardi
 				</td>
 			</tfoot>

@@ -40,10 +40,10 @@
 
 						$select = "INSERT INTO control (expediente, nombre, cuit, dominio, tipo, fecha, lote) VALUES ($expediente, '$nombre', $cuit, '$dominio', '$tipo', '$fecha', $lote)";
 						if($marcado = $mysqli->query("$select")) {
-							echo '<td class="pinta_rojo">';
+							echo '<td class="pinta_verde">';
 							echo "Se importo correctamente $expediente - $dominio" ;
 						}else{
-							echo '<td class="pinta_verde">';
+							echo '<td class="pinta_rojo">';
 							echo "<strong>No se importo correctamente $expediente - $dominio</strong>" ;
 						}
 

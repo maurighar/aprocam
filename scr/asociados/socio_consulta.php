@@ -37,6 +37,7 @@
 					<th>Razon Social</th>
 					<th>CUIT</th>
 					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,11 +47,12 @@
 					<td> <?php echo $fila['nombre']?> </td>
 					<td> <?php echo $fila['cuit']?> </td>
 					<td> <a href="empresa.php?cuit=<?php echo $fila['cuit'] ; ?>">Modificar</a></td>
+					<td> <a href="empresa_baja.php?cuit=<?php echo $fila['cuit'] ; ?>">Baja</a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
 			<tfoot>
-				<td align=right colspan="4" rowspan="1">
+				<td align=right colspan="5" rowspan="1">
 				Desarrollado por Mauricio A. Ghilardi
 				</td>
 			</tfoot>

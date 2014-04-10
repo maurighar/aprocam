@@ -21,46 +21,41 @@
 				return substr ($enDonde , $posInicial,$posDelPunto-$posInicial )*1;
 			}
 
-			function actualizar () {
-				$actualizar = "UPDATE control SET certificado='" . $fecha_entrega . "' WHERE  id= " . $id_marca;
+			require 'connect_db.php';
+			$valor = $_GET["lote"] ;
 
-				require 'connect_db.php';
-				$marcado = $mysqli->query("$actualizar")
-			}
+			//  Pongo en 0 todos los campos antes de empzar
+			$actualizar = "UPDATE lista_expdientes SET empresa = 0, alta = 0, baja = 0, modif = 0, reimpre = 0 WHERE lote = $valor";
+			$marcado = $mysqli->query("$actualizar");
 
 
-			function controlar_form ($cadena, $idExpediente) {
-				// EMPRESA -> AE: Alta Empresa, 
-				// ALTA -> AV: Alta Vehículo, 
-				// BAJA -> BE: Baja empresa, BV: Baja Vehículo,
-				// MODIF -> ME: Modificación Empresa, MV: Modificación Vehículo,
-				// REIMPRE -> IE: Reimpresión Empresa, IV: Reimpresión Vehículo
-				// REVALIDA -> RV
 
-				$tipo_tramite = array('AE', 'AV', 'BE', 'BV', 'ME', 'MV', 'IE', 'IV', 'RV' );
-				$tipo_nombre = array('empresa', 'alta', 'baja', 'baja', 'modif', 'modif', 'reimpre', 'reimpre', 'revalida' );
+			$resultado = $mysqli->query("SELECT * FROM lista_expdientes WHERE lote = $valor");
+
+			// EMPRESA -> AE: Alta Empresa, 
+			// ALTA -> AV: Alta Vehículo, 
+			// BAJA -> BE: Baja empresa, BV: Baja Vehículo,
+			// MODIF -> ME: Modificación Empresa, MV: Modificación Vehículo,
+			// REIMPRE -> IE: Reimpresión Empresa, IV: Reimpresión Vehículo
+			// REVALIDA -> RV
+
+			$tipo_tramite = array('AE', 'AV', 'BE', 'BV', 'ME', 'MV', 'IE', 'IV', 'RV' );
+			$tipo_nombre = array('empresa', 'alta', 'baja', 'baja', 'modif', 'modif', 'reimpre', 'reimpre', 'revalida' );
+
+			while ($fila = $resultado->fetch_assoc()) {
+				echo '<br>' . $fila['expediente'] ;
+				echo ' - ' .$fila['formularios'] . '<br>';
 
 				for ($i=0; $i <= count($tipo_tramite)-1;$i++) {
-					echo cortar_valor($cadena,$tipo_tramite[$i]);
-				}		
-			} 
+					$valor_calculado = cortar_valor($fila['formularios'],$tipo_tramite[$i]);
 
-			require 'connect_db.php';
-			$resultado = $mysqli->query("$_selec control.nombre like '%" . $valor . "%'");
-			while ($fila = $resultado->fetch_assoc()) {
-
-			$fila['expediente']
-
-
-
+					$actualizar = "UPDATE lista_expdientes SET $tipo_nombre[$i] = $tipo_nombre[$i] + $valor_calculado WHERE id= ". $fila['id'];
+					$marcado = $mysqli->query("$actualizar");
+					
+					echo '     ' .$tipo_nombre[$i] . ' - ' . $valor_calculado ;
+					echo ' - se grabo:' .$marcado . '<br>';
+				}
 			}
-
-
-
-
-
-
-
 
 		?>
 		

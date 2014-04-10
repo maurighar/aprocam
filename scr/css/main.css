@@ -1,4 +1,4 @@
-f@font-face {
+@font-face {
 	font-family: 'source_code_pro';
 	src: url('..\fonts\sourcecodepro-regular-webfont.eot');
 	src: url('..\fonts\sourcecodepro-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -35,6 +35,10 @@ fieldset, .divisor {
 	width: 95%;
 }
 
+h1 {
+	text-align: center;
+}
+
 h2 {
 	color: #48802c;
 	font-weight: normal;
@@ -54,7 +58,7 @@ input {
 	padding: 3px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"] {
 	height: 20px;
 }
 
@@ -76,7 +80,7 @@ input[type="submit"]:hover, .btn:hover {
 }
 
 
-input[type="text"],select,textarea {
+input[type="date"], input[type="text"], input[type="email"],select,textarea {
 	border: solid #7575A3 1px ;
 	border-radius: 5px;
 	width: 300px;
@@ -111,11 +115,11 @@ th, td {
 	padding: 3px ; 
 }
 
-td .pinta_rojo {
+td.pinta_rojo {
 	background-color: #FF0000;
 }
 
-td .pinta_verde {
+td.pinta_verde {
 	background-color: #FF0000;
 }
 
@@ -174,6 +178,9 @@ ul,ol {
 	text-align: right;
 }
 
+#cabecera {
+	text-align: center;
+}
 
 
 
@@ -184,8 +191,9 @@ ul,ol {
 
 
 
-
-
+.colorear_todo * {
+	background-color: lightslategrey;
+}
 
 
 
@@ -199,6 +207,23 @@ ul,ol {
 	width: 70%;
 }
 
+.clear {
+	clear: left;
+	width: 350px;
+}
+
+a.enlace_boton {
+	background-color: #3498db;
+	border: 0.1em solid #57abb8;
+	display: inline-block;
+	margin: 5px 0;
+	padding: 10px 15px ;
+}
+
+a.enlace_boton:hover  {
+	background-color: #343C98	;
+}
+
 .encabezado {
 	background-color: #c1c7b3;
 	border: .05em solid #0066FF;
@@ -208,6 +233,11 @@ ul,ol {
 	padding: 5px;
 	text-align: center;
 	width: 95%;
+}
+
+.flota {
+	float: left;
+	width: 350px;
 }
 
 .imprimir {
@@ -297,6 +327,7 @@ ul,ol {
 	text-align: right;
 	padding: 0 5px;
 }
+
 
 
 

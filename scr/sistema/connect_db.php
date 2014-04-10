@@ -1,5 +1,4 @@
 <?php
-	
 	#$server='admin03';
 	$server='localhost';
 	$usuario='aprocam';

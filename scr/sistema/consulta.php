@@ -225,7 +225,7 @@
 	<div class="imprimir">
 		<br><br><br>
 		<p class="firma">
-			Firma y aclaración
+			Firma,   aclaración y   DNI
 		</p>
 	</div>
 

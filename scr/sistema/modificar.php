@@ -43,45 +43,66 @@
 		<section>
 			<form method="post" action="modificar_carga.php" enctype="application/x-www-form-urlencoded"> 
 				<fieldset>
-					<legend>Carga de datos:</legend>
+					<legend>Carga de datos</legend>
 							
-					<label>Razón social:</label>
-					<input type="text" name="nombre" size="55" value="<?php echo $fila['nombre']?>" required/>
+					<div class="flota">
+						<label>Razón social:</label>
+						<input type="text" name="nombre" size="55" value="<?php echo $fila['nombre']?>" required/>
+					</div>
 
-							
-					<label>CUIT:</label>
-					<input type="text" name="cuit" value="<?php echo $fila['cuit']?>" required />
+					<div class="flota">		
+						<label>CUIT:</label>
+						<input type="text" name="cuit" value="<?php echo $fila['cuit']?>" required />
+					</div>
 
-					<label>Dominio:</label> 
-					<input type="text" name="dominio" value="<?php echo $fila['dominio']?>" required />
+					<div class="clear flota">
+						<label>Dominio:</label> 
+						<input type="text" name="dominio" value="<?php echo $fila['dominio']?>" required />
+					</div>
 
-					<label>Tipo de tramite:</label> 
-					<select name="tipo" id="tipo" class="cambio">
-						
-						<?php select_tipo($fila['tipo']); ?>
-					</select>
+					<div class="flota">
+						<label>Tipo de tramite:</label> 
+						<select name="tipo" id="tipo" class="cambio">
+							<?php select_tipo($fila['tipo']); ?>
+						</select>
+					</div>
 
-					<label>Fecha:</label>
-					<input type="text" name="fecha" value="<?php echo $fila['fecha']?>" required />
+					<div class="clear flota">
+						<label>Fecha:</label>
+						<input type="text" name="fecha" value="<?php echo $fila['fecha']?>" required />
+					</div>
 
-					<label>Lote:</label>
-					<input type="text" name="lote" value="<?php echo $fila['lote']?>"/> 
+					<div class="flota">
+						<label>Lote:</label>
+						<input type="text" name="lote" value="<?php echo $fila['lote']?>"/> 
+					</div>
 
-					<label>Certificado:</label>
-					<input type="text" name="certificado" value="<?php echo $fila['certificado']?>"/> 
+					<div class="clear flota">
+						<label>Certificado:</label>
+						<input type="text" name="certificado" value="<?php echo $fila['certificado']?>"/> 
+					</div>
 
+					<div class="flota">
+						<label>Entregado:</label> 
+						<input type="text" name="entregado" value="<?php echo $fila['entregado']?>"/> 
+					</div>
 
-					<label>Entregado:</label> 
-					<input type="text" name="entregado" value="<?php echo $fila['entregado']?>"/> 
-
-					<label>Fecha envio:</label>
-					<input type="text" name="envio" value="<?php echo $fila['envio']?>"/> 
+					<div class="clear flota">
+						<label>Fecha envio:</label>
+						<input type="text" name="envio" value="<?php echo $fila['envio']?>"/> 
+					</div>
 					
-					<label>Detalle rechazos:</label>
-					<textarea cols="60" rows="10" name="rechazo"><?php echo ltrim($fila['rechazo']); ?></textarea>
+					<div class="flota">
+						<label>Detalle rechazos:</label>
+						<textarea cols="60" rows="10" name="rechazo"><?php echo ltrim($fila['rechazo']); ?></textarea>
+					</div>
 
-					<input type="hidden" name="id" value="<?php echo $fila['id'];?>" />
-					<input type="submit" name="submit" value="Modificar" />
+
+
+					<div class="clear">
+						<input type="hidden" name="id" value="<?php echo $fila['id'];?>" />
+						<input type="submit" name="submit" value="Modificar" />
+					</div>
 				</fieldset>
 			</form>
 		</section>

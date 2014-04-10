@@ -24,7 +24,7 @@
 
 			$valor_id = $_GET["id"] ;
 
-			require '../../config/connect_db.php';
+			require '../connect_db.php';
 
 			$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE id = " . $valor_id);
 			$fila = $resultado->fetch_assoc();
