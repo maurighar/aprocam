@@ -159,3 +159,9 @@
 
 	</body>
 </html>
+
+
+<!--   $test = new DateTime('02/31/2011');
+  echo date_format($test, 'Y-m-d H:i:s'); // 2011-03-03 00:00:00
+  $test = new DateTime('06/31/2011');
+  echo date_format($test, 'Y-m-d H:i:s'); // 2011-07-01 00:00:00 -->

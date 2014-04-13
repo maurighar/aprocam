@@ -106,7 +106,7 @@
 		?>
 
 		<h1>Listado de unidades</h1>
-
+		<a  class="enlace_boton" href="unidades_alta.php?cuit=<?php echo $fila['cuit']; ?>">Alta Unidad</a>
 		<table id="consulta_socios">
 			<thead>
 				<tr>

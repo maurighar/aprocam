@@ -69,7 +69,7 @@ segun parametro enviado -->
 			}
 			$resultado = $mysqli->query("$selec");
 
-			 while ($fila = $resultado->fetch_assoc()) {
+			while ($fila = $resultado->fetch_assoc()) {
 
 		?>
 		<div class="marco">
