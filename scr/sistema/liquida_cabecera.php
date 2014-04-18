@@ -11,14 +11,22 @@
 
 		<script type="text/javascript" src="js/main.js"> </script>
 	</head>
- 
+
 	<body onload="inicializar()">
-		<?php require '../encabezado.php'; ?>
-	
+		<?php
+			require '../encabezado.php';
+
+			require 'mensaje.php';
+
+			if (isset( $_GET["mensaje"])){
+				mensaje_actualizacion($_GET["mensaje"]>0);
+			}
+		?>
+
 		<section>
 
 
-		<form method="post" action="liquida_cabecera_carga.php" enctype="application/x-www-form-urlencoded"> 
+		<form method="post" action="liquida_cabecera_carga.php" enctype="application/x-www-form-urlencoded">
 			<fieldset>
 				<legend>Liquidación</legend>
 

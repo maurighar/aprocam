@@ -34,7 +34,7 @@
 	<div class="encabezado">
 		<img src="<?php echo $raiz_sitio_web; ?>image/aprocam_logo.png" alt="APROCAM" height=81px width=159px />
 
-		<h1>local</h1>
+		<!-- <h1>local</h1> -->
 
 	</div>
 	<div id="fecha"></div>

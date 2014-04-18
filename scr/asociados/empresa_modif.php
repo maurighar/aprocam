@@ -19,5 +19,3 @@
 	$mysqli->close();
 	header("Location: empresa.php?cuit=$cuit&mensaje=$mensaje");
 ?>
-
-	socio = $socio, nombre = $nombre, calle = $calle, numero = $numero, piso = $piso, depto = $depto, provincia = $provincia, localidad = $localidad, telefono = $telefono, email = $email

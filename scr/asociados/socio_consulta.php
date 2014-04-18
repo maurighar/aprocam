@@ -9,11 +9,11 @@
 	</head>
 
 	<body>
-		<?php 
-			require '../encabezado.php'; 
+		<?php
+			require '../encabezado.php';
 			$valor = $_GET["valorconsulta"] ;
 			$tipo = $_GET["Tipo"] ;
-		
+
 			require '../sistema/connect_db.php';
 			$_selec = 'SELECT * FROM aprocam.empresas WHERE ';
 			switch ($tipo) {
@@ -28,7 +28,7 @@
 					break;
 			}
 		?>
-	
+
 
 		<table id="consulta_socios">
 			<thead>
@@ -57,10 +57,6 @@
 				</td>
 			</tfoot>
 		</table>
-
-
-
-
 
 		<?php require '../sistema/footer.php'; ?>
 	</body>

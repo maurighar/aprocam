@@ -7,24 +7,37 @@
 		<link rel="stylesheet" href="../css/normalize.css" />
 		<link rel="stylesheet" href="../css/main.css" />
 
-		<script type="text/javascript" src="js/main.js"> </script>
+		<script type="text/javascript" src="../js/main.js"> </script>
 	</head>
- 
+
 	<body onload="inicializar()">
 		<?php require '../encabezado.php'; ?>
-	
+
 		<section>
 			<fieldset >
 				<legend>Datos liquidación</legend>
-				<a  class="enlace_boton" href="liquida_cabecera.php">Ingresar</a>
+
+<!-- 				<fieldset >
+					falta hacer para modificar y borrar
+					<form method="get" action="liquida_modifica.php" enctype="application/x-www-form-urlencoded">
+						<label>Buscar:</label>
+						<input type="text" name="lote" placeholder="Ingrese el Nº de lote" required/>
+
+						<input type="submit" name="submit" value="Buscar" /></a>
+					</form>
+				</fieldset>
+ -->
+				<a  class="enlace_boton" href="liquida_cabecera.php">Cargar</a>
+
+
 			</fieldset>
 
 			<fieldset >
 				<legend>Imprimir liquidación</legend>
 				<form method="get" action="liquida_imprime.php" enctype="application/x-www-form-urlencoded">
-					<label>Buscar:</label>
-					<input type="text" name="lote" placeholder="Ingrese el Nº de lote" required/> 
-					
+					<label>Liquidación:</label>
+					<input type="text" name="lote" placeholder="Ingrese el Nº de lote" required/>
+
 					<input type="submit" name="submit" value="Buscar" /></a>
 				</form>
 			</fieldset>
@@ -32,9 +45,9 @@
 			<fieldset >
 				<legend>Controlar liquidación</legend>
 				<form method="get" action="liquida_control.php" enctype="application/x-www-form-urlencoded">
-					<label>Buscar:</label>
-					<input type="text" name="lote" placeholder="Ingrese el Nº de lote" required/> 
-					
+					<label>Liquidación:</label>
+					<input type="text" name="lote" placeholder="Ingrese el Nº de lote" required/>
+
 					<input type="submit" name="submit" value="Buscar" /></a>
 				</form>
 			</fieldset>
