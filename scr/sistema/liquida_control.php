@@ -5,12 +5,13 @@
 	}
 
 	function control($valor, $controla) {
-		if ($valor > 0) {
+		//
 			if ($controla != $valor )
 				return " pinta_rojo";
-			else if ($controla == $valor)
-				return " pinta_verde";
-			}
+			else if ($controla == $valor) {
+				if ($valor > 0)
+					return " pinta_verde";
+				}
 	}
 
 	function imprime_columnas ($arreglo,$paraControlar) {
@@ -22,7 +23,6 @@
 		echo '<td class="columan_gris centrar ' . control($arreglo['revalida'],$paraControlar['revalida']) . '">' . $arreglo['revalida'] . '</td>';
 		echo '</tr>';
 	}
-
 ?>
 
 
@@ -40,6 +40,7 @@
 			.columan_normal {
 				background-color: #85FAFA;
 			}
+
 			.columan_gris {
 				background-color: #FAFD82;
 			}
@@ -67,8 +68,10 @@
 			</h1>
 
 			<div class="divisor">
-				<a  class="enlace_boton" href="liquida_controlar.php?lote=<?php echo $nro_lote; ?>">Generar control</a>
-				<a  class="enlace_boton" href="liquida_modifica.php?lote=<?php echo $nro_lote; ?>">Modifica Lote</a>
+				<a class="enlace_boton" href="liquida_controlar.php?lote=<?php echo $nro_lote; ?>">Generar control</a>
+				<a class="enlace_boton" href="liquida_modifica.php?lote=<?php echo $nro_lote; ?>">Modifica Lote</a>
+				<a class="enlace_boton" href="liquida_imprime.php?lote=<?php echo $nro_lote; ?>">Imprimir Liquidación</a>
+				<a class="enlace_boton" href="liquida_imprime.php?lote=<?php echo $nro_lote; ?>">Imprimir Sin Ordenar</a>
 			</div>
 
 			<div class="divisor">
@@ -92,8 +95,7 @@
 
 			<div class="divisor">
 				<?php
-					//$resultado = $mysqli->query("SELECT * FROM lista_expdientes WHERE cerrado = 'SI' and lote = $nro_lote");
-					$resultado = $mysqli->query("SELECT * FROM control LEFT OUTER JOIN lista_expdientes ON (lista_expdientes.expediente = control.expediente) WHERE control.lote = $nro_lote order by control.expediente");
+					$resultado = $mysqli->query("SELECT * FROM lista_expdientes LEFT OUTER JOIN control ON (lista_expdientes.expediente = control.expediente) WHERE control.lote = $nro_lote order by control.expediente");
 				?>
 
 				<table id="lista_exp">
