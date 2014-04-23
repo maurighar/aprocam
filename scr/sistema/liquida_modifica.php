@@ -42,7 +42,7 @@
 
 
 		<section id="Modificacion">
-		<form method="post" action="liquida_modifica_graba.php?lote=$id_liquida" enctype="application/x-www-form-urlencoded">
+		<form method="post" action="liquida_modifica_graba.php?id=<?php echo $id_liquida?>" enctype="application/x-www-form-urlencoded">
 			<fieldset>
 				<legend>Liquidación</legend>
 

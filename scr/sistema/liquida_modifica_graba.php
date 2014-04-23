@@ -1,19 +1,17 @@
 <?php
-	$lote = $_POST['liquidacion_txt'];  //campo liquidacion
+	$liquidacion = $_POST['liquidacion_txt'];
 	$alta = $_POST['alta_txt'];
 	$revalidas = $_POST['revalidas_txt'];
 	$fecha = $_POST['fecha_txt'];
+	$id = $_GET['id'];
 
 
-//falta cambiar aca
+	$actualizar = "UPDATE liquidacion SET liquidacion = $liquidacion, alta = $alta, revalida = $revalidas, fecha = '$fecha' WHERE id = $id";
 
-
-
-	$actualizar = "UPDATE liquidacion SET socio = $socio, nombre = '$nombre', calle = '$calle', numero = '$numero', piso = '$piso', depto = '$depto', provincia = '$provincia', localidad = '$localidad', telefono = '$telefono', email = '$email' WHERE cuit = $cuit";
-
-	require '../sistema/connect_db.php';
+	require 'connect_db.php';
 	$mensaje = $mysqli->query("$actualizar");
 
 	$mysqli->close();
-	header("Location: empresa.php?cuit=$cuit&mensaje=$mensaje");
+
+	header("Location: liquida_control.php?lote=$liquidacion&mensaje=$mensaje");
 ?>

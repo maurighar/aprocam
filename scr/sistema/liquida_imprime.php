@@ -92,7 +92,10 @@
 
 
 			$valor = $_GET["lote"] ;
+			$sinordenar = $_GET["sinordenar"] ;
+
 			require 'connect_db.php';
+
 			$resultado = $mysqli->query("SELECT * FROM liquidacion WHERE liquidacion = $valor" );
 			$liquida = $resultado->fetch_assoc();
 
@@ -118,7 +121,16 @@
 		<table>
 		<tbody>
 			<?php
-				$resultado = $mysqli->query("SELECT *, IF(tipo = 'EMPRESA','ALTA',tipo) as tipo2 FROM aprocam.control WHERE control.lote = $valor and tipo != 'ANULADO' ORDER BY tipo2, expediente" );
+				if ($sinordenar === 'SI')
+					$orden = 'expediente';
+				else
+					$orden = 'tipo2, expediente';
+
+				$consulta = "SELECT *, IF(tipo = 'EMPRESA','ALTA',tipo) as tipo2 FROM aprocam.control WHERE control.lote = $valor and tipo != 'ANULADO' ORDER BY $orden";
+
+				$resultado = $mysqli->query("$consulta");
+
+
 				while ($fila = $resultado->fetch_assoc()) {
 					// La primera vez coloco el numero de expediente
 					if ($exped_anterior === 0)
@@ -134,11 +146,10 @@
 
 					// Compruebo que cambio el tipo de tramite
 					// Si cambia agrego cartel del tipo
-					if ($tipo_tramite != $fila['tipo2']) {
+					if ($tipo_tramite != $fila['tipo2'] && $sinordenar === 'NO') {
 						$tipo_tramite = $fila['tipo2'];
 						imprime_tipo_tramite($tipo_tramite);
 					}
-
 
 					echo '<tr>';
 					echo '<td class="al_derecha">' . ($contador!=0?'':$fila['expediente']) . '</td>';

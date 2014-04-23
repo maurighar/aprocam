@@ -70,8 +70,8 @@
 			<div class="divisor">
 				<a class="enlace_boton" href="liquida_controlar.php?lote=<?php echo $nro_lote; ?>">Generar control</a>
 				<a class="enlace_boton" href="liquida_modifica.php?lote=<?php echo $nro_lote; ?>">Modifica Lote</a>
-				<a class="enlace_boton" href="liquida_imprime.php?lote=<?php echo $nro_lote; ?>">Imprimir Liquidación</a>
-				<a class="enlace_boton" href="liquida_imprime.php?lote=<?php echo $nro_lote; ?>">Imprimir Sin Ordenar</a>
+				<a class="enlace_boton" href="liquida_imprime.php?lote=<?php echo $nro_lote; ?>&sinordenar=NO">Imprimir Liquidación</a>
+				<a class="enlace_boton" href="liquida_imprime.php?lote=<?php echo $nro_lote; ?>&sinordenar=SI">Imprimir Sin Ordenar</a>
 			</div>
 
 			<div class="divisor">
