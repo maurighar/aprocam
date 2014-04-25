@@ -53,7 +53,7 @@
 			$nro_lote = $_GET["lote"] ;
 
 			$totales = ['empresa' => 0, 'alta' => 0, 'baja' => 0, 'modif' => 0, 'reimpre' => 0, 'revalida' => 0];
-			$porExpediente = ['empresa' => 0, 'alta' => 0, 'baja' => 0, 'modif' => 0, 'reimpre' => 0, 'revalida' => 0];
+			$porExpediente = ['empresa' => 0, 'alta' => 0, 'baja' => 0, 'modif' => 0, 'reimpre' => 0, 'revalida' => 0, 'anulado' => 0];
 			$control = ['empresa' => 0, 'alta' => 0, 'baja' => 0, 'modif' => 0, 'reimpre' => 0, 'revalida' => 0];
 
 			$cantidad = 0;
@@ -117,7 +117,7 @@
 							<th>MO</th>
 							<th>RE</th>
 							<th>RV</th>
-							<th>A</th>
+							<th>A-</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -135,7 +135,6 @@
 											'reimpre' => 0,
 											'revalida' => 0,
 											'anulado' => 0];
-
 									}
 
 
@@ -188,6 +187,9 @@
 									break;
 								case 'REVALIDA' :
 									$porExpediente['revalida']++;
+									break;
+								case 'ANULADO' :
+									$porExpediente['anulado']++;
 									break;
 							}
 						}
