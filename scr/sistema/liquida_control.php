@@ -21,6 +21,7 @@
 		echo '<td class="columan_gris centrar ' . control($arreglo['modif'],$paraControlar['modif']) . '">' . $arreglo['modif'] . '</td>';
 		echo '<td class="columan_gris centrar ' . control($arreglo['reimpre'],$paraControlar['reimpre']) . '">' . $arreglo['reimpre'] . '</td>';
 		echo '<td class="columan_gris centrar ' . control($arreglo['revalida'],$paraControlar['revalida']) . '">' . $arreglo['revalida'] . '</td>';
+		echo '<td class="centrar ' . control($arreglo['anulado'],$paraControlar['anulado']) . '">' . $arreglo['anulado'] . '</td>';
 		echo '</tr>';
 	}
 ?>
@@ -116,6 +117,7 @@
 							<th>MO</th>
 							<th>RE</th>
 							<th>RV</th>
+							<th>A</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -131,7 +133,8 @@
 											'baja' => 0,
 											'modif' => 0,
 											'reimpre' => 0,
-											'revalida' => 0,];
+											'revalida' => 0,
+											'anulado' => 0];
 
 									}
 
@@ -202,11 +205,11 @@
 							<td class="centrar"> <?php echo $totales['modif'] ?> </td>
 							<td class="centrar"> <?php echo $totales['reimpre'] ?> </td>
 							<td class="centrar"> <?php echo $totales['revalida'] ?> </td>
-							<td colspan="6"></td>
+							<td colspan="7"></td>
 
 						</tr>
 
-						<td align=right colspan="14" rowspan="1">
+						<td align=right colspan="15" rowspan="1">
 						Desarrollado por Mauricio A. Ghilardi
 						</td>
 					</tfoot>
