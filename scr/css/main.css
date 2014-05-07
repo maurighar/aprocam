@@ -116,11 +116,19 @@ th, td {
 }
 
 td.pinta_rojo {
-	background-color: #5EB05B;
+	background-color: #FF0000;
 }
 
 td.pinta_verde {
-	background-color: #FF0000;
+	background-color: #5EB05B;
+}
+
+td.dcha {
+	text-align: right;
+}
+
+td.centrar {
+	text-align: center;
 }
 
 tr:nth-child(2n+1)  {
@@ -140,6 +148,7 @@ textarea {
 	margin: 3px;
 	padding: 3px;
 	width: auto;
+	resize: none;
 }
 
 thead th,tfoot td {
@@ -257,6 +266,7 @@ a.enlace_boton:hover  {
 .mensaje_mal {
 	background: red;
 	color: yellow;
+	font-size: 2em;
 }
 
 .menus {
