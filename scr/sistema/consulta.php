@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<link rel="icon" image="type/ico" href="../favicon.ico" />
 		<title>RUTA - Consulta</title>
-		<link rel="stylesheet" href="../css/normalize.css" />	
+		<link rel="stylesheet" href="../css/normalize.css" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<link rel="stylesheet" media="print" href="../css/imprimir.css" />
 
@@ -29,7 +29,7 @@
 				text-align: right;
 			}
 		</style>
-		
+
 	</head>
 	<body>
 
@@ -118,7 +118,7 @@
 						<?php echo $fila['expediente']?>
 					</a>
 				</td>
-			
+
 				<td class="col1">
 					<?php echo $fila['nombre']?>
 				</td>
@@ -154,19 +154,19 @@
 					} else {
 					?>
 				<td class="fechas">
-				<?php } 
+				<?php }
 					echo $fila['certificado']; ?>
 				</td>
 
-				<?php # resalta los certificados entregados 
-					if (empty($fila['entregado'])) { 
-						echo '<td class="fechas">' ;
-						if ($fila['certificado']>0) { 
+				<?php # resalta los certificados entregados
+					if (empty($fila['entregado'])) {
+						echo '<td class="fechas">';
+						if ($fila['certificado']>0) {
 							echo "<a href=\"?Tipo=$tipo_val&valorconsulta=$valor&id=" . $fila['id'] . "\">Marcar</a>";
 						}
-					} else { 	
+					} else {
 						echo '<td bgcolor="green">';
-						echo $fila['entregado']; 
+						echo $fila['entregado'];
 					}
 					?>
 				</td>
@@ -178,22 +178,22 @@
 				<td bgcolor="red">
 				<a href="rechazo/ver_rechazo.php?id=<?php echo $fila['id']?>">Obs.</a>
 				</td>
-				<?php }			
+				<?php }
 
 				# resalta los rechazos enviados a Bs. As.
 				if ($fila['envio']>0) { ?>
 					<td bgcolor="green">
 				<?php } else { ?>
 					<td class="fechas">
-				<?php } 
-				
+				<?php }
+
 				echo $fila['envio'] ;
 				?>
 				</td>
 
 				<?php if (empty($fila['obs']))
 					echo'<td class="col12">';
-				else 
+				else
 					echo '<td bgcolor="green">';?>
 
 				<a href="ver_obs.php?id=<?php echo $fila['id'] ; ?>">Obs.</a>
@@ -205,7 +205,7 @@
 					</a>
 				</td>
 			</tr>
-		<?php } 
+		<?php }
 		$mysqli->close();
 		?>
 
@@ -219,7 +219,7 @@
 
 	</table>
 	<div class="noprint">
-		<a href="../index.php">Volver a Home</a>		
+		<a href="../index.php">Volver a Home</a>
 	</div>
 
 	<div class="imprimir">
