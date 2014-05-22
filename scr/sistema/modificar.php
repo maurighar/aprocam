@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require 'header.php'; ?>
+
 		<title>RUTA - Modificación</title>
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 
 	<body>
-		<?php 
-			require '../encabezado.php'; 
-			require 'select_tipo.php'; 
+		<?php
+			require '../encabezado.php';
+			require 'select_tipo.php';
 
 			require 'mensaje.php';
 
@@ -41,27 +36,27 @@
 		</section>
 
 		<section>
-			<form method="post" action="modificar_carga.php" enctype="application/x-www-form-urlencoded"> 
+			<form method="post" action="modificar_carga.php" enctype="application/x-www-form-urlencoded">
 				<fieldset>
 					<legend>Carga de datos</legend>
-							
+
 					<div class="flota">
 						<label>Razón social:</label>
 						<input type="text" name="nombre" size="55" value="<?php echo $fila['nombre']?>" required/>
 					</div>
 
-					<div class="flota">		
+					<div class="flota">
 						<label>CUIT:</label>
 						<input type="text" name="cuit" value="<?php echo $fila['cuit']?>" required />
 					</div>
 
 					<div class="clear flota">
-						<label>Dominio:</label> 
+						<label>Dominio:</label>
 						<input type="text" name="dominio" value="<?php echo $fila['dominio']?>" required />
 					</div>
 
 					<div class="flota">
-						<label>Tipo de tramite:</label> 
+						<label>Tipo de tramite:</label>
 						<select name="tipo" id="tipo" class="cambio">
 							<?php select_tipo($fila['tipo']); ?>
 						</select>
@@ -74,24 +69,24 @@
 
 					<div class="flota">
 						<label>Lote:</label>
-						<input type="text" name="lote" value="<?php echo $fila['lote']?>"/> 
+						<input type="text" name="lote" value="<?php echo $fila['lote']?>"/>
 					</div>
 
 					<div class="clear flota">
 						<label>Certificado:</label>
-						<input type="text" name="certificado" value="<?php echo $fila['certificado']?>"/> 
+						<input type="text" name="certificado" value="<?php echo $fila['certificado']?>"/>
 					</div>
 
 					<div class="flota">
-						<label>Entregado:</label> 
-						<input type="text" name="entregado" value="<?php echo $fila['entregado']?>"/> 
+						<label>Entregado:</label>
+						<input type="text" name="entregado" value="<?php echo $fila['entregado']?>"/>
 					</div>
 
 					<div class="clear flota">
 						<label>Fecha envio:</label>
-						<input type="text" name="envio" value="<?php echo $fila['envio']?>"/> 
+						<input type="text" name="envio" value="<?php echo $fila['envio']?>"/>
 					</div>
-					
+
 					<div class="flota">
 						<label>Detalle rechazos:</label>
 						<textarea cols="60" rows="10" name="rechazo"><?php echo ltrim($fila['rechazo']); ?></textarea>

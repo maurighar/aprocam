@@ -1,49 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" type="image/ico" href="../favicon.ico">
-		<title>RUTA - Consulta</title>
+<?php require 'header.php'; ?>
 
-			<link rel="stylesheet" href="../css/main.css" />
-			<style type="text/css">
-				thead tr {background-color: ActiveCaption; color: CaptionText;}
-				th, td {vertical-align: top; font-family: "Tahoma"; font-size: 8pt; padding: 3px; }
-				tr:nth-child(2n+1)  { background: #E0E0E0; }
-				tr:nth-child(2n+0)  { background: #FFFFFF; }
-				table, td {border: 1px solid silver;}
-				table {border-collapse: collapse;}
-				thead .col0 {width: 50px;}
-				.col0 {text-align: right;}
-				thead .col1 {width: 230px;}
-				thead .col2 {width: 70px;}
-				.col2 {text-align: right;}
-				thead .col3 {width: 50px;}
-				thead .col4 {width: 84px;}
-				thead .col5 {width: 60px;}
-				thead .col6 {width: 40px;}
-				.col6 {text-align: right;}
-				thead .col7 {width: 77px;}
-				.col7 {text-align: right;}
-				thead .col8 {width: 60px;}
-				thead .col9 {width: 60px;}
-				thead .col10 {width: 50px;}
-				thead .col11 {width: 60px;}
-				thead .col12 {width: 45px;}
-				thead .col13 {width: 45px;}
-				.tdrojo {background-color: "red";}
-				tr:nth-child(2n+1)  {
-					background: #ddd; 
-				}
-				tr:nth-child(2n+0)  {
-					background: #fff;
-				}
-				tbody tr:hover {
-					background: #BDC3C7;
-				}
-			</style>
-		
+		<title>RUTA - Consulta</title>
+		<style type="text/css">
+			thead tr {background-color: ActiveCaption; color: CaptionText;}
+			th, td {vertical-align: top; font-family: "Tahoma"; font-size: 8pt; padding: 3px; }
+			tr:nth-child(2n+1)  { background: #E0E0E0; }
+			tr:nth-child(2n+0)  { background: #FFFFFF; }
+			table, td {border: 1px solid silver;}
+			table {border-collapse: collapse;}
+			thead .col0 {width: 50px;}
+			.col0 {text-align: right;}
+			thead .col1 {width: 230px;}
+			thead .col2 {width: 70px;}
+			.col2 {text-align: right;}
+			thead .col3 {width: 50px;}
+			thead .col4 {width: 84px;}
+			thead .col5 {width: 60px;}
+			thead .col6 {width: 40px;}
+			.col6 {text-align: right;}
+			thead .col7 {width: 77px;}
+			.col7 {text-align: right;}
+			thead .col8 {width: 60px;}
+			thead .col9 {width: 60px;}
+			thead .col10 {width: 50px;}
+			thead .col11 {width: 60px;}
+			thead .col12 {width: 45px;}
+			thead .col13 {width: 45px;}
+			.tdrojo {background-color: "red";}
+			tr:nth-child(2n+1)  {
+				background: #ddd;
+			}
+			tr:nth-child(2n+0)  {
+				background: #fff;
+			}
+			tbody tr:hover {
+				background: #BDC3C7;
+			}
+		</style>
+
 	</head>
 	<body>
 		<?php require 'certificados_actualiza.php'; ?>
@@ -67,7 +61,7 @@
 				}
 			}
 
-			require 'connect_db.php';			
+			require 'connect_db.php';
 			$resultado = $mysqli->query('SELECT * FROM aprocam.control WHERE control.entregado = "" AND control.certificado = 0 AND expediente > 199999 AND (tipo = "ALTA.S" OR tipo = "ALTA" OR tipo = "EMPRESA" )');
 		?>
 
@@ -93,7 +87,7 @@
 				<td class="col0">
 					<?php echo $fila['expediente']?>
 				</td>
-			
+
 				<td class="col1">
 					<?php echo $fila['nombre']?>
 				</td>

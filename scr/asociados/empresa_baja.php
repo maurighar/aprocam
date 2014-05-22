@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<title>Socios - Empresa</title>
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
+<?php require '../sistema/header.php'; ?>
+		<title>Socios - Empresa Baja</title>
 	</head>
 
 	<body>
-		<?php 
+		<?php
 			require '../encabezado.php';
 
 			$valor_id = $_GET["cuit"] ;
@@ -19,7 +13,7 @@
 			$resultado = $mysqli->query("SELECT * FROM empresas WHERE cuit = $valor_id");
 			$fila = $resultado->fetch_assoc();
 		?>
-	
+
 		<section>
 			<div>
 				<h1>

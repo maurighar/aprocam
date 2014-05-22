@@ -1,9 +1,9 @@
 <?php
-	#$server='admin03';
-	$server='localhost';
-	$usuario='aprocam';
-	$pass='aprocam2010';
-	$base_ruta='aprocam';
+	$server    = 'admin03';
+	//$server  = 'localhost';
+	$usuario   = 'aprocam';
+	$pass      = 'aprocam2010';
+	$base_ruta = 'aprocam';
 
 	$mysqli = new mysqli($server, $usuario, $pass, $base_ruta);
 
@@ -13,7 +13,7 @@
 
 	/* change character set to utf8 */
 	if (!$mysqli->set_charset("utf8")) {
-	    printf("Error loading character set utf8: %s\n", $mysqli->error);
+		printf("Error loading character set utf8: %s\n", $mysqli->error);
 	}
 
 ?>

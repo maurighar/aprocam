@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require '../sistema/header.php'; ?>
 		<title>Socios - Empresa</title>
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 
 	<body>
-		<?php 
+		<?php
 			require '../encabezado.php';
 			require '../sistema/mensaje.php';
 
 			if (isset( $_GET["mensaje"])){
 				mensaje_actualizacion($_GET["mensaje"]>0);
 			}
-	
+
 			$valor_id = $_GET["cuit"] ;
 
 			require '../sistema/connect_db.php';
@@ -24,10 +18,10 @@
 			$resultado = $mysqli->query("SELECT * FROM empresas WHERE cuit = $valor_id");
 			$fila = $resultado->fetch_assoc();
 		?>
-	
+
 		<section>
-			
-			<form method="post" action="empresa_modif.php" enctype="application/x-www-form-urlencoded"> 
+
+			<form method="post" action="empresa_modif.php" enctype="application/x-www-form-urlencoded">
 				<fieldset>
 					<legend>Empresa asociadas</legend>
 
@@ -90,9 +84,9 @@
 					<div class="clear"><input type="submit" id="envia-alta" name="enviar_btn" value=" Guardar " /></div>
 				</fieldset>
 			</form>
-			
+
 		</section>
-		
+
 		<section class="divisor">
 			<p>
 				Pulse en <a href="carnet.php?cuit=<?php echo $fila['cuit'] ; ?>">aqui</a> para emitir todos los carnets de la empresa.

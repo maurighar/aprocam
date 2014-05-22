@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require '../sistema/header.php'; ?>
 		<title>Socios</title>
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
+
 	</head>
 
 	<body>
 		<?php require '../encabezado.php'; ?>
-	
+
 			<section class="main-content">
 				<div class="news">
 					<h1 id="cabecera">Asociados</h1>
@@ -28,7 +23,7 @@
 
 							<div class="flota">
 								<label> Tipo:</label>
-								<select NAME="Tipo"> 
+								<select NAME="Tipo">
 									<option value='nombre'>Por nombre</option>
 									<option value='cuit'>Por CUIT</option>
 									<option value='socio'>Por Nº de socio</option>
@@ -37,7 +32,7 @@
 
 							<div class="flota">
 								<label>Buscar:</label>
-								<input type="text" name="valorconsulta" placeholder="Valor a buscar"/> 
+								<input type="text" name="valorconsulta" placeholder="Valor a buscar"/>
 							</div>
 
 							<div class="clear">
@@ -47,7 +42,7 @@
 						</fieldset>
 					</form>
 				</div>
-		
+
 		</section>
 
 		<?php require '../sistema/footer.php'; ?>

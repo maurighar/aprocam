@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
+<?php require 'header.php'; ?>
+
 		<title>RUTA - Consulta</title>
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 		<link rel="stylesheet" media="print" href="../css/imprimir.css" />
 
-		<style type="text/css">
+		<style>
 			thead .col0 {width: 50px;}
 			thead .col1 {width: 230px;}
 			thead .col2 {width: 70px;}
@@ -31,19 +25,19 @@
 		</style>
 
 	</head>
-	<body>
+	<body onload="inicializar()">
 
 		<?php
 			require '../encabezado.php';
 			require 'consulta_actualiza.php';
 
-			$tipo_val = $_GET["Tipo"] ;
+			$tipo_val = $_REQUEST["Tipo"] ;
 			if ($tipo_val == 6){
 				require 'rechazo/encabezado_rechazos.php';
 			}
 
-			$valor = $_GET["valorconsulta"] ;
-			$tipo = $_GET["Tipo"] ;
+			$valor = $_REQUEST["valorconsulta"] ;
+			$tipo = $_REQUEST["Tipo"] ;
 			function color_tipo($tramite) {
 				switch ($tramite) {
 					case 'ALTA' :
@@ -173,10 +167,16 @@
 
 				<?php # resalta los rechazos
 				if (empty($fila['rechazo'])) { ?>
+
 				<td class="col10"> </td>
+
 				<?php } else { ?>
+
 				<td bgcolor="red">
-				<a href="rechazo/ver_rechazo.php?id=<?php echo $fila['id']?>">Obs.</a>
+					<a href="rechazo/ver_rechazo.php?id=<?php echo $fila['id']?>">Obs.</a>
+					<script>
+						notificar("<?php echo 'Expediente rechazado: ' . $fila['nombre'] . ' - ' . $fila['dominio']?>",{icon:'../image/Advertencia.png'}) ;
+					</script>
 				</td>
 				<?php }
 

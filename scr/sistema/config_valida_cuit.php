@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require 'header.php'; ?>
+
 		<title>Validación de CUITs</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" type="image/ico" href="../favicon.ico">
-		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 	<body>
 
@@ -18,7 +13,7 @@
 			<tbody>
 
 			<?php
-				require 'connect_db.php';                                              
+				require 'connect_db.php';
 				require 'funciones.php';
 
 				$resultado = $mysqli->query("SELECT  * FROM aprocam.control");

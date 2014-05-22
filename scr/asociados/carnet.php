@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require '../sistema/header.php'; ?>
 		<title>Carnet ISCAMEN</title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-		
+
 		<script type="text/javascript "src="../js/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript "src="../js/jquery.qrcode-0.7.0.min.js"></script>
 		<style>
@@ -53,9 +49,9 @@ segun parametro enviado -->
 			$empresa = $fila['nombre'];
 			$cuit = $fila['cuit'];
 			$domicilio = $fila['calle'] . ' ' . $fila['numero'];
-			if ($fila['piso']!='') 
+			if ($fila['piso']!='')
 				$domicilio .= ' Piso ' . $fila['piso'];
-			if ($fila['depto']!='') 
+			if ($fila['depto']!='')
 				$domicilio .= ' Depto ' . $fila['depto'];
 			$domicilio2 = $fila['localidad'] . ', ' . $fila['provincia'];
 
@@ -91,18 +87,18 @@ segun parametro enviado -->
 				<div class="qr_box">
 					<div id="<?php echo $fila['dominio']?>" width="150" height="150" class="qr" ></div>
 				</div>
-				
+
 			</div>
 		</div>
 		<br> <br>
 
 		<script>
-			$('#<?php echo $fila['dominio']?>').qrcode({ 
+			$('#<?php echo $fila['dominio']?>').qrcode({
 				render: 'div',
 				size: 150,
 				radius: 0.1,
 				text: '<?php echo $empresa . ' ' . $cuit . ' ' . $fila['dominio']?>'
-			});	
+			});
 		</script>
 		<?php } ?>
 
@@ -110,36 +106,36 @@ segun parametro enviado -->
 				color: '#3a3',{
 	// render method: `'canvas'`, `'image'` or `'div'`
 	render: 'canvas',
- 
+
 	// version range somewhere in 1 .. 40
 	minVersion: 1,
 	maxVersion: 40,
- 
+
 	// error correction level: `'L'`, `'M'`, `'Q'` or `'H'`
 	ecLevel: 'L',
- 
+
 	// offset in pixel if drawn onto existing canvas
 	left: 0,
 	top: 0,
- 
+
 	// size in pixel
 	size: 200,
- 
+
 	// code color or image element
 	fill: '#000',
- 
+
 	// background color or image element, `null` for transparent background
 	background: null,
- 
+
 	// content
 	text: 'no text',
- 
+
 	// corner radius relative to module width: 0.0 .. 0.5
 	radius: 0,
- 
+
 	// quiet zone in modules
 	quiet: 0,
- 
+
 	// modes
 	// 0: normal
 	// 1: label strip
@@ -147,15 +143,15 @@ segun parametro enviado -->
 	// 3: image strip
 	// 4: image box
 	mode: 0,
- 
+
 	mSize: 0.1,
 	mPosX: 0.5,
 	mPosY: 0.5,
- 
+
 	label: 'no label',
 	fontname: 'sans',
 	fontcolor: '#000',
- 
+
 	image: null
 }-->
 

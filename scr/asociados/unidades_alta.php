@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require '../sistema/header.php'; ?>
 		<title>Socios - Unidades Alta</title>
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 
 	<body>
-		<?php 
+		<?php
 			require '../encabezado.php';
 			require '../sistema/mensaje.php';
 
@@ -17,10 +11,10 @@
 				mensaje_actualizacion($_GET["mensaje"]>0);
 			}
 		?>
-	
+
 		<section>
-			
-			<form method="post" action="unidades_carga.php?cuit=<?php echo $_GET["cuit"]; ?>" enctype="application/x-www-form-urlencoded"> 
+
+			<form method="post" action="unidades_carga.php?cuit=<?php echo $_GET["cuit"]; ?>" enctype="application/x-www-form-urlencoded">
 				<fieldset>
 					<legend>Unidades</legend>
 
@@ -32,7 +26,7 @@
 					<div class="clear"><input type="submit" id="envia-alta" name="enviar_btn" value=" Guardar " /></div>
 				</fieldset>
 			</form>
-			
+
 		</section>
 
 

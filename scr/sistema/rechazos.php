@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="icon" type="image/ico" href="../favicon.ico">
+<?php require 'header.php'; ?>
 		<title>RUTA - Rechazo</title>
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
+
 		<style type="text/css">
 			thead .col0 {width: 70px;}
 			thead .col1 {width: 40px;}
@@ -22,13 +17,13 @@
 			thead .col12 {width: 60px;}
 			thead .col13 {width: 60px; }
 			.celda_verde { background: green;}
-			
+
 			.al_derecha {
 				text-align: right;
 			}
 		</style>
 	</head>
-	
+
 	<body>
 		<?php
 			function color_envio($estado) {
@@ -85,9 +80,9 @@
 				</tr>
 			</thead>
 			<tbody  class="consulta_tabla">
-			
+
 				<?php while ($fila = $resultado->fetch_assoc()) { ?>
-				
+
 					<tr class="consulta_tabla">
 						<td class="col0"><?php echo $fila['estado']; ?></td>
 						<td class="al_derecha"><?php echo $fila['centro']; ?></td>
@@ -105,16 +100,16 @@
 
 						<?php if (empty($fila['info']))
 							echo'<td>';
-						else 
+						else
 							echo '<td bgcolor="green">';?>
 							<?php echo '<a href="rechazos_info.php?id='. $fila['id'] . '">Info</a>'; ?></td>
 						</tr>
 
-				<?php 
+				<?php
 					}
 					$mysqli->close();
 				?>
-			</tbody>	
+			</tbody>
 			<tfoot>
 				<td align=right colspan="12" rowspan="1">
 					Desarrollado por Mauricio A. Ghilardi

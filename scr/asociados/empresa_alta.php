@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require '../sistema/header.php'; ?>
 		<title>Socios - Empresa Alta</title>
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 
 	<body>
-		<?php 
+		<?php
 			require '../encabezado.php';
 			require '../sistema/mensaje.php';
 
@@ -17,10 +11,10 @@
 				mensaje_actualizacion($_GET["mensaje"]>0);
 			}
 		?>
-	
+
 		<section>
 
-		<form method="post" action="empresa_carga.php" enctype="application/x-www-form-urlencoded"> 
+		<form method="post" action="empresa_carga.php" enctype="application/x-www-form-urlencoded">
 			<fieldset>
 				<legend>Alta de empresa asociadas</legend>
 

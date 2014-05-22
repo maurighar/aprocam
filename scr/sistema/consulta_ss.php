@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		
+<?php require 'header.php'; ?>
+
 		<title>Consulta Sin Sistema</title>
-		
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 
 		<style type="text/css">
 		  thead .col0 {width: 50px;}
@@ -25,7 +17,7 @@
 		  thead .col8 {width: 60px;}
 		  thead .col9 {width: 20px;}
 		</style>
-		
+
 	</head>
 	<body>
 		<?php require '../encabezado.php'; ?>
@@ -51,10 +43,10 @@
 			$valor = $_GET["valorconsulta"] ;
 			$tipo = $_GET["Tipo"] ;
 			echo "Valor consultado: (" . $valor . ")</br>";
-			
+
 			require 'connect_db.php';
 			echo $mysqli->host_info . "\n" . "</br>";
-			
+
 			switch ($tipo) {
 			  case 1 :
 				 $resultado = $mysqli->query("SELECT * FROM aprocam.sin_sistema WHERE sin_sistema.nombre like '%" . $valor . "%'");
@@ -66,7 +58,7 @@
 				 $resultado = $mysqli->query("SELECT * FROM aprocam.sin_sistema WHERE sin_sistema.expediente = " . $valor );
 				 break;
 			}
-			
+
 			for ($num_fila = $resultado->num_rows - 1; $num_fila >= 0; $num_fila--) {
 				$fila = $resultado->fetch_assoc();
 				echo '<tr>' ;
@@ -99,7 +91,7 @@
 
 				echo '</tr>' ;
 				}
-			
+
 			?>
 			<td  align=right colspan="12" rowspan="1">
 			Desarrollado por Mauricio A. Ghilardi

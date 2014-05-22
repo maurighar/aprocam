@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
+<?php require 'header.php'; ?>
+
 		<title>Consulta</title>
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
+
 		<style type="text/css">
 			thead .col0 {width: 50px;}
 			.col0 {text-align: right;}
@@ -27,7 +23,7 @@
 			.col12 {text-align: right;}
 			thead .col13 {width: 50px;}
 			.col13 {text-align: right;}
-		</style>		
+		</style>
 	</head>
 	<body>
 		<?php require '../encabezado.php'; ?>
@@ -57,11 +53,11 @@
 			$valor = $_GET["valorconsulta"] ;
 			$tipo = $_GET["Tipo"] ;
 			echo "Valor consultado: (" . $valor . ")</br>";
-			
+
 			#consulto el archivo ini de la configuración
 			require 'connect_db.php';
 			echo $mysqli->host_info . "\n" . "</br>";
-			
+
 			switch ($tipo) {
 			  case 1 :
 				 $resultado = $mysqli->query("SELECT * FROM aprocam.ruta WHERE ruta.nombre like '%" . $valor . "%'");
@@ -76,7 +72,7 @@
 				 $resultado = $mysqli->query("SELECT * FROM aprocam.ruta WHERE ruta.expediente = " . $valor );
 				 break;
 			}
-			
+
 			for ($num_fila = $resultado->num_rows - 1; $num_fila >= 0; $num_fila--) {
 				$fila = $resultado->fetch_assoc();
 				echo '<tr>' ;
@@ -96,7 +92,7 @@
 				echo '<td class="col13">'. $fila['nro_recibo'] . '</td>';
 				echo '</tr>' ;
 				}
-			
+
 			?>
 			<tfoot>
 			<td  align=right colspan="14" rowspan="1">

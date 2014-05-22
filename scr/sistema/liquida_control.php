@@ -27,15 +27,9 @@
 ?>
 
 
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require 'header.php'; ?>
+
 		<title>Sistema RUTA</title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 
 		<style>
 			.columan_normal {
@@ -50,6 +44,7 @@
 	<body>
 		<?php
 			require '../encabezado.php';
+
 			$nro_lote = $_GET["lote"] ;
 
 			$totales = ['empresa' => 0, 'alta' => 0, 'baja' => 0, 'modif' => 0, 'reimpre' => 0, 'revalida' => 0];

@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require 'header.php'; ?>
+
 		<title>Nomenclador de Actividad</title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
 		<link rel="stylesheet" href="../css/caja_busqueda.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 
 	<body>
 		<?php require '../encabezado.php'; ?>
-		
+
 
 		<section>
 			<form class="form_busqueda" method="get" action="" enctype="application/x-www-form-urlencoded">
@@ -19,7 +14,7 @@
 				<input type="submit" value="go" id="submit">
 			</form>
 		</section>
-		
+
 		<?php
 			if (isset( $_GET["cod_actividad"])){
 

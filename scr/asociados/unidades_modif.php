@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
+<?php require '../sistema/header.php'; ?>
 		<title>Socios - Unidades</title>
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/main.css" />
 	</head>
 
 	<body>
-		<?php 
+		<?php
 			require '../encabezado.php';
 			require '../sistema/mensaje.php';
 
 			if (isset( $_GET["mensaje"])){
 				mensaje_actualizacion($_GET["mensaje"]>0);
 			}
-	
+
 			$valor_id = $_GET["id"] ;
 
 			require '../sistema/connect_db.php';
@@ -25,10 +19,10 @@
 			$resultado = $mysqli->query("$_selec");
 			$fila = $resultado->fetch_assoc();
 		?>
-	
+
 		<section>
-			
-			<form method="post" action="unidad_modif.php" enctype="application/x-www-form-urlencoded"> 
+
+			<form method="post" action="unidad_modif.php" enctype="application/x-www-form-urlencoded">
 				<fieldset>
 					<legend>Unidades</legend>
 
@@ -51,9 +45,9 @@
 					<div class="clear"><input type="submit" id="envia-alta" name="enviar_btn" value=" Guardar " /></div>
 				</fieldset>
 			</form>
-			
+
 		</section>
-		
+
 
 
 

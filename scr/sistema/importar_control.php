@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<title>Importación</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" type="image/ico" href="../favicon.ico">
-		<link rel="stylesheet" href="../css/main.css" />
+<?php require 'header.php'; ?>
+
+		<title>Importación - Control</title>
+
 	</head>
 	<body>
 
@@ -30,7 +26,7 @@
 					if ($fila != 1) {
 						$contador++;
 						echo "<tr> <td> $contador </td>";
-						$expediente = $datos[0];						
+						$expediente = $datos[0];
 						$nombre = $datos[1];
 						$cuit = $datos[2];
 						$dominio = $datos[3];
@@ -49,7 +45,7 @@
 
 						if (!validarCUIT($cuit)) {
 							echo "<br><strong>CUIT no valido - Verificar $cuit</strong>" ;
-						} 
+						}
 
 						echo '</td> </tr>';
 					}
