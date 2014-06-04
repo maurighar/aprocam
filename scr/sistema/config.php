@@ -1,9 +1,12 @@
-<?php require 'header.php'; ?>
-		<title>RUTA - Configuración</title>
+<?php
+	$titulo_pagina = 'RUTA - Configuración';
+	require 'header.php';
+?>
+
 	</head>
 
 	<body>
-		<?php require '../encabezado.php'; ?>
+		<?php require 'encabezado.php'; ?>
 
 		<section>
 			<fieldset>

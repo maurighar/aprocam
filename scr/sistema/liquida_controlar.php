@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<?php
-			require '../encabezado.php';
+			require 'encabezado.php';
 
 			function cortar_valor($enDonde,$queBuscar) {
 				$posInicial = stripos($enDonde, $queBuscar);

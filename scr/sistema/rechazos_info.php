@@ -6,7 +6,7 @@
 	<body>
 
 		<?php
-			require '../encabezado.php';
+			require 'encabezado.php';
 			require 'rechazos_info_actualizar.php';
 
 			$valor_id = $_GET["id"] ;

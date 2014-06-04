@@ -5,7 +5,7 @@
 
 	<body onload="inicializar()">
 		<?php
-			require '../encabezado.php';
+			require 'encabezado.php';
 
 			require 'mensaje.php';
 

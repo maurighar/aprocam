@@ -4,7 +4,7 @@
 
 	<body>
 		<?php
-			require '../encabezado.php';
+			require '../sistema/encabezado.php';
 			require '../sistema/mensaje.php';
 
 			if (isset( $_GET["mensaje"])){

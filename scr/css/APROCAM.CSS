@@ -22,14 +22,14 @@ p, li {
 }
 
 table, td {
-	border: 0px;
+	border: 0;
 }
 
 .resaltado, .resaltadoamarillo {
 	border: 2px solid #333;
 	margin:  5px auto;
 	width: 70%;
-	padding: 10px 10px;	
+	padding: 10px;	
 }
 
 .resaltado {
@@ -43,16 +43,16 @@ table, td {
 
 .resaltadoamarillo p {
 	font-size: 20px;
-	margin: 0px;
+	margin: 0;
 }
 
 .piedepagina {
 	border: 2px solid #333;
 	margin:  5px auto;
 	width: 70%;
-	padding: 10px 10px;
+	padding: 10px;
 }
 
 .piedepagina p {
-	margin: 0px;
+	margin: 0;
 }

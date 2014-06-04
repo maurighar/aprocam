@@ -28,7 +28,7 @@
 	<body onload="inicializar()">
 
 		<?php
-			require '../encabezado.php';
+			require 'encabezado.php';
 			require 'consulta_actualiza.php';
 
 			$tipo_val = $_REQUEST["Tipo"] ;

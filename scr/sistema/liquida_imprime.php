@@ -86,7 +86,7 @@
 			$reimpre = 0;
 			$revalida = 0;
 			$contador = 0;
-			$exped_anterior = 0;
+			$cuit_anterior = 0;
 			$valor_tramite=80;
 			$tipo_tramite = '';
 
@@ -132,15 +132,15 @@
 
 
 				while ($fila = $resultado->fetch_assoc()) {
-					// La primera vez coloco el numero de expediente
-					if ($exped_anterior === 0)
-						$exped_anterior = $fila['expediente'] ;
+					// La primera vez coloco el numero de cuit
+					if ($cuit_anterior === 0)
+						$cuit_anterior = $fila['cuit'] ;
 
-					// Compruebo que cambio de expediente
+					// Compruebo que cambio de cuit
 					// Sino agrego una nueva linea
-					if ($exped_anterior != $fila['expediente']) {
+					if ($cuit_anterior != $fila['cuit']) {
 						imprime_suma($contador);
-						$exped_anterior = $fila['expediente'];
+						$cuit_anterior = $fila['cuit'];
 						$contador = 0;
 					}
 

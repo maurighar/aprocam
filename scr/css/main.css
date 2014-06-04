@@ -17,7 +17,9 @@ body {
 	margin: 0;
 }
 
-a:link, a:visited, a:hover {
+a:link,
+a:visited,
+a:hover {
 	color: #00248F;
 	font-weight: bold;
 	text-decoration: none;
@@ -27,7 +29,8 @@ a:hover {
 	color: #f60;
 }
 
-fieldset, .divisor {
+fieldset,
+.divisor {
 	border: .1em solid #0066FF;
 	border-radius: .5em;
 	margin: 1em auto;
@@ -58,11 +61,14 @@ input {
 	padding: 3px;
 }
 
-input[type="text"], input[type="email"] {
+input[type="text"],
+input[type="password"],
+input[type="email"] {
 	height: 20px;
 }
 
-input[type="submit"],.btn {
+input[type="submit"],
+.btn {
 	background: #3498db;
 	background-image: linear-gradient(to bottom, #3498db, #1c6999);
 	border-radius: 9px;
@@ -73,14 +79,20 @@ input[type="submit"],.btn {
 	text-decoration: none;
 }
 
-input[type="submit"]:hover, .btn:hover {
+input[type="submit"]:hover,
+.btn:hover {
 	background: #3cb0fd;
 	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
 	text-decoration: none;
 }
 
 
-input[type="date"], input[type="text"], input[type="email"],select,textarea {
+input[type="date"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
 	border: solid #7575A3 1px ;
 	border-radius: 5px;
 	width: 300px;
@@ -99,7 +111,8 @@ nav {
 	width: 100%;
 }
 
-table, td {
+table,
+td {
 	border: 1px solid silver;
 }
 
@@ -151,7 +164,8 @@ textarea {
 	resize: none;
 }
 
-thead th,tfoot td {
+thead th,
+tfoot td {
 	background: #474747;
 	font-weight: bold;
 	color: #fff;
@@ -172,9 +186,15 @@ select {
 }
 
 
-ul,ol {
+ul,
+ol {
 	list-style: none;
 }
+
+
+
+
+
 
 
 
@@ -205,6 +225,7 @@ ul,ol {
 .colorear_todo * {
 	background-color: lightslategrey;
 }
+
 
 
 

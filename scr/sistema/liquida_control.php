@@ -28,6 +28,7 @@
 
 
 <?php require 'header.php'; ?>
+<?php //require '../../php/kint/kint.class.php'; ?>
 
 		<title>Sistema RUTA</title>
 
@@ -91,7 +92,7 @@
 
 			<div class="divisor">
 				<?php
-					$resultado = $mysqli->query("SELECT * FROM lista_expdientes LEFT OUTER JOIN control ON (lista_expdientes.expediente = control.expediente) WHERE control.lote = $nro_lote order by control.expediente");
+					$resultado = $mysqli->query("SELECT *,lista_expdientes.expediente as exped,lista_expdientes.nombre as razonsocial  FROM lista_expdientes LEFT OUTER JOIN control ON (lista_expdientes.expediente = control.expediente) WHERE lista_expdientes.lote = $nro_lote order by lista_expdientes.expediente");
 				?>
 
 				<table id="lista_exp">
@@ -146,8 +147,8 @@
 
 
 								echo '<tr>';
-								echo '<td class="dcha">' . $fila['expediente'] . '</td>';
-								echo '<td>' . $fila['nombre'] . '</td>';
+								echo '<td class="dcha">' . $fila['exped'] . '</td>';
+								echo '<td>' . $fila['razonsocial'] . '</td>';
 								echo '<td class="columan_normal centrar' . verde($fila['empresa']) .'">' . $fila['empresa'] . '</td>';
 								echo '<td class="columan_normal centrar' . verde($fila['alta']) .'">' . $fila['alta'] . '</td>';
 								echo '<td class="columan_normal centrar' . verde($fila['baja']) .'">' . $fila['baja'] . '</td>';

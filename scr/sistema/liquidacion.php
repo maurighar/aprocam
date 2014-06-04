@@ -3,7 +3,7 @@
 	</head>
 
 	<body onload="inicializar()">
-		<?php require '../encabezado.php'; ?>
+		<?php require 'encabezado.php'; ?>
 
 		<section>
 			<fieldset >

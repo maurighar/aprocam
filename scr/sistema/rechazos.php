@@ -1,5 +1,6 @@
-<?php require 'header.php'; ?>
-		<title>RUTA - Rechazo</title>
+<?php
+$titulo_pagina = 'RUTA - Rechazo';
+require 'header.php'; ?>
 
 		<style type="text/css">
 			thead .col0 {width: 70px;}
@@ -32,6 +33,12 @@
 				}
 			}
 
+			function color_rojo($estado) {
+				if ($estado != "") {
+					return 'class="pinta_rojo"' ;
+				}
+			}
+
 			function enlace_ID($nro_fecha,$nro_id,$enlace) {
 				if ($nro_fecha > 0) {
 					echo $nro_fecha;
@@ -41,7 +48,7 @@
 			}
 
 
-			require '../encabezado.php';
+			require 'encabezado.php';
 			require 'rechazos_actualiza.php';
 			require 'encabezado_rechazos.php';
 
@@ -54,7 +61,7 @@
 					$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos");
 					break;
 				case 'solucionado' :
-					$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos where envio = 0");
+					$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos where envio = 0 and anulado = ''");
 					$para_enlace = 'tipo=solucionado';
 					$para_enlace2 = 'tipo=completo';
 					break;
@@ -84,7 +91,7 @@
 				<?php while ($fila = $resultado->fetch_assoc()) { ?>
 
 					<tr class="consulta_tabla">
-						<td class="col0"><?php echo $fila['estado']; ?></td>
+						<td <?php echo color_rojo($fila['anulado']); ?>><?php echo $fila['estado']; ?></td>
 						<td class="al_derecha"><?php echo $fila['centro']; ?></td>
 						<td class="al_derecha">
 							<a href="consulta.php?Tipo=4&valorconsulta=<?php echo $fila['expediente']; ?>"><?php echo $fila['expediente']; ?></a>

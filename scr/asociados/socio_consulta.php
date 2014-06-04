@@ -4,7 +4,7 @@
 
 	<body>
 		<?php
-			require '../encabezado.php';
+			require '../sistema/encabezado.php';
 			$valor = $_GET["valorconsulta"] ;
 			$tipo = $_GET["Tipo"] ;
 

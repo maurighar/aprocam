@@ -1,11 +1,5 @@
 <?php
-	$server    = 'admin03';
-	//$server  = 'localhost';
-	$usuario   = 'aprocam';
-	$pass      = 'aprocam2010';
-	$base_ruta = 'aprocam';
-
-	$mysqli = new mysqli($server, $usuario, $pass, $base_ruta);
+	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	if ($mysqli->connect_errno) {
 		echo "Fallo al contenctar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;

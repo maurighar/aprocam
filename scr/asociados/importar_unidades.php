@@ -15,7 +15,6 @@
 			<?php
 			$fila = 1;
 			$contador = 0;
-			require 'funciones.php';
 			require 'connect_db.php';
 			if (($gestor = fopen("importar.csv", "r")) !== FALSE) {
 				while (($datos = fgetcsv($gestor, 1000, ',','"')) !== FALSE) {

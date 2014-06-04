@@ -4,7 +4,7 @@
 	</head>
 
 	<body>
-		<?php require '../encabezado.php'; ?>
+		<?php require '../sistema/encabezado.php'; ?>
 
 			<section class="main-content">
 				<div class="news">

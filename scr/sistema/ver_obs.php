@@ -5,7 +5,7 @@
 	<body>
 
 		<?php
-			require '../encabezado.php';
+			require 'encabezado.php';
 			require 'ver_obs_modif.php';
 
 			$valor_id = $_GET["id"] ;

@@ -5,7 +5,7 @@
 	</head>
 
 	<body>
-		<?php require '../encabezado.php'; ?>
+		<?php require 'encabezado.php'; ?>
 
 
 		<section>

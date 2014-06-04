@@ -42,7 +42,7 @@
 	<body>
 		<?php require 'certificados_actualiza.php'; ?>
 		<?php
-			require '../encabezado.php';
+			require 'encabezado.php';
 
 			function color_tipo($tramite) {
 				switch ($tramite) {

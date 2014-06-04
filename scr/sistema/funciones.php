@@ -1,6 +1,22 @@
 <?php
+
+	/*  Archivo con las configuraciónes generales del sistema  */
+	require_once 'sys_config.php';
+
+	/*  Valida si el usuario esta logueado en el sistema  */
+	require_once 'seguridad.php';
+
+	/*
+	  herramientas para debugging en PHP
+	  KINT  ->  d($mi_variable_a_analizar);
+
+	*/
+	if (SYS_DEBUG) {
+		require_once '../../php/kint/kint.class.php';
+	}
+
 	function validarCUIT($cuit) {
-		if (strlen($cuit)<11) 
+		if (strlen($cuit)<11)
 			return false ;
 
 		$cadena = str_split($cuit);
