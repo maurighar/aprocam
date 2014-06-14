@@ -1,3 +1,4 @@
+<?php require '../funciones.php'; ?>
 <!DOCTYPE html>
 <html lang='es'>
 	<head>
@@ -16,7 +17,7 @@
 
 	<body>
 		<?php
-			require '../../encabezado.php';
+			require '../encabezado.php';
 			require 'encabezado_rechazos.php';
 		?>
 
@@ -40,6 +41,6 @@
 
 		?>
 		<br />
-		<a href="javascript:history.back()"> Volver Atrás</a> 
+		<a href="javascript:history.back()"> Volver Atrás</a>
 	</body>
 </html>

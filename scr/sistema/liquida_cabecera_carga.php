@@ -6,7 +6,7 @@
 
 	$actualizar = "INSERT INTO liquidacion (liquidacion,alta,revalida,fecha) VALUES ($liquidacion,$alta,$revalidas,'$fecha')";
 
-	require '../sistema/connect_db.php';
+	require 'connect_db.php';
 	$mensaje = $mysqli->query("$actualizar");
 
 	$mysqli->close();

@@ -28,4 +28,7 @@ define('RAIZ_SITIO', '/aprocam/');
 /** Habilita las herramientas para hacer debug */
 define('SYS_DEBUG', false);
 
+/** Habilita la capa de seguridad del sistema */
+define('CAPA_SEGURIDAD', false);
+
 ?>

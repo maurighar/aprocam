@@ -132,7 +132,7 @@
 				</td>
 
 				<td class="fechas">
-					<?php echo $fila['fecha']?>
+					<?php convertir_fechas($fila['fecha'],'normal');?>
 				</td>
 
 				<td class="al_derecha">
@@ -149,7 +149,7 @@
 					?>
 				<td class="fechas">
 				<?php }
-					echo $fila['certificado']; ?>
+					convertir_fechas($fila['certificado'],'normal'); ?>
 				</td>
 
 				<?php # resalta los certificados entregados
@@ -187,7 +187,7 @@
 					<td class="fechas">
 				<?php }
 
-				echo $fila['envio'] ;
+				convertir_fechas($fila['envio'],'normal');
 				?>
 				</td>
 

@@ -37,7 +37,7 @@
 	<div class="encabezado">
 		<img src="<?php echo RAIZ_SITIO; ?>image/aprocam_logo.png" alt="APROCAM" height=81px width=159px />
 
-		<?php if (MODO_LOCAL) { echo '<h1>local</h1>'; } ?>
+		<?php if (MODO_LOCAL) { echo '<br><strong>local</strong>'; } ?>
 
 	</div>
 	<div id="fecha"></div>

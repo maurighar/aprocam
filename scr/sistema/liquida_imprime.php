@@ -1,4 +1,5 @@
 <?php
+	require 'funciones.php';
 	function imprime_suma($legajos) {
 		echo '<tr>';
 		echo '<td class="al_derecha"></td>';

@@ -5,7 +5,7 @@
 
 	<body>
 		<?php
-			require '../encabezado.php';
+			require 'encabezado.php';
 			require 'select_tipo.php';
 
 			require 'mensaje.php';
