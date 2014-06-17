@@ -1,4 +1,4 @@
-<?php require 'header.php'; ?>
+<?php require 'header.php';   ?>
 
 		<title>RUTA - Consulta</title>
 		<style type="text/css">
