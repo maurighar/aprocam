@@ -1,0 +1,70 @@
+@import url("normalize.css");
+
+@import url("menu.css");
+@import url("tabla.css");
+@import url("entrada.css");
+@import url("divisores.css");
+@import url("botones.css");
+
+@import url("imprimir.css");
+
+
+body {
+	font-family: Verdana,Tahoma;
+	font-size: 0.7em;
+	background: #D8D8D8;
+	padding: 0;
+	margin: 0;
+}
+
+header {
+	padding: 42px 0 0 0;
+}
+
+a:link,
+a:visited,
+a:hover {
+	color: #00248F;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f60;
+}
+
+h1 {
+	text-align: center;
+}
+
+
+
+
+
+/*
+@media all and (min-width: 1001px) {
+
+}
+
+@media all and (max-width: 1000px) and (min-width: 700px) {
+
+}
+
+@media all and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+
+}
+*/
+
+
+
+
+
+
+
+
+
+.webmaster {
+	font-family: Verdana,Tahoma;
+	text-align: right;
+	padding: 0 5px;
+}

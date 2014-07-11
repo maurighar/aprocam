@@ -1,0 +1,40 @@
+input {
+	display: block;
+	font-family: "Tahoma";
+	font-size: 1em;
+	margin: 3px;
+	padding: 3px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+	height: 20px;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+	border: solid #7575A3 1px ;
+	border-radius: 5px;
+	width: 300px;
+}
+
+textarea {
+	display: block;
+	margin: 3px;
+	padding: 3px;
+	width: auto;
+	resize: none;
+}
+
+select {
+	display: block;
+	font-family: Tahoma;
+	font-size: 1em;
+	margin: 3px;
+	padding: 3px;
+}

@@ -1,0 +1,30 @@
+a.enlace_boton {
+	background-color: #3498db;
+	border: 0.1em solid #57abb8;
+	display: inline-block;
+	margin: 5px 0;
+	padding: 10px 15px ;
+}
+
+a.enlace_boton:hover  {
+	background-color: #343C98	;
+}
+
+input[type="submit"],
+.btn {
+	background: #3498db;
+	background-image: linear-gradient(to bottom, #3498db, #1c6999);
+	border-radius: 9px;
+	color: #ffffff;
+	font-size: 12px;
+	padding: 10px 20px 10px 20px;
+	border: solid #1f628d 1px;
+	text-decoration: none;
+}
+
+input[type="submit"]:hover,
+.btn:hover {
+	background: #3cb0fd;
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	text-decoration: none;
+}

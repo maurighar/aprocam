@@ -1,0 +1,18 @@
+fieldset,
+.divisor {
+	border: .1em solid #0066FF;
+	border-radius: .5em;
+	margin: 1em auto;
+	padding: 1em;
+	width: 95%;
+}
+
+.clear {
+	clear: left;
+	width: 350px;
+}
+
+.flota {
+	float: left;
+	width: 350px;
+}
