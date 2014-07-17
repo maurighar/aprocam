@@ -1,75 +1,48 @@
-<?php
-	$nombre = array(
-		'name'        => 'nombre',
-		'id'          => 'nombre',
-		'value'       => $item->nombre,
+<?
+	$estado = array(
+		'name'        => 'estado',
+		'id'          => 'estado',
+		'value'       => $item->estado,
 		'required'    => NULL,
 		);
-	$cuit = array(
-		'name'        => 'cuit',
-		'id'          => 'cuit',
-		'value'       => $item->cuit,
+
+	$obs = array(
+		'name'        => 'obs',
+		'id'          => 'obs',
+		'value'       => $item->obs,
 		'required'    => NULL,
 		);
-	$dominio = array(
-		'name'        => 'dominio',
-		'id'          => 'dominio',
-		'value'       => $item->dominio,
-		'required'    => NULL,
-		);
-	$fecha = array(
-		'name'        => 'fecha',
-		'id'          => 'fecha',
-		'value'       => $item->fecha,
-		'required'    => NULL,
-		);
-	$lote = array(
-		'name'        => 'lote',
-		'id'          => 'lote',
-		'value'       => $item->lote,
-		'required'    => NULL,
-		);
-	$certificado = array(
-		'name'        => 'certificado',
-		'id'          => 'certificado',
-		'value'       => $item->certificado,
-		);
-	$entregado = array(
-		'name'        => 'entregado',
-		'id'          => 'entregado',
-		'value'       => $item->entregado,
-		);
+
 	$envio = array(
 		'name'        => 'envio',
 		'id'          => 'envio',
 		'value'       => $item->envio,
 		);
-	$rechazo = array(
-		'name'        => 'rechazo',
-		'id'          => 'rechazo',
-		'value'       => ltrim($item->rechazo),
-		'required'    => NULL,
+
+	$info = array(
+		'name'        => 'info',
+		'id'          => 'info',
+		'value'       => $item->info,
+		);
+	$anulado = array(
+		'name'        => 'anulado',
+		'id'          => 'anulado',
+		'value'       => $item->anulado,
 		);
 
 	$ocultos = array('id' =>$item->id,);
+
 ?>
 
 <section class="contenido">
-	<section>
-	<? echo form_fieldset('Estado');
 
-		echo "Expediente: " . $item->expediente ;
-		echo '<br /><br />';
-		echo "Vencimiento: " . $item->vto;
-		echo '<br />';
-		echo "Cantidad de días: " . 'calcular' ;
-		echo form_fieldset_close();
-	?>
-	</section>
+	<section id="info">
 
-	<section>
+	</section> <!-- fin section info -->
+
+	<section id="editar">
 		<?
-		echo form_open("ruta/modificar_cargar");
+		echo form_open("rechazo/modificar_cargar");
 		echo form_fieldset('Carga de datos');
 		?>
 		<div class="flota">
@@ -129,17 +102,7 @@
 
 		<? echo form_fieldset_close();
 		echo form_close(); ?>
-		</section>
+	</section>  <!-- Fin seccion de edición -->
 
-		<section>
-			<?
-			echo form_fieldset('Comentarios:');
-			echo form_label('Rechazo: ');
-			echo $item->rechazo;
-			echo '<br /><br />';
-			echo form_label('Observaciones: ');
-			echo $item->obs;
-			echo form_fieldset_close();
-			?>
-	</section>
+
 </section>

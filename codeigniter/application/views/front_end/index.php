@@ -18,7 +18,7 @@
 		'dp' => 'Por dominio parcial',
 		);
 
-	echo form_open("ruta_control");
+	echo form_open("ruta");
 	echo form_fieldset('Consulta Normal');
 	?>
 

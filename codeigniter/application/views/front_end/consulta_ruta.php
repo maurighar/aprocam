@@ -3,55 +3,47 @@
 <table caption="control (11 rows)">
 	<thead>
 		<tr>
-			<th class="col0">exped.</th>
-			<th class="col1">nombre</th>
-			<th class="col2">cuit</th>
-			<th class="col3">dominio</th>
-			<th class="col4">tipo</th>
-			<th class=".fechas">fecha</th>
-			<th class="col6">lote</th>
-			<th class="col8">certificado</th>
-			<th class=".fechas">entr.</th>
-			<th class=".fechas">rechazo</th>
-			<th class=".fechas">envio</th>
-			<th class="col12">obs</th>
-			<th class="col13"></th>
+			<th>exped.</th>
+			<th>nombre</th>
+			<th>cuit</th>
+			<th>dominio</th>
+			<th>tipo</th>
+			<th class="tipo_fecha">fecha</th>
+			<th>lote</th>
+			<th>certificado</th>
+			<th class="tipo_fecha">entr.</th>
+			<th class="tipo_fecha">rechazo</th>
+			<th class="tipo_fecha">envio</th>
+			<th>obs</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
-		<? foreach ($articulos as $item): ?>
+		<? foreach ($ruta as $item): ?>
 			<tr>
 				<td class="al_derecha">
-					<a href="<? echo "consulta.php?Tipo=4&valorconsulta=". $item->expediente; ?>">
-						<?php echo $item->expediente; ?>
+					<a href="<?= base_url() . "ruta/index/4/". $item->expediente; ?>">
+						<?= $item->expediente; ?>
 					</a>
 				</td>
 
-				<td class="col1">
-					<?php echo $item->nombre; ?>
-				</td>
+				<td><?= $item->nombre; ?> </td>
 
-				<td class="col2">
-					<a href="<?php echo "consulta.php?Tipo=2&valorconsulta=". $item->cuit; ?>">
-						<?php echo $item->cuit; ?>
+				<td>
+					<a href="<?= base_url() . "ruta/index/2/". $item->cuit; ?>">
+						<?= $item->cuit; ?>
 					</a>
 				</td>
 
-				<td class="col3">
-					<?php echo $item->dominio; ?>
+				<td><?= $item->dominio; ?></td>
+
+				<td bgcolor=<?php echo color_tipo($item->tipo); ?>>
+					<?= $item->tipo; ?>
 				</td>
 
-				<td class="col4" bgcolor=<?php echo color_tipo($item->tipo); ?>>
-					<?php echo $item->tipo; ?>
-				</td>
+				<td><? convertir_fechas($item->fecha,'normal');?></td>
 
-				<td class="fechas">
-					<? convertir_fechas($item->fecha,'normal');?>
-				</td>
-
-				<td class="al_derecha">
-					<? echo $item->lote; ?>
-				</td>
+				<td class="al_derecha"><?= $item->lote; ?></td>
 
 				<?php
 				# resalta los certificados que llegaron
@@ -59,65 +51,61 @@
 					?>
 					<td bgcolor="green">
 						<?} else { 	?>
-						<td class="fechas">
+						<td>
 							<? }
 							convertir_fechas($item->certificado,'normal'); ?>
 						</td>
 
-			<?php # resalta los certificados entregados
-			if (empty($item->entregado)) {
-				echo '<td class="fechas">';
-				if ($item->certificado > 0) {
-					echo "<a href=\"?Tipo=$tipo_val&valorconsulta=$valor&id=" . $item->id . "\">Marcar</a>";
-				}
-			} else {
-				echo '<td bgcolor="green">';
-				echo $item->entregado;
-			} ?>
-			</td>
-
-			<?php # resalta los rechazos
-			if (empty($item->rechazo)) { ?>
-
-			<td class="col10"> </td>
-
-			<?php } else { ?>
-
-			<td bgcolor="red">
-				<a href="rechazo/ver_rechazo.php?id=<? echo $item->id; ?>">Obs.</a>
- 				<script>
-					notificar("<?php echo 'Expediente rechazado: ' . $fila['nombre'] . ' - ' . $fila['dominio']?>",{icon:'../image/Advertencia.png'}) ;
-				</script>
-			</td>
-			<?php }
-
-			# resalta los rechazos enviados a Bs. As.
-			if ($item->envio>0) { ?>
-			<td bgcolor="green">
-				<?php } else { ?>
-				<td class="fechas">
-					<?php }
-
-					convertir_fechas($item->envio,'normal');
-					?>
+				<?php # resalta los certificados entregados
+				if (empty($item->entregado)) {
+					echo '<td>';
+					if ($item->certificado > 0) {
+						echo '<a href="' . base_url() .'ruta/marcar/' . $tipo . '/' . $valorconsulta . '/' . $item->id .'">Marcar</a>';
+					}
+				} else {
+					echo '<td bgcolor="green">';
+					echo $item->entregado;
+				} ?>
 				</td>
 
-				<?php if (empty($item->obs))
-				echo'<td class="col12">';
-				else
-					echo '<td bgcolor="green">';?>
+				<?php # resalta los rechazos
+				if (empty($item->rechazo)) { ?>
+					<td> </td>
+				<?php } else { ?>
+					<td bgcolor="red">
+						<a href="<?= base_url()?>ruta/rechazo/<?= $item->id; ?>">Obs.</a>
+	 					<script>
+							notificar("<?php echo 'Expediente rechazado: ' . $item->nombre . ' - ' . $item->dominio; ?>",{icon:'../image/Advertencia.png'}) ;
+						</script>
+					</td>
+				<?php }
 
-				<a href="obs/<?php echo $item->id ; ?>">Obs.</a>
-			</td>
+				# resalta los rechazos enviados a Bs. As.
+				if ($item->envio>0) { ?>
+				<td bgcolor="green">
+					<?php } else { ?>
+					<td>
+						<?php }
 
-			<td class="col13">
-				<a href="ruta_control/modificar/<?php echo $item->id?>">
-					Ver
-				</a>
-			</td>
-		</tr>
+						convertir_fechas($item->envio,'normal');
+						?>
+					</td>
+
+					<?php if (empty($item->obs))
+					echo'<td>';
+					else
+						echo '<td bgcolor="green">';?>
+
+					<a href="<?= base_url();?>ruta/obs/<?= $item->id; ?>">Obs.</a>
+				</td>
+
+				<td>
+					<a href="<?= base_url();?>ruta/modificar/<?= $item->id; ?>">
+						Ver
+					</a>
+				</td>
+			</tr>
 		<? endforeach; ?>
-
 	</tbody>
 
 	<tfoot>

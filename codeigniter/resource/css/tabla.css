@@ -6,6 +6,7 @@ td {
 table {
 	border-collapse: collapse;
 	margin: 25px auto;
+	width: 95%;
 }
 
 th, td {
@@ -50,4 +51,14 @@ tfoot td {
 	background: #474747;
 	font-weight: bold;
 	color: #fff;
+}
+
+
+
+th.estado {
+	width: 70px;
+}
+
+th.tipo_fecha {
+	width: 60px;
 }
