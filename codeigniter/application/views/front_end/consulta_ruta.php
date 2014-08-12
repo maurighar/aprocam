@@ -1,5 +1,5 @@
 <section class="contenido">
-
+<h1>Consulta Tramites</h1>
 <table caption="control (11 rows)">
 	<thead>
 		<tr>
@@ -75,7 +75,7 @@
 					<td bgcolor="red">
 						<a href="<?= base_url()?>ruta/rechazo/<?= $item->id; ?>">Obs.</a>
 	 					<script>
-							notificar("<?php echo 'Expediente rechazado: ' . $item->nombre . ' - ' . $item->dominio; ?>",{icon:'../image/Advertencia.png'}) ;
+							//notificar("<?php echo 'Expediente rechazado: ' . $item->nombre . ' - ' . $item->dominio; ?>",{icon:'../image/Advertencia.png'}) ;
 						</script>
 					</td>
 				<?php }

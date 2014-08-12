@@ -4,9 +4,11 @@ class Ruta extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('consulta_ruta_model');
+		$this->load->model('ruta_model');
 		$this->load->helper('funciones');
 	}
+
+
 
 
 
@@ -15,6 +17,14 @@ class Ruta extends CI_Controller {
 	/*#################################################################
 
 		Consulta general desde la pantalla ppal
+
+	 ######   #######  ##    ##  ######  ##     ## ##       ########    ###
+	##    ## ##     ## ###   ## ##    ## ##     ## ##          ##      ## ##
+	##       ##     ## ####  ## ##       ##     ## ##          ##     ##   ##
+	##       ##     ## ## ## ##  ######  ##     ## ##          ##    ##     ##
+	##       ##     ## ##  ####       ## ##     ## ##          ##    #########
+	##    ## ##     ## ##   ### ##    ## ##     ## ##          ##    ##     ##
+	 ######   #######  ##    ##  ######   #######  ########    ##    ##     ##
 
 	#################################################################*/
 	public function index() {
@@ -30,10 +40,38 @@ class Ruta extends CI_Controller {
 				);
 		}
 
-		$data['ruta'] = $this->consulta_ruta_model->listar($data);
+
+		switch ($data['tipo']) {
+			case 1 :
+				redirect('/ruta/empresa/'. $data['valorconsulta'], 'location');
+				break;
+			case 2 :
+				redirect('/ruta/cuit/'. $data['valorconsulta'], 'location');
+				break;
+			case 3 :
+				//$where = "control.dominio =  '" . $array_condicion['valorconsulta'] . "'";
+				break;
+			case "dp":
+				//$where = "control.dominio like '%" . $array_condicion['valorconsulta'] . "%'";
+				break;
+			case 4 :
+				//$where = "control.expediente = " . $array_condicion['valorconsulta'];
+				break;
+			case 5 :
+				//$where = "control.lote = " . $array_condicion['valorconsulta'];
+				break;
+		}
+
+
+
+		$data['ruta'] = $this->ruta_model->listar($data);
 
 		$data['contenido'] = 'consulta_ruta';
 		$data['titulo'] = 'Sistema RUTA - Consulta';
+		if ($data['ruta'] === 'No') {
+			$data['mensaje'] = 'La consulta no trajo resultados.';
+			$data['contenido'] = 'mensaje';
+		}
 		$this->load->view('template',$data);
 	}
 
@@ -42,9 +80,90 @@ class Ruta extends CI_Controller {
 
 
 
+
+
+	/*
+	######## ##     ## ########  ########  ########  ######     ###
+	##       ###   ### ##     ## ##     ## ##       ##    ##   ## ##
+	##       #### #### ##     ## ##     ## ##       ##        ##   ##
+	######   ## ### ## ########  ########  ######    ######  ##     ##
+	##       ##     ## ##        ##   ##   ##             ## #########
+	##       ##     ## ##        ##    ##  ##       ##    ## ##     ##
+	######## ##     ## ##        ##     ## ########  ######  ##     ##
+	*/
+
+	public function empresa() {
+		$data['nombre'] = urldecode($this->uri->segment(3));
+
+		$data['ruta'] = $this->ruta_model->porNombre($data['nombre']);
+
+		$data['contenido'] = 'ruta_empresa_view';
+		$data['titulo'] = 'Sistema RUTA - Consulta';
+		if ($data['ruta'] === 'No') {
+			$data['mensaje'] = 'La consulta no trajo resultados.';
+			$data['contenido'] = 'mensaje';
+		}
+		$this->load->view('template',$data);
+	}
+
+
+
+
+
+
+
+
+	/*
+	 ######  ##     ## #### ########
+	##    ## ##     ##  ##     ##
+	##       ##     ##  ##     ##
+	##       ##     ##  ##     ##
+	##       ##     ##  ##     ##
+	##    ## ##     ##  ##     ##
+	 ######   #######  ####    ##
+	 */
+
+
+	public function cuit() {
+		$this->output->enable_profiler(TRUE);
+		$data['cuit'] = $this->uri->segment(3);
+
+		$data['ruta'] = $this->ruta_model->porCuit($data['cuit']);
+		$data['rechazo'] = $this->ruta_model->RechazoPorCuit($data['cuit']);
+		$data['obs'] = $this->ruta_model->cliente($data['cuit'],urldecode($this->uri->segment(4)));
+
+		$data['contenido'] = 'ruta_cuit_view';
+		$data['titulo'] = 'Sistema RUTA - Consulta';
+		if ($data['ruta'] === 'No') {
+			$data['mensaje'] = 'La consulta no trajo resultados.';
+			$data['contenido'] = 'mensaje';
+		}
+
+		$this->load->view('template',$data);
+	}  //fin cuit
+
+
+
+
+
+
+
+
+
+
+	/*
+	##     ##  #######  ########  #### ######## ####  ######     ###    ########
+	###   ### ##     ## ##     ##  ##  ##        ##  ##    ##   ## ##   ##     ##
+	#### #### ##     ## ##     ##  ##  ##        ##  ##        ##   ##  ##     ##
+	## ### ## ##     ## ##     ##  ##  ######    ##  ##       ##     ## ########
+	##     ## ##     ## ##     ##  ##  ##        ##  ##       ######### ##   ##
+	##     ## ##     ## ##     ##  ##  ##        ##  ##    ## ##     ## ##    ##
+	##     ##  #######  ########  #### ##       ####  ######  ##     ## ##     ##
+	*/
+
 	public function modificar() {
-		$data['item'] = $this->consulta_ruta_model->porID($this->uri->segment(3));
-		$data['tipo_de_tramite'] = $this->consulta_ruta_model->tipo_tramite();
+		$data['item'] = $this->ruta_model->porID($this->uri->segment(3));
+		$data['tipo_de_tramite'] = $this->ruta_model->tipo_tramite();
 
 
 		$data['contenido'] = 'modifica_control';
@@ -52,10 +171,6 @@ class Ruta extends CI_Controller {
 		$data['titulo'] = 'Sistema RUTA - Modificar';
 		$this->load->view('template',$data);
 	}
-
-
-
-
 
 
 
@@ -72,7 +187,7 @@ class Ruta extends CI_Controller {
 			'rechazo'		=> $this->input->post('rechazo'),
 			'id'			=> $this->input->post('id'),
 			);
-		$data['ruta'] = $this->consulta_ruta_model->actualizar($datos);
+		$data['ruta'] = $this->ruta_model->actualizar($datos);
 
 		redirect('/ruta/modificar/'. $this->input->post('id'), 'location');
 
@@ -85,8 +200,18 @@ class Ruta extends CI_Controller {
 
 
 
+	/*
+	########  ########  ######  ##     ##    ###    ########  #######
+	##     ## ##       ##    ## ##     ##   ## ##        ##  ##     ##
+	##     ## ##       ##       ##     ##  ##   ##      ##   ##     ##
+	########  ######   ##       ######### ##     ##    ##    ##     ##
+	##   ##   ##       ##       ##     ## #########   ##     ##     ##
+	##    ##  ##       ##    ## ##     ## ##     ##  ##      ##     ##
+	##     ## ########  ######  ##     ## ##     ## ########  #######
+	 */
+
 	public function rechazo() {
-		$data['item'] = $this->consulta_ruta_model->porID($this->uri->segment(3));
+		$data['item'] = $this->ruta_model->porID($this->uri->segment(3));
 
 		$data['contenido'] = 'consulta_rechazo';
 		$data['titulo'] = 'Sistema RUTA - Rechazo';
@@ -96,11 +221,19 @@ class Ruta extends CI_Controller {
 
 
 
-
+	/*
+	 #######  ########   ######
+	##     ## ##     ## ##    ##
+	##     ## ##     ## ##
+	##     ## ########   ######
+	##     ## ##     ##       ##
+	##     ## ##     ## ##    ##
+	 #######  ########   ######
+	 */
 
 
 	public function obs() {
-		$data['item'] = $this->consulta_ruta_model->porID($this->uri->segment(3));
+		$data['item'] = $this->ruta_model->porID($this->uri->segment(3));
 
 		$data['contenido'] = 'consulta_obs';
 		$data['titulo'] = 'Sistema RUTA - Observaciones';
@@ -109,19 +242,59 @@ class Ruta extends CI_Controller {
 
 
 
+
 	public function obs_carga() {
 		$datos = array(
 			'obs'	=> $this->input->post('obs'),
 			'id'	=> $this->input->post('id'),
 			);
-		$data['ruta'] = $this->consulta_ruta_model->actualizar_obs($datos);
+		$data['ruta'] = $this->ruta_model->actualizar_obs($datos);
 
 		redirect('/ruta/obs/'. $this->input->post('id'), 'location');
 
 	}
 
-		public function marcar() {
-		$this->consulta_ruta_model->marcar($this->uri->segment(5));
+
+
+
+
+
+	public function obs_cuit() {
+		$data['item'] = $this->ruta_model->cliente_id($this->uri->segment(3));
+
+		$data['contenido'] = 'ruta_cuit_obs';
+		$data['titulo'] = 'Sistema RUTA - Observaciones x cliente';
+		$this->load->view('template',$data);
+	}
+
+
+
+
+	public function obs_cuit_carga() {
+		$data['ruta'] = $this->ruta_model->actualizar_obs_cuit($this->input->post('id'),$this->input->post('obs'));
+
+		redirect('/ruta/obs_cuit/'. $this->input->post('id'), 'location');
+
+	}
+
+
+
+
+
+
+
+	/*
+	##     ##    ###    ########   ######     ###    ########
+	###   ###   ## ##   ##     ## ##    ##   ## ##   ##     ##
+	#### ####  ##   ##  ##     ## ##        ##   ##  ##     ##
+	## ### ## ##     ## ########  ##       ##     ## ########
+	##     ## ######### ##   ##   ##       ######### ##   ##
+	##     ## ##     ## ##    ##  ##    ## ##     ## ##    ##
+	##     ## ##     ## ##     ##  ######  ##     ## ##     ##
+	 */
+
+	public function marcar() {
+		$this->ruta_model->marcar($this->uri->segment(5));
 
 		redirect('/ruta/index/'. $this->uri->segment(3) . '/' . $this->uri->segment(4), 'location');
 

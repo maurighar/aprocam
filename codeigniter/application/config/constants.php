@@ -1,5 +1,9 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/** El sistema esta trabajando en modo local */
+define('MODO_LOCAL', false);
+
+
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes

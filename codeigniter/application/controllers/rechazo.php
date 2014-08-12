@@ -56,6 +56,9 @@ class Rechazo extends CI_Controller {
 
 
 
+
+
+
 	public function modif_cargar() {
 		$datos = array(
 			'nombre'		=> $this->input->post('nombre'),
@@ -69,23 +72,32 @@ class Rechazo extends CI_Controller {
 			'rechazo'		=> $this->input->post('rechazo'),
 			'id'			=> $this->input->post('id'),
 			);
-		$data['ruta'] = $this->consulta_ruta_model->actualizar($datos);
+		//$data['ruta'] = $this->consulta_ruta_model->actualizar($datos);
 
-		redirect('/ruta/modificar/'. $this->input->post('id'), 'location');
-
+		//redirect('/ruta/modificar/'. $this->input->post('id'), 'location');
 	}
+
+
+
+
 
 
 
 	public function marcar() {
 		$this->rechazados_model->marcar($this->uri->segment(3));
-		if ($this->uri->segment(4) ==='completo')
-			redirect('/rechazo/completo', 'location');
-		else
-			redirect('/rechazo/', 'location');
+		switch ($this->uri->segment(4)) {
+			case 'completo':
+				redirect('/rechazo/completo', 'location');
+				break;
+			case 'index':
+				redirect('/rechazo', 'location');
+				break;
+			default:
+				redirect('/ruta/cuit/' . $this->uri->segment(4) , 'location');
+				break;
+		}
+	}  // Fin Marcar
 
-	}
-}
-
-
+}  // Fin Clase
 //$this->output->enable_profiler(TRUE);
+

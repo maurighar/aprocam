@@ -5,31 +5,14 @@ td {
 
 table {
 	border-collapse: collapse;
-	margin: 25px auto;
-	width: 95%;
+	margin: 15px auto;
 }
 
 th, td {
-	vertical-align: top;
+	vertical-align: center;
 	font-family: Tahoma;
 	font-size: 1em;
 	padding: 3px ;
-}
-
-td.pinta_rojo {
-	background-color: #FF0000;
-}
-
-td.pinta_verde {
-	background-color: #5EB05B;
-}
-
-td.dcha {
-	text-align: right;
-}
-
-td.centrar {
-	text-align: center;
 }
 
 tr:nth-child(2n+1)  {
@@ -61,4 +44,41 @@ th.estado {
 
 th.tipo_fecha {
 	width: 60px;
+}
+
+
+
+
+
+
+
+
+/*----------------------------------------------------*/
+td.pinta_rojo {
+	background-color: #FF0000;
+}
+
+td.pinta_verde {
+	background-color: #5EB05B;
+}
+
+td.dominio {
+	width: 60px;
+}
+
+td.dominioLista {
+	width: 140px;
+	font-family: Courier;
+}
+
+td.dcha {
+	text-align: right;
+}
+
+td.centrar {
+	text-align: center;
+}
+
+td.obserb {
+	width: 200px;
 }

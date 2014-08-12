@@ -48,7 +48,6 @@
 		'name'        => 'rechazo',
 		'id'          => 'rechazo',
 		'value'       => ltrim($item->rechazo),
-		'required'    => NULL,
 		);
 
 	$ocultos = array('id' =>$item->id,);
@@ -113,13 +112,13 @@
 		</div>
 
 		<div class="clear flota">
-			<? echo form_label('Fecha envio: ', 'envio');
-			echo form_input($envio);?>
+			<? echo form_label('Detalle rechazos: ', 'rechazo');
+			echo form_textarea($rechazo);?>
 		</div>
 
 		<div class="flota">
-			<? echo form_label('Detalle rechazos: ', 'rechazo');
-			echo form_textarea($rechazo);?>
+			<? echo form_label('Fecha envio: ', 'envio');
+			echo form_input($envio);?>
 		</div>
 
 		<div class="clear">

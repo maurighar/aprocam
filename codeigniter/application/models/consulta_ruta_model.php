@@ -38,8 +38,82 @@ class Consulta_ruta_model extends CI_Model {
 		}
 		$this->db->where($where);
 		$consulta = $this->db->get('control');
-		return $consulta->result();
+
+		if ($consulta->num_rows() > 0)
+			return $consulta->result();
+		else
+			return 'No';
+
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public function porNombre($nombre_buscar){
+		$this->db->where("control.nombre like '%" . $nombre_buscar . "%'");
+		$this->db->order_by("nombre");
+		$this->db->group_by("nombre");
+		$consulta = $this->db->get('control');
+		if ($consulta->num_rows() > 0)
+			return $consulta->result();
+		else
+			return 'No';
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public function porCuit($cuit){
+		$this->db->select('*,GROUP_CONCAT(dominio SEPARATOR " ") AS dominios');
+		$this->db->where('cuit',$cuit);
+		$this->db->order_by("expediente","tipo");
+		$this->db->group_by("expediente","tipo");
+		$consulta = $this->db->get('control');
+		if ($consulta->num_rows() > 0)
+			return $consulta->result();
+		else
+			return 'No';
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public function RechazoPorCuit($cuit){
+		$this->db->where('cuit',$cuit);
+		$consulta = $this->db->get('rechazos');
+		if ($consulta->num_rows() > 0)
+			return $consulta->result();
+		else
+			return 'No';
+	}
+
+
+
 
 
 
