@@ -13,10 +13,9 @@
 	$id=$_POST['id'];
 
 	$actualizar = "UPDATE control SET entregado = '$entregado', nombre = '$nombre', cuit = $cuit, dominio = '$dominio', tipo = '$tipo', fecha = '$fecha', lote = $lote, certificado = '$certificado', rechazo = '$rechazo', envio = '$envio' WHERE  id=$id";
-
+	echo $actualizar;
 	require 'connect_db.php';
-	$mensaje =$mysqli->query("$actualizar");
-
+	$mensaje = $mysqli->query("$actualizar");
 	$mysqli->close();
 	header("Location: modificar.php?id=$id&mensaje=$mensaje");
 ?>

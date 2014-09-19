@@ -30,17 +30,17 @@
 					$_selec = "SELECT * FROM liquidacion WHERE liquidacion = $nro_lote";
 					$resultado = $mysqli->query("$_selec");
 
-					$fila = $resultado->fetch_assoc();
-					$id_liquida = $fila['id'];
+					$linea = $resultado->fetch_object();
+					$id_liquida = $linea->id;
 
 					if ($resultado->num_rows===0)
 						exit("<p class=\"mensaje_mal\">No se encuentra la liquidacón $nro_lote.</p>");
 					if ($resultado->num_rows>1)
 						exit("Hay mas de una liquidacón $valor.");
-					echo 'Nº de liquidación: ' . $fila['liquidacion'] . '<br>';
-					echo 'Lote altas: ' . $fila['alta'] . '<br>';
-					echo 'Lote revalidas: ' . $fila['revalida'] . '<br>';
-					echo 'Fecha de cierre: ' . $fila['fecha'];
+					echo 'Nº de liquidación: ' . $linea->liquidacion . '<br>';
+					echo 'Lote altas: ' . $linea->alta . '<br>';
+					echo 'Lote revalidas: ' . $linea->revalida . '<br>';
+					echo 'Fecha de cierre: ' . $linea->fecha;
 				?>
 			</div>
 

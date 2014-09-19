@@ -14,6 +14,7 @@
 		<li><a href="<?php echo RAIZ_SITIO; ?>sistema/config.php">Config</a></li>
 		<li><a href="<?php echo RAIZ_SITIO; ?>asociados/index.php">Asociados</a></li>
 		<li><a href="http://admin03/wp">Blog</a></li>
+		<li><a href="<?php echo RAIZ_SITIO; ?>sistema/Documentacion.html">Doc</a></li>
 <!--<li><a href="<?php echo RAIZ_SITIO; ?>sistema/cod_actividad.php">Nomenclador de Actividades</a></li>-->
 	</ul>
 

@@ -23,14 +23,16 @@
 							<th>Liquidación</th>
 							<th>Fecha</th>
 							<th>..</th>
+							<th>..</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php while ($fila = $resultado->fetch_assoc()) { ?>
+						<?php while ($linea = $resultado->fetch_object()) { ?>
 						<tr>
-							<td> <?php echo $fila['liquidacion']?> </td>
-							<td> <?php echo $fila['fecha']?> </td>
-							<td> <a href="liquida_control.php?lote=<?php echo $fila['liquidacion']; ?>">Consultar</a> </td>
+							<td> <?php echo $linea->liquidacion ?> </td>
+							<td> <?php echo $linea->fecha ?> </td>
+							<td> <a href="liquida_control.php?lote=<?php echo $linea->liquidacion ; ?>">Consultar</a> </td>
+							<td> <a href="liquida_imprime.php?lote=<?php echo $linea->liquidacion ; ?>&sinordenar=NO">Ver</a> </td>
 						</tr>
 						<?php } ?>
 					</tbody>

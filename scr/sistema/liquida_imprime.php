@@ -1,23 +1,17 @@
 <?php
+	define('VALOR_TRAMITE', 120);
+
 	require 'funciones.php';
 	function imprime_suma($legajos) {
-		echo '<tr>';
-		echo '<td class="al_derecha"></td>';
-		echo '<td></td>';
-		echo '<td></td>';
-		echo '<td></td>';
-		echo '<td class="fechas"></td>';
+		echo '<tr><td class="al_derecha"></td><td></td><td></td><td></td><td class="fechas"></td>';
 		echo '<td class="al_derecha">L:' . $legajos . '</td>';
-		echo '<td class="al_derecha">$ ' . $legajos*80 . ',00</td>';
-		echo '</tr>';
+		echo '<td class="al_derecha">$ ' . $legajos*VALOR_TRAMITE . ',00</td></tr>';
 	}
 
 	function imprime_tipo_tramite($tipo) {
-		echo '<tr>';
-		echo '<td  class="tipo" colspan="7" rowspan="1">';
+		echo '<tr><td  class="tipo" colspan="7" rowspan="1">';
 		echo $tipo;
-		echo '</td>';
-		echo '</tr>';
+		echo '</td></tr>';
 	}
 
 ?>
@@ -88,7 +82,6 @@
 			$revalida = 0;
 			$contador = 0;
 			$cuit_anterior = 0;
-			$valor_tramite=80;
 			$tipo_tramite = '';
 
 
@@ -203,37 +196,37 @@
 				<td class="columna1">Forma de Pago: Cheque</td>
 				<td class="columna2 al_derecha">Reg.Altas (V)</td>
 				<td class="columna3 al_derecha"><?php echo $alta?></td>
-				<td class="columna4 al_derecha">$&nbsp;<?php echo $alta*$valor_tramite?>,00</td>
+				<td class="columna4 al_derecha">$&nbsp;<?php echo $alta*VALOR_TRAMITE?>,00</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td class="al_derecha">(E)</td>
 				<td class="al_derecha"><?php echo $empresa?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $empresa*$valor_tramite*2?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo $empresa*VALOR_TRAMITE*2?>,00</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td class="al_derecha">Bajas</td>
 				<td class="al_derecha"><?php echo $baja?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $baja*$valor_tramite?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo $baja*VALOR_TRAMITE?>,00</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td class="al_derecha">Reimpresiones</td>
 				<td class="al_derecha"><?php echo $reimpre?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $reimpre*$valor_tramite?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo $reimpre*VALOR_TRAMITE?>,00</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td class="al_derecha">Revalidas</td>
 				<td class="al_derecha"><?php echo $revalida?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $revalida*$valor_tramite?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo $revalida*VALOR_TRAMITE?>,00</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td class="al_derecha">Modificaciones</td>
 				<td class="al_derecha"><?php echo $modif?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $modif*$valor_tramite?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo $modif*VALOR_TRAMITE?>,00</td>
 			</tr>
 
 			<tr>
@@ -247,7 +240,7 @@
 				<td></td>
 				<td class="al_derecha">Total de legajos: </td>
 				<td class="al_derecha"><?php echo ($empresa+$alta+$baja+$modif+$reimpre+$revalida)?></td>
-				<td class="al_derecha">$&nbsp;<?php echo ($empresa*2+$alta+$baja+$modif+$reimpre+$revalida)*$valor_tramite?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo ($empresa*2+$alta+$baja+$modif+$reimpre+$revalida)*VALOR_TRAMITE?>,00</td>
 			</tr>
 
 			<tr>
@@ -261,7 +254,7 @@
 				<td></td>
 				<td class="al_derecha">35% s/: </td>
 				<td class="al_derecha"></td>
-				<td class="al_derecha">$&nbsp;<?php echo ($empresa*2+$alta+$baja+$modif+$reimpre+$revalida)*$valor_tramite*.35 ?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo ($empresa*2+$alta+$baja+$modif+$reimpre+$revalida)*VALOR_TRAMITE*.35 ?>,00</td>
 			</tr>
 
 		</tbody>

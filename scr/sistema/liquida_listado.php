@@ -199,6 +199,23 @@
 
 						</tr>
 
+						<tr>
+						<td colspan="2" class="dcha"> -- </td>
+							<td>AE</td>
+							<td>AV</td>
+							<td>BV</td>
+							<td>MO</td>
+							<td>RE</td>
+							<td>RV</td>
+
+							<td>AE</td>
+							<td>AV</td>
+							<td>BV</td>
+							<td>MO</td>
+							<td>RE</td>
+							<td>RV</td>
+							<td>A-</td>
+						</tr>
 						<td align=right colspan="15" rowspan="1">
 						Desarrollado por Mauricio A. Ghilardi
 						</td>

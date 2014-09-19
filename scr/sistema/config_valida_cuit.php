@@ -14,7 +14,6 @@
 
 			<?php
 				require 'connect_db.php';
-				require 'funciones.php';
 
 				$resultado = $mysqli->query("SELECT  * FROM aprocam.control");
 				while ($fila = $resultado->fetch_assoc()) {

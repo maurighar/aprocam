@@ -1,3 +1,8 @@
+@import url('menu.css');
+@import url('table.css');
+
+
+/*
 @font-face {
 	font-family: 'source_code_pro';
 	src: url('..\fonts\sourcecodepro-regular-webfont.eot');
@@ -7,11 +12,10 @@
 		 url('..\fonts\sourcecodepro-regular-webfont.svg#source_code_proregular') format('svg');
 	font-weight: normal;
 	font-style: normal;
-}
+}*/
 
 body {
-	font-family: Verdana,Tahoma;
-	font-size: 0.7em;
+	font: 0.7em Verdana,Tahoma;
 	background: #D8D8D8;
 	padding: 0;
 	margin: 0;
@@ -55,7 +59,7 @@ header {
 
 input {
 	display: block;
-	font-family: "Tahoma";
+	font-family: Tahoma;
 	font-size: 1em;
 	margin: 3px;
 	padding: 3px;
@@ -98,63 +102,10 @@ textarea {
 	width: 300px;
 }
 
-li {
-	font-size: 1.2em;
-}
 
-nav {
-	background: none repeat 0% 0% #000 ;
-	display: inline-block;
-	font-family: Arial, Helvetica;
-	position: fixed;
-	margin: 0 0 5px 0;
-	width: 100%;
-}
 
-table,
-td {
-	border: 1px solid silver;
-}
 
-table {
-	border-collapse: collapse;
-	margin: 25px auto;
-	}
 
-th, td {
-	vertical-align: top;
-	font-family: Tahoma;
-	font-size: 1em;
-	padding: 3px ;
-}
-
-td.pinta_rojo {
-	background-color: #FF0000;
-}
-
-td.pinta_verde {
-	background-color: #5EB05B;
-}
-
-td.dcha {
-	text-align: right;
-}
-
-td.centrar {
-	text-align: center;
-}
-
-tr:nth-child(2n+1)  {
-	background: #DFFFFF;
-}
-
-tr:nth-child(2n+0)  {
-	background: #FFF;
-}
-
-tbody tr:hover {
-	background: #BDC3C7;
-}
 
 textarea {
 	display: block;
@@ -259,9 +210,9 @@ a.enlace_boton:hover  {
 }
 
 .encabezado {
-	background-color: #c1c7b3;
+	/*background-color: #c1c7b3;
 	border: .05em solid #0066FF;
-	border-radius: 5px;
+	border-radius: 5px;*/
 	font-size: 2em;
 	margin: 0 auto;
 	padding: 5px;
@@ -278,13 +229,15 @@ a.enlace_boton:hover  {
 	display: none;
 }
 
-.mensaje_mal, .mensaje_ok {
+.mensaje_mal,
+.mensaje_ok {
 	background: yellow;
 	border-radius: 0.5em;
 	color: #000;
 	font-family: Helvetica, Verdana;
 	font-size: 1em;
 	min-width: 100px;
+	margin: 0.5em;
 	padding: 0.5em;
 }
 
@@ -294,44 +247,6 @@ a.enlace_boton:hover  {
 	font-size: 2em;
 }
 
-.menus {
-	margin: 0;
-}
-
-.menus li a {
-	background-color: #000;
-	color: #fff;
-	text-decoration: none;
-	padding: 10px 15px;
-	display: block;
-}
-
-.menus li a:hover {
-	background-color: #434343;
-}
-
-.menus > li {
-	float: left;
-}
-
-.menus li ul {
-	display: none;
-	position: absolute;
-	min-width: 140px;
-}
-
-.menus li:hover > ul {
-	display: block;
-}
-
-/* submenu */
-.menus li ul li {
-	position: relative;
-}
-.menus li ul li ul{
-	right: -140px;
-	top: 0px;
-}
 
 .movil {
 	text-align: center;
@@ -348,13 +263,6 @@ a.enlace_boton:hover  {
 .rotulo {
 	display: inline-block;
 	width: 15%;
-}
-
-.version{
-	text-align: right;
-	color: #fff;
-	font-size: 10px;
-	padding: 5px;
 }
 
 .webmaster {
@@ -438,8 +346,8 @@ a.enlace_boton:hover  {
 	-webkit-flex: 1;
 	-order: 0;
 	-webkit-order: 0;
-	background-color: #c1c7b3;
-	border-radius: 5px;
+	/*background-color: #c1c7b3;
+	border-radius: 5px;*/
 	margin: 1em;
 	padding: 1em;
 }
@@ -447,7 +355,7 @@ a.enlace_boton:hover  {
 .widgets {
 	flex-direction: column;
 	-webkit-flex-direction: column;
-	border: .05em solid #0066FF;
+	/*border: .05em solid #0066FF;*/
 }
 
 .widget {

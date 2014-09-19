@@ -30,15 +30,16 @@
 				thead .col12 {width: 45px;}
 				thead .col13 {width: 45px;}
 				.tdrojo {background-color: "red";}
-
+				
 				tr:nth-child(2n+1) {background: #ddd; }
 				tr:nth-child(2n+0) {background: #fff;}
 				tbody tr:hover {background: #BDC3C7;}
 			</style>
-	</head>
+		
+    </head>
     <body>
 	    <?php require '../../encabezado.php'; ?>
-
+	    
 	    <table>
 	      <thead>
 	        <tr>
@@ -81,9 +82,9 @@
 				}
 
 			require '../../config/connect_db.php';
-
+			
 			$resultado = $mysqli->query('SELECT * FROM aprocam.control WHERE control.entregado = "" AND control.certificado = 0 AND expediente > 199999 and (fecha +interval 70 day) <= curdate() AND (tipo = "ALTA" OR tipo = "EMPRESA")');
-
+			
 			while ($fila = $resultado->fetch_assoc()) {
 				echo '<tr>' ;
 				echo '<td class="col0">' . $fila['expediente'] . '</td>';
@@ -136,7 +137,7 @@
 				echo '</td>';
 				echo '</tr>' ;
 				}
-
+			
 	        ?>
 			<tfoot>
 				<td align=right colspan="13" rowspan="1">

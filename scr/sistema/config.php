@@ -13,6 +13,7 @@
 				<legend>Importación</legend>
 				<p>
 					Antes de importar se debe generar el archivo <a href="importar.csv" target="_blank">importar.csv</a>. <br>
+					<a href="csv_to_table.php" class="enlace_boton">Ver</a>
 					<a href="importar_control.php" class="enlace_boton" target="_blank">Importar Control</a>
 				</p>
 			</fieldset>

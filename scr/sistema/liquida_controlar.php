@@ -37,8 +37,9 @@
 			$tipo_tramite = array('AE', 'AV', 'BE', 'BV', 'ME', 'MV', 'IE', 'IV', 'RV' );
 			$tipo_nombre = array('empresa', 'alta', 'baja', 'baja', 'modif', 'modif', 'reimpre', 'reimpre', 'revalida' );
 
+			echo '<br>';
 			while ($fila = $resultado->fetch_assoc()) {
-				echo '<br>' . $fila['expediente'] ;
+				echo $fila['expediente'] ;
 				echo ' - ' .$fila['formularios'] . '<br>';
 
 				for ($i=0; $i <= count($tipo_tramite)-1;$i++) {
@@ -46,9 +47,6 @@
 
 					$actualizar = "UPDATE lista_expdientes SET $tipo_nombre[$i] = $tipo_nombre[$i] + $valor_calculado WHERE id= ". $fila['id'];
 					$marcado = $mysqli->query("$actualizar");
-
-					echo '     ' .$tipo_nombre[$i] . ' - ' . $valor_calculado ;
-					echo ' - se grabo:' .$marcado . '<br>';
 				}
 			}
 

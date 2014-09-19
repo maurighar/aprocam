@@ -1,7 +1,7 @@
 <?php
 
 
-/** El nombre de tu base de datos */
+/** El sistema esta trabajando en modo local */
 define('MODO_LOCAL', false);
 
 
@@ -23,12 +23,15 @@ if (MODO_LOCAL){
 }
 
 /** Dirección del directorio raiz en el servidor del sitio Web */
-define('RAIZ_SITIO', '/aprocam/');
+define('RAIZ_SITIO', '/aprocam/old/');
 
 /** Habilita las herramientas para hacer debug */
 define('SYS_DEBUG', false);
 
 /** Habilita la capa de seguridad del sistema */
 define('CAPA_SEGURIDAD', false);
+
+
+define('ENVIRONMENT', 'development');
 
 ?>
