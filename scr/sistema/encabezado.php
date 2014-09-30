@@ -15,22 +15,22 @@
 		<li><a href="<?php echo RAIZ_SITIO; ?>asociados/index.php">Asociados</a></li>
 		<li><a href="http://admin03/wp">Blog</a></li>
 		<li><a href="<?php echo RAIZ_SITIO; ?>sistema/Documentacion.html">Doc</a></li>
-<!--<li><a href="<?php echo RAIZ_SITIO; ?>sistema/cod_actividad.php">Nomenclador de Actividades</a></li>-->
+
 	</ul>
 
 	<div class="version">
 		<?php
 
-			// if ($_SESSION["autentificado"] = 'SI') {
-			// 	echo $_SESSION["usuario"]. '  ';
-			// } else {
-			// 	echo '<a href="' . RAIZ_SITIO . 'sistema/login.php"></a>  ';
-			// }
+			if ($_SESSION["autentificado"] = 'SI') {
+			 	echo $_SESSION["usuario"]. '  ';
+			} else {
+				echo '<a href="' . RAIZ_SITIO . 'sistema/login.php"></a>  ';
+			}
 
 			echo date("D  d-m-Y");
 		?>
 		<br>
-		Ver: 1.8.0
+		Ver: 2.5.5
 	</div>
 </nav>
 

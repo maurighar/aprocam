@@ -1,6 +1,7 @@
-<?php require 'header.php'; ?>
+<?php
+$titulo_pagina = "Nomenclador de Actividad";
+require 'header.php'; ?>
 
-		<title>Nomenclador de Actividad</title>
 		<link rel="stylesheet" href="../css/caja_busqueda.css" />
 	</head>
 

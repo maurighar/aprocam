@@ -1,5 +1,18 @@
-<?php require '../sistema/header.php'; ?>
+<?php require_once 'funciones.php'; ?>
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<link rel="icon" image="type/ico" href="../favicon.ico" />
+		<meta charset="UTF-8">
+
 		<title>Carnet ISCAMEN</title>
+
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link rel="stylesheet" href="<?php echo RAIZ_SITIO; ?>css/normalize.css" />
+		<link rel="stylesheet" href="<?php echo RAIZ_SITIO; ?>css/main.css" />
+		<script type="text/javascript" src="<?php echo RAIZ_SITIO; ?>js/main.js"> </script>
+
 		<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 
 		<script type="text/javascript "src="../js/jquery-2.1.0.min.js"></script>
@@ -32,7 +45,6 @@
 		</style>
 
 	</head>
-
 	<body>
 
 <!-- Carnet de una unidad individual

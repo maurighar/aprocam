@@ -1,19 +1,21 @@
-header {
-	padding: 0;
-}
+@media print {
+	header {
+		padding: 0;
+	}
 
-nav, .noprint {
-	display: none;
-}
+	nav, .noprint {
+		display: none;
+	}
 
-.imprimir {
-	display: inline;
-}
+	.imprimir {
+		display: inline;
+	}
 
 
-.firma {
-	border-width: 2px 0 0 0;
-	border-style: dashed;
-	text-align: center;
-	width: 200px;
+	.firma {
+		border-width: 2px 0 0 0;
+		border-style: dashed;
+		text-align: center;
+		width: 200px;
+	}
 }

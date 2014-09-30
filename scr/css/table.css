@@ -6,10 +6,18 @@ td {
 table {
 	border-collapse: collapse;
 	margin: 25px auto;
+	max-width: 95%;
+}
+
+thead th,
+tfoot td {
+	background: #474747;
+	font-weight: bold;
+	color: #fff;
 }
 
 th, td {
-	vertical-align: top;
+	vertical-align: center;
 	font-family: Tahoma;
 	font-size: 1em;
 	padding: 3px ;
@@ -37,6 +45,10 @@ td.dominioLista {
 }
 
 
+td.estado {
+	width: 70px;
+}
+
 tr:nth-child(2n+1)  {
 	background: #DFFFFF;
 }
@@ -47,4 +59,13 @@ tr:nth-child(2n+0)  {
 
 tbody tr:hover {
 	background: #BDC3C7;
+}
+
+
+thead .fechas {
+	width: 60px;
+}
+
+.al_derecha {
+	text-align: right;
 }

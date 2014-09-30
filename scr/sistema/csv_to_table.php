@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Tareas</title>
+		<title>Tabla</title>
 		<meta charset="UTF-8" />
 
 
