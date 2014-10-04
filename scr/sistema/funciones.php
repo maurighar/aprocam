@@ -111,6 +111,31 @@ function color_tipo($tramite) {
 
 
 
+//############################################
+//
+//      Rechazos
+//
+//############################################
+function color_envio($estado) {
+	if ($estado > 0) {
+		return 'class="pinta_verde"' ;
+	}
+}
+
+function color_rojo($estado) {
+	if ($estado != "") {
+		return 'pinta_rojo' ;
+	}
+}
+
+function enlace_ID($nro_fecha,$nro_id,$enlace) {
+	if ($nro_fecha > 0) {
+		 convertir_fechas($nro_fecha,'normal');
+	} else {
+		echo '<a href="?' . $enlace . '&id='. $nro_id . '">Marcar</a>';
+	}
+}
+
 
 
 

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<link rel="icon" image="type/ico" href="../favicon.ico" />
+		<link rel="icon" image="type/ico" href="<?php echo RAIZ_SITIO; ?>favicon.ico" />
 		<meta charset="UTF-8">
 
 		<?php
@@ -21,12 +21,13 @@
 	<body onload="inicializar()">
 
 <nav>
-	<ul class="menus">
+	<ul class="menus" role="navigation">
 		<li><a href="<?php echo RAIZ_SITIO; ?>">#</a></li>
 		<li><a href="<?php echo RAIZ_SITIO; ?>m/index.html">Movil</a></li>
 		<li>
 			<a href="<?php echo RAIZ_SITIO; ?>sistema/rechazos.php?tipo=solucionado">Rechazados</a>
 			<ul class="menus">
+				<a href="<?php echo RAIZ_SITIO; ?>sistema/rechazos.php?tipo=completo">Completo</a>
 				<li><a href="<?php echo RAIZ_SITIO; ?>sistema/consulta.php?Tipo=6&valorconsulta=Rechazos">Listado rechazados</a></li>
 			</ul>
 		</li>
@@ -52,7 +53,7 @@
 			echo date("D  d-m-Y");
 		?>
 		<br>
-		Ver: 2.5.5
+		Ver: 2.5.7
 	</div>
 </nav>
 

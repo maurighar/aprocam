@@ -1,9 +1,9 @@
 @import url('menu.css');
 @import url('table.css');
-@import url('table.css');
 @import url('input.css');
 
 @import url('imprimir.css');
+
 
 /*
 @font-face {
@@ -151,9 +151,9 @@ a.enlace_boton:hover  {
 	width: 350px;
 }
 
-.imprimir {
-	display: none;
-}
+
+
+
 
 .mensaje_mal,
 .mensaje_ok {

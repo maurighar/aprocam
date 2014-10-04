@@ -26,6 +26,8 @@ switch ($tipo) {
 }
 ?>
 
+<h1>Consulta de tramites ruta</h1>
+
 <table caption="control (11 rows)">
 	<thead>
 		<tr>
@@ -48,9 +50,7 @@ switch ($tipo) {
 		<?php while ($linea = $resultado->fetch_object()) { ?>
 			<tr>
 				<td class="al_derecha">
-					<a href="<?php echo "consulta.php?Tipo=4&valorconsulta=". $linea->expediente?>">
-						<?php echo $linea->expediente?>
-					</a>
+					<a href="<?php echo "consulta.php?Tipo=4&valorconsulta=". $linea->expediente?>"><?php echo $linea->expediente?> </a>
 				</td>
 
 				<td> <?php echo $linea->nombre?> </td>
@@ -103,34 +103,31 @@ switch ($tipo) {
 
 			<?php # resalta los rechazos
 			if (empty($linea->rechazo)) { ?>
-
-			<td> </td>
-
+				<td> </td>
 			<?php } else { ?>
-
-			<td bgcolor="red">
-				<a href="rechazo/ver_rechazo.php?id=<?php echo $linea->id?>">Obs.</a>
-				<script>
-					notificar("<?php echo 'Expediente rechazado: ' . $linea->nombre . ' - ' . $linea->dominio?>",{icon:'../image/Advertencia.png'}) ;
-				</script>
-			</td>
+				<td bgcolor="red">
+					<a href="rechazo/ver_rechazo.php?id=<?php echo $linea->id?>">Obs.</a>
+					<script>
+						notificar("<?php echo 'Expediente rechazado: ' . $linea->nombre . ' - ' . $linea->dominio?>",{icon:'../image/Advertencia.png'}) ;
+					</script>
+				</td>
 			<?php }
 
 			# resalta los rechazos enviados a Bs. As.
 			if ($linea->envio>0) { ?>
-			<td bgcolor="green">
-				<?php } else { ?>
+				<td bgcolor="green">
+			<?php } else { ?>
 				<td class="fechas">
-					<?php }
+			<?php }
 
 					convertir_fechas($linea->envio,'normal');
 					?>
-				</td>
+			</td>
 
-				<?php if (empty($linea->obs))
+			<?php if (empty($linea->obs))
 				echo'<td>';
-				else
-					echo '<td bgcolor="green">';?>
+			else
+				echo '<td bgcolor="green">';?>
 
 				<a href="ver_obs.php?id=<?php echo $linea->id ; ?>">Obs.</a>
 			</td>

@@ -1,11 +1,12 @@
 <?php
-	$titulo_pagina = 'RUTA - Consulta';
-	require 'header.php';
-?>
+$titulo_pagina = 'RUTA - Consulta';
+require 'header.php';
 
-	<?php require 'consulta_actualiza.php'; ?>
+require 'consulta_actualiza.php'; ?>
 
-	<h1>Consulta de tramites ruta</h1>
+
+
+
 
 <?php
 	$tipo_val = $_REQUEST["Tipo"] ;
@@ -39,8 +40,6 @@
 			require 'consulta_gral.php';
 			break;
 	}
-
-
 ?>
 
 

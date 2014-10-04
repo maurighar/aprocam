@@ -9,6 +9,8 @@ $resultado = $mysqli->query("$consulta");
 
 ?>
 
+<h1>Consulta de tramites x Razón Social</h1>
+
 <table caption="control (11 rows)">
 	<thead>
 		<tr>

@@ -26,7 +26,6 @@
 		</style>
 	</head>
 	<body>
-		<?php require 'encabezado.php'; ?>
 		<table caption="control (11 rows)">
 				<thead>
 					<tr>

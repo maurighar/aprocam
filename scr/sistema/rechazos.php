@@ -3,27 +3,6 @@ $titulo_pagina = 'RUTA - Rechazo';
 require 'header.php'; ?>
 
 <?php
-	function color_envio($estado) {
-		if ($estado > 0) {
-			return 'class="pinta_verde"' ;
-		}
-	}
-
-	function color_rojo($estado) {
-		if ($estado != "") {
-			return 'pinta_rojo' ;
-		}
-	}
-
-	function enlace_ID($nro_fecha,$nro_id,$enlace) {
-		if ($nro_fecha > 0) {
-			echo $nro_fecha;
-		} else {
-			echo '<a href="?' . $enlace . '&id='. $nro_id . '">Marcar</a>';
-		}
-	}
-
-
 	require 'rechazos_actualiza.php';
 	require 'encabezado_rechazos.php';
 
@@ -62,28 +41,28 @@ require 'header.php'; ?>
 		</tr>
 	</thead>
 	<tbody>
-		<?php while ($fila = $resultado->fetch_assoc()) { ?>
+		<?php while ($fila = $resultado->fetch_object()) { ?>
 
 		<tr class="consulta_tabla">
-			<td class="estado <?php echo color_rojo($fila['anulado']); ?>"><?php echo $fila['estado']; ?></td>
-			<td class="al_derecha"><?php echo $fila['centro']; ?></td>
+			<td class="estado <?php echo color_rojo($fila->anulado); ?>"><?php echo $fila->estado; ?></td>
+			<td class="al_derecha"><?php echo $fila->centro; ?></td>
 			<td class="al_derecha">
-				<a href="consulta.php?Tipo=4&valorconsulta=<?php echo $fila['expediente']; ?>"><?php echo $fila['expediente']; ?></a>
+				<a href="consulta.php?Tipo=4&valorconsulta=<?php echo $fila->expediente; ?>"><?php echo $fila->expediente; ?></a>
 			</td>
-			<td><?php echo $fila['tipo']; ?></td>
-			<td><?php echo $fila['procesado']; ?></td>
-			<td><?php echo $fila['obs']; ?></td>
-			<td class="al_derecha"><?php echo $fila['cuit']; ?></td>
-			<td><?php echo $fila['razon']; ?></td>
-			<td><?php echo $fila['fecha']; ?></td>
-			<td><?php echo $fila['planilla']; ?></td>
-			<td <?php echo color_envio($fila['envio']); ?>><?php enlace_ID($fila['envio'],$fila['id'],$para_enlace); ?></td>
+			<td><?php echo $fila->tipo; ?></td>
+			<td><?php echo $fila->procesado; ?></td>
+			<td><?php echo $fila->obs; ?></td>
+			<td class="al_derecha"><?php echo $fila->cuit; ?></td>
+			<td><?php echo $fila->razon; ?></td>
+			<td><?php convertir_fechas($fila->fecha,'normal'); ?></td>
+			<td><?php convertir_fechas($fila->planilla,'normal'); ?></td>
+			<td <?php echo color_envio($fila->envio); ?>><?php enlace_ID($fila->envio,$fila->id,$para_enlace); ?></td>
 
-			<?php if (empty($fila['info']))
+			<?php if (empty($fila->info))
 				echo'<td>';
 			else
 				echo '<td bgcolor="green">';?>
-				<?php echo '<a href="rechazos_info.php?id='. $fila['id'] . '">Info</a>'; ?></td>
+				<?php echo '<a href="rechazos_info.php?id='. $fila->id . '">Info</a>'; ?></td>
 		</tr>
 
 		<?php
