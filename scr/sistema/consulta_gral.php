@@ -24,6 +24,10 @@ switch ($tipo) {
 	$resultado = $mysqli->query("$_selec control.rechazo != ''  and control.envio = 0" );
 	break;
 }
+
+if ($resultado->num_rows === 0) {
+	header("Location: msg_error.php?mensaje=La busqueda no arrojo resultados&tipo=OK");
+}
 ?>
 
 <h1>Consulta de tramites ruta</h1>

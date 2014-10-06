@@ -156,7 +156,8 @@ a.enlace_boton:hover  {
 
 
 .mensaje_mal,
-.mensaje_ok {
+.mensaje_ok,
+.mensaje_verde {
 	background: yellow;
 	border-radius: 0.5em;
 	color: #000;
@@ -172,7 +173,12 @@ a.enlace_boton:hover  {
 	color: yellow;
 	font-size: 2em;
 }
-
+.mensaje_verde{
+	background: green;
+	color: #fff;
+	font-size: 2em;
+	text-align: center;
+}
 
 .movil {
 	text-align: center;

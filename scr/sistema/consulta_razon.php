@@ -3,9 +3,9 @@
 $consulta = "SELECT *,GROUP_CONCAT(dominio SEPARATOR ' ') AS dominios FROM aprocam.control WHERE control.nombre like '%$valor%' GROUP BY expediente,tipo ORDER BY expediente,tipo,dominio ";
 $resultado = $mysqli->query("$consulta");
 
-// require_once 'modelo_ruta.php';
-// $tabla = new ruta();
-// $resultado = $tabla->consulta_razon($valor);
+if ($resultado->num_rows === 0) {
+	header("Location: msg_error.php?mensaje=La busqueda no arrojo resultados&tipo=OK");
+}
 
 ?>
 
