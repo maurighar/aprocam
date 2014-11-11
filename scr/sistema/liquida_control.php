@@ -30,9 +30,9 @@ require 'header.php'; ?>
 			$id_liquida = $linea->id;
 
 			if ($resultado->num_rows===0)
-				exit("<p class=\"mensaje_mal\">No se encuentra la liquidacón $nro_lote.</p>");
+				header("Location: msg_error.php?mensaje=No se encuentra la liquidacón $nro_lote&tipo=Error");
 			if ($resultado->num_rows>1)
-				exit("Hay mas de una liquidacón $valor.");
+				header("Location: msg_error.php?mensaje=Hay mas de una liquidacón $valor&tipo=Error");
 			echo 'Nº de liquidación: ' . $linea->liquidacion . '<br>';
 			echo 'Lote altas: ' . $linea->alta . '<br>';
 			echo 'Lote revalidas: ' . $linea->revalida . '<br>';

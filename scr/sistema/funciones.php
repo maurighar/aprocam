@@ -57,6 +57,33 @@ function cargar_vista($vista){
 
 
 
+/*
+Crea un objeto select con los valores de tipo de tramite
+y marca el que esta cargado en la BD
+
+ */
+
+
+function select_turno($seleccionado) {
+
+
+	require 'connect_db.php';
+
+	$select = "SELECT * FROM turnos_tipo";
+	$consulta_tipo = $mysqli->query($select);
+
+	while ($linea = $consulta_tipo->fetch_assoc()){
+
+		$valor_selected = '';
+		if ($seleccionado == $linea["id"]){
+			$valor_selected = ' selected';
+		}
+
+		echo '<option value="'. $linea["id"] .'"' . $valor_selected . '>'. $linea["descripcion"] .'</option>';
+	}
+	$mysqli->close();
+}
+
 
 
 
@@ -145,3 +172,8 @@ function validarCUIT($cuit) {if (strlen($cuit)<11) return false ;$cadena = str_s
 
 
 
+//-------------------------------------------------------
+
+function sitio() {
+	echo RAIZ_SITIO;
+}

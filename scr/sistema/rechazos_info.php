@@ -11,7 +11,7 @@ $resultado = $mysqli->query("SELECT * FROM aprocam.rechazos WHERE id = " . $valo
 $fila = $resultado->fetch_assoc();
 
 ?>
-
+<script src="../js/ckeditor.js"></script>
 <form class="divisor" method="post" action="?id=<?php echo $fila['id']?>" enctype="application/x-www-form-urlencoded">
 	<label>Empresa</label>
 	<?php echo $fila['razon']; ?>
@@ -25,7 +25,7 @@ $fila = $resultado->fetch_assoc();
 	<label>Info.:</label>
 	<br />
 
-	<textarea cols="50" rows="10" name="info"><?php echo ltrim($fila['info']); ?></textarea>
+	<textarea class="ckeditor" cols="50" rows="10" name="info"><?php echo ltrim($fila['info']); ?></textarea>
 	<br />
 	<br />
 

@@ -166,7 +166,7 @@ if ($rechazos->num_rows > 0) {
 			if (empty($linea->entregado)) {
 				echo '<td class="fechas">';
 				if ($linea->certificado>0) {
-					echo "---";
+					echo 'Certificado';
 				}
 			} else {
 				echo '<td bgcolor="green">';
@@ -209,8 +209,7 @@ if ($rechazos->num_rows > 0) {
 				<a href="ver_obs.php?id=<?php echo $linea->id ; ?>">Obs.</a>
 			</td>
 		</tr>
-		<?php }
-		$mysqli->close(); ?>
+		<?php } ?>
 	</tbody>
 
 	<tfoot>
@@ -220,3 +219,66 @@ if ($rechazos->num_rows > 0) {
 	</tfoot>
 
 </table>
+
+
+
+
+
+
+<?php
+$tramites_viejos = $mysqli->query("SELECT * FROM aprocam.ruta WHERE ruta.cuit = " . $valor );
+
+if ($tramites_viejos->num_rows > 0) {
+?>
+<h1>Tramites del sistema anterior</h1>
+<table caption="Anteriores">
+		<thead>
+			<tr>
+				<th>Centro</th>
+				<th>Exped.</th>
+				<th>dominio</th>
+				<th>Fecha</th>
+				<th>Tarj</th>
+				<th>Lote</th>
+				<th>entrega</th>
+				<th>F. Entr</th>
+				<th>Tarjeta</th>
+				<th>Tipo</th>
+				<th>Recibo</th>
+				<th>Nro.</th>
+			</tr>
+		</thead>
+	<tbody>
+	<tr>
+
+
+<?php while ($fila = $tramites_viejos->fetch_object()) { ?>
+<tr>
+	<td> <?php echo $fila->centro; ?> </td>
+	<td> <?php echo $fila->expediente; ?> </td>
+	<td> <?php echo $fila->dominio; ?> </td>
+	<td> <?php echo $fila->fecha; ?> </td>
+	<td> <?php echo $fila->tarj; ?> </td>
+	<td> <?php echo $fila->lote; ?> </td>
+	<td> <?php echo $fila->entrega; ?> </td>
+	<td> <?php echo $fila->fecha_entr; ?> </td>
+	<td> <?php echo $fila->nrotarjeta; ?> </td>
+	<td> <?php echo $fila->tipo; ?> </td>
+	<td> <?php echo $fila->recibo; ?> </td>
+	<td> <?php echo $fila->nro_recibo; ?> </td>
+</tr>
+
+<?php } ?>
+
+	<tfoot>
+	<td  align=right colspan="14" rowspan="1">
+	Desarrollado por Mauricio A. Ghilardi
+	</td>
+	</tfoot>
+	</tbody>
+</table>
+
+<?php
+}  // Fin de control de tramites anteriores
+$mysqli->close();
+?>

@@ -3,41 +3,38 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<link rel="icon" image="type/ico" href="<?php echo RAIZ_SITIO; ?>favicon.ico" />
+		<link rel="icon" image="type/ico" href="<?php echo sitio(); ?>favicon.ico" />
 		<meta charset="UTF-8">
 
-		<?php
-			if(isset($titulo_pagina)){
-				echo "<title>$titulo_pagina</title>";
-			}
-		?>
+		<title> <?php if(isset($titulo_pagina)){ echo "$titulo_pagina"; }?> </title>
 
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="stylesheet" href="<?php echo RAIZ_SITIO; ?>css/normalize.css" />
-		<link rel="stylesheet" href="<?php echo RAIZ_SITIO; ?>css/main.css" />
-		<script type="text/javascript" src="<?php echo RAIZ_SITIO; ?>js/main.js"> </script>
+		<meta name="author" content="Mauricio Antonio Ghilardi" />
+		<link rel="stylesheet" href="<?php sitio(); ?>css/normalize.css" />
+		<link rel="stylesheet" href="<?php sitio(); ?>css/main.css" />
+		<script type="text/javascript" src="<?php sitio(); ?>js/main.js"> </script>
 
 	</head>
 	<body onload="inicializar()">
 
 <nav>
 	<ul class="menus" role="navigation">
-		<li><a href="<?php echo RAIZ_SITIO; ?>">#</a></li>
-		<li><a href="<?php echo RAIZ_SITIO; ?>m/index.html">Movil</a></li>
+		<li><a href="<?php sitio(); ?>">#</a></li>
+		<li><a href="<?php sitio(); ?>m/index.html">Movil</a></li>
 		<li>
-			<a href="<?php echo RAIZ_SITIO; ?>sistema/rechazos.php?tipo=solucionado">Rechazados</a>
+			<a href="<?php sitio(); ?>sistema/rechazos.php?tipo=solucionado">Rechazados</a>
 			<ul class="menus">
-				<a href="<?php echo RAIZ_SITIO; ?>sistema/rechazos.php?tipo=completo">Completo</a>
-				<li><a href="<?php echo RAIZ_SITIO; ?>sistema/consulta.php?Tipo=6&valorconsulta=Rechazos">Listado rechazados</a></li>
+				<a href="<?php sitio(); ?>sistema/rechazos.php?tipo=completo">Completo</a>
+				<li><a href="<?php sitio(); ?>sistema/consulta.php?Tipo=6&valorconsulta=Rechazos">Listado rechazados</a></li>
 			</ul>
 		</li>
 
-		<li><a href="<?php echo RAIZ_SITIO; ?>sistema/carga_certificados.php">Carga de certificados</a></li>
-		<li><a href="<?php echo RAIZ_SITIO; ?>sistema/liquidacion.php">Liquidación</a></li>
-		<li><a href="<?php echo RAIZ_SITIO; ?>sistema/config.php">Config</a></li>
-		<li><a href="<?php echo RAIZ_SITIO; ?>asociados/index.php">Asociados</a></li>
-		<li><a href="http://admin03/wp">Blog</a></li>
-		<li><a href="<?php echo RAIZ_SITIO; ?>sistema/Documentacion.html">Doc</a></li>
+		<li><a href="<?php sitio(); ?>sistema/carga_certificados.php">Carga de certificados</a></li>
+		<li><a href="<?php sitio(); ?>sistema/liquidacion.php">Liquidación</a></li>
+		<li><a href="<?php sitio(); ?>sistema/config.php">Config</a></li>
+		<li><a href="<?php sitio(); ?>asociados/index.php">Asociados</a></li>
+		<li><a href="<?php sitio(); ?>sistema/turnos.php">Turnos</a></li>
+		<li><a href="<?php sitio(); ?>sistema/Documentacion.html">Doc</a></li>
 
 	</ul>
 
@@ -53,13 +50,13 @@
 			echo date("D  d-m-Y");
 		?>
 		<br>
-		Ver: 2.5.7
+		Ver: 2.5.8
 	</div>
 </nav>
 
 <header>
 	<div class="encabezado">
-		<img src="<?php echo RAIZ_SITIO; ?>image/aprocam_logo.png" alt="APROCAM" height=81px width=159px />
+		<img src="<?php sitio(); ?>image/aprocam_logo.png" alt="APROCAM" height=81px width=159px />
 
 		<?php if (MODO_LOCAL) { echo '<br><strong>local</strong>'; } ?>
 

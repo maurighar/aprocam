@@ -6,39 +6,97 @@
 <script src="/js/highcharts.js"></script>
 
 <?php
-//
-//
 	require 'connect_db.php';
-	//$consulta = "SELECT lote,tipo,sum(1) FROM aprocam.control WHERE tipo != '' and expediente > 199999 and lote > 700 GROUP BY lote,tipo ORDER BY lote,tipo";
-	$consulta = 'SELECT week(fecha,1),year(fecha),tipo, SUM(1) FROM aprocam.control WHERE tipo != '' AND expediente > 199999 and year(fecha)>2010 GROUP BY year(fecha),week(fecha,1),lote,tipo ORDER BY year(fecha),week(fecha,1),lote,tipo'
+	$consulta = "SELECT week(fecha,1) as semana,year(fecha) as ano,tipo, SUM(1) as cantidad FROM aprocam.control WHERE tipo != '' AND expediente > 199999 and year(fecha)>2010 GROUP BY year(fecha),week(fecha,1),tipo ORDER BY year(fecha),week(fecha,1),tipo";
 	$resultado = $mysqli->query("$consulta");
 
+	$datos = [
+		'semana' => '',
+		'empresa' => '',
+		'alta' => '',
+		'baja' => '',
+		'modif' => '',
+		'reimpre' => '',
+		'revalida' => '',
+		'anulado' => ''];
+
+
+	$semana = 0;
+	$primer_registro = true;
+
 	while ($linea = $resultado->fetch_object()) {
+		if ($primer_registro){
+			$primer_registro = false;
+			$semana = $linea->semana;
+			$tempo = ['semana' => $linea->semana . '/' . $linea->ano,
+				'empresa' => '0',
+				'alta' => '0',
+				'baja' => '0',
+				'modif' => '0',
+				'reimpre' => '0',
+				'revalida' => '0',
+				'anulado' => '0'];
+		}
+
+		if ($semana != $linea->semana) {
+			$datos['semana'] .=  "'" . $tempo['semana'] . "',";
+			$datos['alta'] .= $tempo['alta'] . ",";
+			$datos['empresa'] .= $tempo['empresa'] . ",";
+			$datos['baja'] .= $tempo['baja'] . ",";
+			$datos['modif'] .= $tempo['modif'] . ",";
+			$datos['reimpre'] .= $tempo['reimpre'] . ",";
+			$datos['revalida'] .= $tempo['revalida'] . ",";
+
+			$semana = $linea->semana;
+			$tempo = [
+				'semana' => $linea->semana . '/' . $linea->ano,
+				'empresa' => '0',
+				'alta' => '0',
+				'baja' => '0',
+				'modif' => '0',
+				'reimpre' => '0',
+				'revalida' => '0',
+				'anulado' => '0'];
+		}
 
 
-
-		// Debo completar todos los items para el grafico
-
-
-
-
+		switch ($linea->tipo) {
+			case 'ALTA' :
+				$tempo['alta'] = $linea->cantidad;
+				break;
+			case 'EMPRESA' :
+				$tempo['empresa'] = $linea->cantidad;
+				break;
+			case 'BAJA' :
+				$tempo['baja'] = $linea->cantidad;
+				break;
+			case 'MODIF' :
+				$tempo['modif'] = $linea->cantidad;
+				break;
+			case 'REIMPRE.' :
+				$tempo['reimpre'] = $linea->cantidad;
+				break;
+			case 'REVALIDA' :
+				$tempo['revalida'] = $linea->cantidad;
+				break;
+		}
 	}
 ?>
 
 
 
-<div id="grafico_barras" style="width:100%; height:400px;"></div>
+<div id="grafico_barras" style="width:100%; height:600px;"></div>
 <script>
 	$(function () {
 	$('#grafico_barras').highcharts({
 		chart: {
-			type: 'line'
+			type: 'spline'
 		},
 		title: {
 			text: 'Tramites'
 		},
 		xAxis: {
-			categories: ['842','843','844','845', '846']
+			categories: [ <?php echo $datos['semana']; ?>]
 		},
 		yAxis: {
 			title: {
@@ -47,22 +105,22 @@
 		},
 		series: [{
 			name: 'Empresa',
-			data: [4,3,4,5,6]
+			data: [<?php echo $datos['empresa']; ?>]
 		}, {
 			name: 'Altas',
-			data: [35,44,27,45,49]
+			data: [<?php echo $datos['alta']; ?>]
 		}, {
 			name: 'Bajas',
-			data: [20,20,10,21,23]
+			data: [<?php echo $datos['baja']; ?>]
 		}, {
 			name: 'Reimpresiones',
-			data: [2,1,0,4,1]
+			data: [<?php echo $datos['reimpre']; ?>]
 		}, {
 			name: 'Modificaciones',
-			data: [4,2,2,0,1]
+			data: [<?php echo $datos['modif']; ?>]
 		}, {
 			name: 'Revalidas',
-			data: [276,168,160,223,205]
+			data: [<?php echo $datos['revalida']; ?>]
 		}]
 	});
 })

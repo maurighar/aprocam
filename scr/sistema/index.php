@@ -89,6 +89,10 @@
 			</form>
 		</div>
 
+
+<?php require 'index_info.php'; ?>
+
+
 	</section>
 
 	<div class="widgets">

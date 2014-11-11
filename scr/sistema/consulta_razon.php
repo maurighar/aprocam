@@ -78,7 +78,7 @@ if ($resultado->num_rows === 0) {
 			if (empty($linea->entregado)) {
 				echo '<td class="fechas">';
 				if ($linea->certificado>0) {
-					echo "---";
+					echo 'Certificado';
 				}
 			} else {
 				echo '<td bgcolor="green">';
