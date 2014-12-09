@@ -33,7 +33,7 @@
 		<li><a href="<?php sitio(); ?>sistema/liquidacion.php">Liquidación</a></li>
 		<li><a href="<?php sitio(); ?>sistema/config.php">Config</a></li>
 		<li><a href="<?php sitio(); ?>asociados/index.php">Asociados</a></li>
-		<li><a href="<?php sitio(); ?>sistema/turnos.php">Turnos</a></li>
+		<li><a href="<?php sitio(); ?>sistema/turnos.php?op=consulta">Turnos</a></li>
 		<li><a href="<?php sitio(); ?>sistema/Documentacion.html">Doc</a></li>
 
 	</ul>
@@ -50,7 +50,7 @@
 			echo date("D  d-m-Y");
 		?>
 		<br>
-		Ver: 2.5.8
+		Ver: 2.5.9
 	</div>
 </nav>
 
