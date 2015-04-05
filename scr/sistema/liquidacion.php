@@ -29,8 +29,8 @@ require 'header.php'; ?>
 				<tr>
 					<td> <?php echo $linea->liquidacion ?> </td>
 					<td> <?php echo $linea->fecha ?> </td>
-					<td> <a href="liquida_control.php?lote=<?php echo $linea->liquidacion ; ?>">Consultar</a> </td>
-					<td> <a href="liquida_imprime.php?lote=<?php echo $linea->liquidacion ; ?>&sinordenar=NO">Ver</a> </td>
+					<td> <a href="liquida_control.php?lote=<?php echo $linea->liquidacion ; ?>">Procesar</a> </td>
+					<td> <a href="liquida_imprime.php?lote=<?php echo $linea->liquidacion ; ?>&sinordenar=NO">Listado</a> </td>
 				</tr>
 				<?php } ?>
 			</tbody>

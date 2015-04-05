@@ -65,26 +65,19 @@ y marca el que esta cargado en la BD
 
 
 function select_turno($seleccionado) {
-
-
-	require 'connect_db.php';
-
-	$select = "SELECT * FROM turnos_tipo";
-	$consulta_tipo = $mysqli->query($select);
-
-	while ($linea = $consulta_tipo->fetch_assoc()){
-
-		$valor_selected = '';
-		if ($seleccionado == $linea["id"]){
-			$valor_selected = ' selected';
-		}
-
-		echo '<option value="'. $linea["id"] .'"' . $valor_selected . '>'. $linea["descripcion"] .'</option>';
-	}
-	$mysqli->close();
+	echo '<option value="">- - -</option>';
+	echo '<option value="Alt"' . valor_turno('Alt',$seleccionado) . '>Alta</option>';
+	echo '<option value="Baj"' . valor_turno('Baj',$seleccionado) . '>Bajas</option>';
+	echo '<option value="Rev"' . valor_turno('Rev',$seleccionado) . '>Revalidas</option>';
+	echo '<option value="Mod"' . valor_turno('Mod',$seleccionado) . '>Modificaciones</option>';
+	echo '<option value="Rei"' . valor_turno('Rei',$seleccionado) . '>Reimpresiones</option>';
+	echo '<option value="Var"' . valor_turno('Var',$seleccionado) . '>Varios</option>';
 }
 
 
+function valor_turno($valor,$selec) {
+	if ($valor == $selec) return ' selected';
+}
 
 
 

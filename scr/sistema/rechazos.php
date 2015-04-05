@@ -12,10 +12,10 @@ require 'header.php'; ?>
 		case 'completo' :
 			$para_enlace = 'tipo=completo';
 			$para_enlace2 = 'tipo=solucionado';
-			$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos");
+			$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos ORDER BY expediente");
 			break;
 		case 'solucionado' :
-			$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos where envio = 0 and anulado = ''");
+			$resultado = $mysqli->query("SELECT * FROM aprocam.rechazos where envio = 0 and anulado = ''  ORDER BY expediente");
 			$para_enlace = 'tipo=solucionado';
 			$para_enlace2 = 'tipo=completo';
 			break;

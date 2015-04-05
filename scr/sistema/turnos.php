@@ -7,8 +7,8 @@
 <h1>Turnos para tramites RUTA</h1>
 
 	<fieldset >
-		<a  class="enlace_boton" href="turnos_nuevo.php?estado=nuevo">Nuevo</a>
-		<a  class="enlace_boton" href="turnos_anteriores.php">Turnos Anteriores</a>
+		<a class="enlace_boton" href="turnos_nuevo.php?estado=nuevo&estado='pen'">Nuevo</a>
+		<a class="enlace_boton" href="turnos_anteriores.php">Turnos Anteriores</a>
 	</fieldset>
 
 <?php

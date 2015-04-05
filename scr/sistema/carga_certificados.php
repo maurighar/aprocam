@@ -42,7 +42,7 @@ require 'header.php'; ?>
 	<?php require 'certificados_actualiza.php'; ?>
 	<?php
 		require 'connect_db.php';
-		$resultado = $mysqli->query('SELECT * FROM aprocam.control WHERE control.entregado = "" AND control.certificado = 0 AND expediente > 199999 AND (tipo = "ALTA.S" OR tipo = "ALTA" OR tipo = "EMPRESA" )');
+		$resultado = $mysqli->query('SELECT * FROM aprocam.control WHERE control.entregado = "" AND control.certificado = 0 AND expediente > 199999 AND (tipo = "ALTA.S" OR tipo = "ALTA" OR tipo = "EMPRESA" OR tipo = "REIMPRE." OR tipo = "MODIF")');
 	?>
 
 <table caption="control (11 rows)">

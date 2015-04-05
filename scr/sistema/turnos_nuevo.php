@@ -1,6 +1,6 @@
 <?php
 
-function trae_valor($valor,$estado){ if ($estado) echo 'value="'.$valor.'"'; }
+function trae_valor($valor,$estado){ if ($estado === 'editar') echo 'value="'.$valor.'"'; }
 
 $estado_carga = ($_REQUEST["estado"] === 'editar');
 
@@ -39,7 +39,7 @@ Nuevo</h1>
 
 			<div class="clear">
 				<input type="hidden" name="estado" value="<?php echo $_REQUEST["estado"];?>" />
-				<input type="hidden" name="id" value="<?php //echo $fila['id'];?>" />
+				<input type="hidden" name="id" value="<?php trae_valor() ?>" />
 				<input type="submit" name="submit" value="Cargar" />
 			</div>
 

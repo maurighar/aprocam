@@ -11,16 +11,20 @@ require 'encabezado_rechazos.php';
 
 	require '../connect_db.php';
 
-	$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE id = " . $valor_id);
+	$resultado = $mysqli->query("SELECT *,(fecha+interval 70 day) AS vto,DATEDIFF(CURDATE(),fecha) as cant_dias FROM aprocam.control WHERE id = " . $valor_id);
 	$fila = $resultado->fetch_assoc();
 
-	#echo '<textarea readonly="readonly" cols="50" rows="10" name="rechazo">' . $fila['rechazo'] . '</textarea>';
-	echo "<p>";
-	echo  "Empresa: " . $fila['nombre'] . "<br>";
-	echo  "CUIT: " . $fila['cuit'] . "<br>";
-	echo  "Dominio: " . $fila['dominio'] . "<br>";
+
+	echo '<p class="resaltar">';
+	echo 'Empresa: ' . $fila['nombre'] . '<br>';
+	echo  "CUIT: " . $fila['cuit'] . '<br>';
+	echo  "Dominio: " . $fila['dominio'] . '<br>';
 	echo  "Fecha: " . $fila['fecha'] . "<br>";
-	echo  "Causa del rechazo: " . $fila['rechazo'];
+	echo "Vencimiento: " .$fila['vto']  . "<br>";
+	echo "Cantidad de días: " . $fila['cant_dias'] . '<br>' ;
+
+	echo '<p class="resaltarx2">';
+	echo "Causa del rechazo: <strong>" . $fila['rechazo'] . "</strong>" ;
 	echo "</p>";
 
 ?>

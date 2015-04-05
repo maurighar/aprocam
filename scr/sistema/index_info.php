@@ -55,3 +55,9 @@
 		<li>Debido a las limitaciones del actual Sistema Informático, aún NO es posible controlar la CANTIDAD de personal declarado en comparación con la cantidad de vehículos inscriptos, tal como se indica en la Circular RUTA N° 5 y 5 bis del año 2006. Sin embargo, es muy importante que este dato siga siendo controlado por el CRI, ya que el blanqueo de personal constituye uno de los puntos clave para lograr la igualdad de condiciones entre los representantes del sector y erradicar la competencia desleal entre pares, objetivo perseguido por FADEEAC y Cámaras Asociadas desde los inicios del RUTA. Se preguntarán, entonces, ¿cómo hacer este control?. Si bien no podrán controlar la cantidad exacta, pueden hacerlo a grandes rasgos, por ejemplo, en el caso de Empresas que tengan más de 50 vehículos sería difícil detectar que les falta declarar uno o dos choferes, pero indudablemente notarán la irregularidad en caso de que el Formulario N°5 llegara a tener demasiado pocos choferes o directamente ninguno. En este caso Uds. deberían pedir el personal. Y ante la pregunta del transportista al respecto de cuántos empleados debe declarar, la respuesta será: Todos.</li>
 	</ol>
 </article>
+
+<article>
+	<header>
+		<h1>190.3.108.119</h1>
+	</header>
+</article>

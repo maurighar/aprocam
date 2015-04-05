@@ -2,7 +2,7 @@
 
 
 /** El sistema esta trabajando en modo local */
-define('MODO_LOCAL', true);
+define('MODO_LOCAL', FALSE);
 
 
 
