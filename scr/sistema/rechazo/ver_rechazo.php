@@ -17,14 +17,14 @@ require 'encabezado_rechazos.php';
 
 	echo '<p class="resaltar">';
 	echo 'Empresa: ' . $fila['nombre'] . '<br>';
-	echo  "CUIT: " . $fila['cuit'] . '<br>';
-	echo  "Dominio: " . $fila['dominio'] . '<br>';
-	echo  "Fecha: " . $fila['fecha'] . "<br>";
+	echo "CUIT: " . $fila['cuit'] . '<br>';
+	echo "Dominio: " . $fila['dominio'] . '<br>';
+	echo "Fecha: " . $fila['fecha'] . "<br>";
 	echo "Vencimiento: " .$fila['vto']  . "<br>";
 	echo "Cantidad de días: " . $fila['cant_dias'] . '<br>' ;
 
 	echo '<p class="resaltarx2">';
-	echo "Causa del rechazo: <strong>" . $fila['rechazo'] . "</strong>" ;
+	echo "Causa del rechazo: <strong><br>" . $fila['rechazo'] . "</strong>" ;
 	echo "</p>";
 
 ?>

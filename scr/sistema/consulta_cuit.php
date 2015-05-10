@@ -1,11 +1,5 @@
 <?php
-$resultado = $mysqli->query("SELECT *,GROUP_CONCAT(dominio SEPARATOR ' ') AS dominios FROM aprocam.control WHERE control.cuit =  $valor GROUP BY expediente,tipo ORDER BY expediente,tipo,dominio");
 $empresa = $mysqli->query("SELECT * FROM aprocam.clientes WHERE cuit =  $valor");
-
-if ($resultado->num_rows === 0) {
-	header("Location: msg_error.php?mensaje=La busqueda no arrojo resultados&tipo=OK");
-}
-
 
 if ($empresa->num_rows === 0) {
 	$para_insertar = $resultado->fetch_object();
@@ -99,19 +93,15 @@ if ($rechazos->num_rows > 0) {
 	</tfoot>
 </table>
 
-<?php } // fin del control de rechazos ?>
+<?php } // fin del control de rechazos
 
+$resultado = $mysqli->query("SELECT *,GROUP_CONCAT(dominio SEPARATOR ' ') AS dominios FROM aprocam.control WHERE control.cuit =  $valor GROUP BY expediente,tipo ORDER BY expediente,tipo,dominio");
 
+if ($resultado->num_rows === 0) {
+	header("Location: msg_error.php?mensaje=La busqueda no arrojo resultados&tipo=OK");
+}
 
-
-
-
-
-
-
-
-
-
+?>
 
 <h1>Consulta de tramites x CUIT</h1>
 
