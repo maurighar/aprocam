@@ -2,9 +2,11 @@
 
 
 /** El sistema esta trabajando en modo local */
-define('MODO_LOCAL', FALSE);
+define('MODO_LOCAL', true);
 
 
+/** Valor unitario de los tramites del RUTA */
+define('VALOR_TRAMITE', 120);
 
 
 

@@ -1,5 +1,4 @@
 <?php
-
 	require 'funciones.php';
 	function imprime_suma($legajos) {
 		echo '<tr><td class="al_derecha"></td><td></td><td></td><td></td><td class="fechas"></td>';
@@ -12,6 +11,7 @@
 		echo $tipo;
 		echo '</td></tr>';
 	}
+
 ?>
 
 
@@ -108,7 +108,7 @@
 
 		</div>
 
-	<?php require 'liquida_totales.php'; ?>
+		<?php require 'liquida_totales.php'; ?>
 
 		<table>
 		<tbody>
@@ -122,6 +122,15 @@
 
 				$resultado = $mysqli->query("$consulta");
 
+				echo '<tr>';
+				echo '<td class="al_derecha">Expediente</td>';
+				echo '<td>Razón Social</td>';
+				echo '<td>Dominio</td>';
+				echo '<td class="fechas">Fecha</td>';
+				echo '<td class="al_derecha columna2">Trámites RUTA</td>';
+				echo '<td class="al_derecha columna2">Trámites RPTC</td>';
+				echo '<td class="al_derecha columna_importe">Importe</td>';
+				echo '</tr>';
 
 				while ($fila = $resultado->fetch_assoc()) {
 					// La primera vez coloco el numero de cuit
@@ -143,14 +152,15 @@
 						imprime_tipo_tramite($tipo_tramite);
 					}
 
-					$mas_rptc = $fila["rptc"]>0?'+RPTC':'' ;
 					echo '<tr>';
 					echo '<td class="al_derecha">' . ($contador!=0?'':$fila['expediente']) . '</td>';
 					echo '<td>' . ($contador!=0?'':$fila['nombre'] . '</td>');
 					echo '<td>' . $fila['dominio'] . '</td>';
-					echo '<td>' . $fila['tipo'] .$mas_rptc. '</td>';
 					echo '<td class="fechas">' . $fila['fecha'] . '</td>';
-					echo '<td class="al_derecha"></td>';
+					echo '<td class="al_derecha columna2">' ;
+					echo $fila["tipo"]=="EMPRESA"?'2':'1' ;
+					echo '</td>';
+					echo '<td class="al_derecha">' .$fila['rptc'] .'</td>';
 					echo '<td class="al_derecha columna_importe"></td>';
 					echo '</tr>';
 
@@ -185,80 +195,6 @@
 
 		</tbody>
 	</table>
-
-
-<!-- 	<div >
-	<table class="tabla_suma">
-		<tbody>
-			<tr>
-				<td class="columna1">Forma de Pago: Cheque</td>
-				<td class="columna2 al_derecha">Reg.Altas (V)</td>
-				<td class="columna3 al_derecha"><?php echo $alta?></td>
-				<td class="columna4 al_derecha">$&nbsp;<?php echo $alta*VALOR_TRAMITE?>,00</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td class="al_derecha">(E)</td>
-				<td class="al_derecha"><?php echo $empresa?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $empresa*VALOR_TRAMITE*2?>,00</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td class="al_derecha">Bajas</td>
-				<td class="al_derecha"><?php echo $baja?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $baja*VALOR_TRAMITE?>,00</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td class="al_derecha">Reimpresiones</td>
-				<td class="al_derecha"><?php echo $reimpre?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $reimpre*VALOR_TRAMITE?>,00</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td class="al_derecha">Revalidas</td>
-				<td class="al_derecha"><?php echo $revalida?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $revalida*VALOR_TRAMITE?>,00</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td class="al_derecha">Modificaciones</td>
-				<td class="al_derecha"><?php echo $modif?></td>
-				<td class="al_derecha">$&nbsp;<?php echo $modif*VALOR_TRAMITE?>,00</td>
-			</tr>
-
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<td></td>
-				<td class="al_derecha">Total de legajos: </td>
-				<td class="al_derecha"><?php echo ($empresa+$alta+$baja+$modif+$reimpre+$revalida)?></td>
-				<td class="al_derecha">$&nbsp;<?php echo ($empresa*2+$alta+$baja+$modif+$reimpre+$revalida)*VALOR_TRAMITE?>,00</td>
-			</tr>
-
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<td></td>
-				<td class="al_derecha">35% s/: </td>
-				<td class="al_derecha"></td>
-				<td class="al_derecha">$&nbsp;<?php echo ($empresa*2+$alta+$baja+$modif+$reimpre+$revalida)*VALOR_TRAMITE*.35 ?>,00</td>
-			</tr>
-
-		</tbody>
-
-	</table>
-	</div> -->
 
 	</body>
 </html>

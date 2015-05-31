@@ -10,9 +10,6 @@ if (CAPA_SEGURIDAD){
 
 
 
-
-
-
 /*
   herramientas para debugging en PHP
   KINT  ->  d($mi_variable_a_analizar);
@@ -21,10 +18,6 @@ if (CAPA_SEGURIDAD){
 if (SYS_DEBUG) {
 	require_once '/php/kint/kint.class.php';
 }
-
-
-
-
 
 
 

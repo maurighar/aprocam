@@ -2,11 +2,11 @@
 $titulo_pagina = 'RUTA - Liquidación';
 require 'header.php'; ?>
 
-
 <section>
 	<fieldset >
-		<legend>Datos liquidación</legend>
-		<a  class="enlace_boton" href="liquida_cabecera.php">Cargar</a>
+		<legend>Opciones liquidación</legend>
+		<a class="enlace_boton" href="liquida_cabecera.php">Cargar</a>
+		<a class="enlace_boton" href="liquidacion_listado.php">Listado</a>
 	</fieldset>
 
 	<div class="divisor">
@@ -27,10 +27,10 @@ require 'header.php'; ?>
 			<tbody>
 				<?php while ($linea = $resultado->fetch_object()) { ?>
 				<tr>
-					<td> <?php echo $linea->liquidacion ?> </td>
-					<td> <?php echo $linea->fecha ?> </td>
-					<td> <a href="liquida_control.php?lote=<?php echo $linea->liquidacion ; ?>">Procesar</a> </td>
-					<td> <a href="liquida_imprime.php?lote=<?php echo $linea->liquidacion ; ?>&sinordenar=NO">Listado</a> </td>
+					<td> <?= $linea->liquidacion ?> </td>
+					<td> <?= $linea->fecha ?> </td>
+					<td> <a href="liquida_control.php?lote=<?= $linea->liquidacion ; ?>">Procesar</a> </td>
+					<td> <a href="liquida_imprime_rptc.php?lote=<?= $linea->liquidacion ; ?>&sinordenar=NO">Listado</a> </td>
 				</tr>
 				<?php } ?>
 			</tbody>
@@ -42,7 +42,7 @@ require 'header.php'; ?>
 		</table>
 	</div>
 
-	<fieldset >
+	<fieldset>
 		<legend>Controlar liquidación</legend>
 		<form method="get" action="liquida_control.php" enctype="application/x-www-form-urlencoded">
 			<label>Liquidación:</label>

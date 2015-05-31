@@ -28,9 +28,10 @@ require 'header.php'; ?>
 				$dominio = $datos[3];
 				$tipo = $datos[4];
 				$fecha = $datos[5];
-				$lote = $datos[6];
+				$rptc = $datos[6];
+				$lote = $datos[7];
 
-				$select = "INSERT INTO control (expediente, nombre, cuit, dominio, tipo, fecha, lote) VALUES ($expediente, '$nombre', $cuit, '$dominio', '$tipo', '$fecha', $lote)";
+				$select = "INSERT INTO control (expediente, nombre, cuit, dominio, tipo, fecha, rptc, lote) VALUES ($expediente, '$nombre', $cuit, '$dominio', '$tipo', '$fecha', $rptc, $lote)";
 				if($marcado = $mysqli->query("$select")) {
 					echo '<td class="pinta_verde">';
 					echo "Se importo correctamente $expediente - $dominio" ;

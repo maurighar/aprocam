@@ -1,4 +1,17 @@
 <?php
+
+	$empresa = 0;
+	$alta = 0;
+	$baja = 0;
+	$modif = 0;
+	$reimpre = 0;
+	$revalida = 0;
+
+	$alta_rptc = 0;
+	$modif_rptc = 0;
+	$reimpre_rptc = 0;
+	$revalida_rptc = 0;
+
 	function verde($valor_controla) {
 		if ($valor_controla > 0)
 			return " pinta_verde";
@@ -57,9 +70,7 @@ require 'header.php'; ?>
 ?>
 
 <section>
-	<h1>
-		Lote <?php echo $nro_lote?>
-	</h1>
+	<h1> Lote <?php echo $nro_lote?> </h1>
 
 	<div class="divisor">
 		<?php
@@ -158,21 +169,31 @@ require 'header.php'; ?>
 					switch ($fila['tipo']) {
 						case 'ALTA' :
 							$porExpediente['alta']++;
+							$alta++ ;
+							$alta_rptc = $alta_rptc + $fila['rptc'];
 							break;
 						case 'EMPRESA' :
 							$porExpediente['empresa']++;
+							$empresa++ ;
 							break;
 						case 'BAJA' :
 							$porExpediente['baja']++;
+							$baja++ ;
 							break;
 						case 'MODIF' :
 							$porExpediente['modif']++;
+							$modif_rptc = $modif_rptc + $fila['rptc'] ;
+							$modif++ ;
 							break;
 						case 'REIMPRE.' :
 							$porExpediente['reimpre']++;
+							$reimpre_rptc = $reimpre_rptc + $fila['rptc'];
+							$reimpre++ ;
 							break;
 						case 'REVALIDA' :
 							$porExpediente['revalida']++;
+							$revalida++ ;
+							$revalida_rptc = $revalida_rptc + $fila['rptc'];
 							break;
 						case 'ANULADO' :
 							$porExpediente['anulado']++;
@@ -219,9 +240,105 @@ require 'header.php'; ?>
 				</td>
 			</tfoot>
 		</table>
-
 	</div>
 
+
+	<div>
+	<table class="tabla_suma">
+		<thead>
+			<tr>
+				<th class="columna1">Tipo de tramite</th>
+				<th class="columna2">Tramites RUTA</th>
+				<th class="columna3">Precio Unitario</th>
+				<th class="columna4">Tramites RPTC</th>
+				<th class="columna5">Precio Unitario</th>
+				<th class="columna6">Importe</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Reg. Altas Empresa</td>
+				<td class="al_derecha"><?php echo $empresa?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE*2?>,00</td>
+				<td class="al_derecha">-</td>
+				<td class="al_derecha">-</td>
+				<td class="al_derecha">$&nbsp;<?php echo $empresa*VALOR_TRAMITE*2?>,00</td>
+			</tr>
+			<tr>
+				<td>Reg. Altas Vehículos</td>
+				<td class="al_derecha"><?php echo $alta?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha"><?php echo $alta_rptc?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo ($alta_rptc+$alta)*VALOR_TRAMITE?>,00</td>
+			</tr>
+			<tr>
+				<td>Reg. Bajas</td>
+				<td class="al_derecha"><?php echo $baja?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha">-</td>
+				<td class="al_derecha">-</td>
+				<td class="al_derecha">$&nbsp;<?php echo ($baja)*VALOR_TRAMITE?>,00</td>
+			</tr>
+			<tr>
+				<td>Reg. Reimpresiones</td>
+				<td class="al_derecha"><?php echo $reimpre?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha"><?php echo $reimpre_rptc?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo ($reimpre_rptc+$reimpre)*VALOR_TRAMITE?>,00</td>
+			</tr>
+			<tr>
+				<td>Reg. Modificaciones</td>
+				<td class="al_derecha"><?php echo $modif?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha"><?php echo $modif_rptc?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo ($modif_rptc+$modif)*VALOR_TRAMITE?>,00</td>
+			</tr>
+			<tr>
+				<td>Reg. Revalidas</td>
+				<td class="al_derecha"><?php echo $revalida?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha"><?php echo $revalida_rptc?></td>
+				<td class="al_derecha">$&nbsp;<?php echo VALOR_TRAMITE?>,00</td>
+				<td class="al_derecha">$&nbsp;<?php echo ($revalida_rptc+$revalida)*VALOR_TRAMITE?>,00</td>
+			</tr>
+
+			<tr>
+				<td colspan="6"></td>
+			</tr>
+
+			<tr>
+				<td class="al_derecha" colspan="4" rowspan="1">Total de legajos</td>
+				<td class="al_derecha"><?php echo ($alta_rptc + $modif_rptc + $reimpre_rptc + $revalida_rptc+$empresa+$alta+$baja+$modif+$reimpre+$revalida)?></td>
+				<td class="al_derecha">$&nbsp;<?php echo ($alta_rptc + $modif_rptc + $reimpre_rptc + $revalida_rptc+$empresa*2+$alta+$baja+$modif+$reimpre+$revalida)*VALOR_TRAMITE?>,00</td>
+			</tr>
+
+			<tr>
+				<td colspan="6"></td>
+			</tr>
+
+			<tr>
+				<td colspan="4" rowspan="1" class="al_derecha">35% s/: </td>
+				<td colspan="2" rowspan="1" class="al_derecha">$&nbsp;<?php echo ($alta_rptc + $modif_rptc + $reimpre_rptc + $revalida_rptc+$empresa*2+$alta+$baja+$modif+$reimpre+$revalida)*VALOR_TRAMITE*.35 ?>,00</td>
+			</tr>
+
+		</tbody>
+
+	</table>
+	</div>
 </section>
+
+
+
+<?php
+
+$actualizar = "UPDATE liquidacion SET  cant_alta = $alta,cant_empresa = $empresa,cant_baja = $baja,cant_reimp = $reimpre,cant_modif = $modif,cant_reval = $revalida,rptc_alta = $alta_rptc,rptc_reimp = $reimpre_rptc,rptc_modif = $modif_rptc,rptc_reval = $revalida_rptc WHERE  liquidacion=$nro_lote";
+$mensaje = $mysqli->query("$actualizar");
+$mysqli->close();
+
+?>
+
 
 <?php require 'footer.php'; ?>
