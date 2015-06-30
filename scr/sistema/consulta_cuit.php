@@ -1,7 +1,9 @@
 <?php
+
 $empresa = $mysqli->query("SELECT * FROM aprocam.clientes WHERE cuit =  $valor");
 
 if ($empresa->num_rows === 0) {
+	$resultado = $mysqli->query("SELECT * FROM aprocam.control WHERE control.cuit =  $valor");
 	$para_insertar = $resultado->fetch_object();
 	$cuit = $para_insertar->cuit;
 	$nombre = $para_insertar->nombre;

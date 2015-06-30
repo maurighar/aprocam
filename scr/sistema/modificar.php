@@ -11,6 +11,7 @@ if (isset( $_GET["mensaje"])){
 }
 ?>
 
+<script src="../js/ckeditor.js"></script>
 <section>
 	<fieldset>
 		<legend>Estado</legend>
@@ -78,16 +79,19 @@ if (isset( $_GET["mensaje"])){
 				<input type="text" name="entregado" value="<?php echo $fila['entregado']?>"/>
 			</div>
 
-			<div class="clear flota">
+			<div class="clear">
 				<label>Fecha envio:</label>
 				<input type="text" name="envio" value="<?php echo $fila['envio']?>"/>
 			</div>
 
-			<div class="flota">
+			<div>
 				<label>Detalle rechazos:</label>
-				<textarea cols="60" rows="10" name="rechazo"><?php echo ltrim($fila['rechazo']); ?></textarea>
+				<textarea class="ckeditor" cols="60" rows="10" name="rechazo"><?php echo ltrim($fila['rechazo']); ?></textarea>
 			</div>
 
+			<script type="text/javascript">
+				CKEDITOR.replace( 'rechazo' );
+			</script
 
 
 			<div class="clear">

@@ -68,11 +68,12 @@ $cant_total = $liquida['cant_empresa']*2+$liquida['cant_alta']+$liquida['rptc_al
 			<td colspan="6"></td>
 		</tr>
 
-		<tr>
-			<td class="al_derecha" colspan="4" rowspan="1">Total de legajos</td>
-			<td class="al_derecha" colspan="2">$&nbsp;<?php echo ($cant_total)*VALOR_TRAMITE?>,00</td>
-		</tr>
 
+		<tr>
+				<td class="al_derecha" colspan="4" rowspan="1">Total de legajos</td>
+				<td class="al_derecha"><?php echo ($cant_total)?></td>
+				<td class="al_derecha" colspan="2">$&nbsp;<?php echo ($cant_total)*VALOR_TRAMITE?>,00</td>
+			</tr>
 		<tr>
 			<td colspan="6"></td>
 		</tr>

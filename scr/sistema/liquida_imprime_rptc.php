@@ -122,15 +122,15 @@
 
 				$resultado = $mysqli->query("$consulta");
 
-				echo '<tr>';
-				echo '<td class="al_derecha">Expediente</td>';
-				echo '<td>Razón Social</td>';
-				echo '<td>Dominio</td>';
-				echo '<td class="fechas">Fecha</td>';
-				echo '<td class="al_derecha columna2">Trámites RUTA</td>';
-				echo '<td class="al_derecha columna2">Trámites RPTC</td>';
-				echo '<td class="al_derecha columna_importe">Importe</td>';
-				echo '</tr>';
+				echo '<thead><tr>';
+				echo '<th class="al_derecha">Expediente</th>';
+				echo '<th Razón Social</th>';
+				echo '<th>Dominio</th>';
+				echo '<th>Fecha</th>';
+				echo '<th class="al_derecha columna2">Trámites RUTA</th>';
+				echo '<th class="al_derecha columna2">Trámites RPTC</th>';
+				echo '<th class="al_derecha columna_importe">Importe</th>';
+				echo '</tr></thead>';
 
 				while ($fila = $resultado->fetch_assoc()) {
 					// La primera vez coloco el numero de cuit
@@ -186,6 +186,7 @@
 							$revalida++;
 							break;
 					}
+					$contador += $fila['rptc'];
 					$contador++;
 				}
 

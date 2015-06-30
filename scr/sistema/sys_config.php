@@ -2,16 +2,10 @@
 
 
 /** El sistema esta trabajando en modo local */
-define('MODO_LOCAL', true);
-
+define('MODO_LOCAL', false);
 
 /** Valor unitario de los tramites del RUTA */
 define('VALOR_TRAMITE', 120);
-
-
-
-
-
 
 /** Dirección del directorio raiz en el servidor del sitio Web */
 define('RAIZ_SITIO', '/aprocam/old/');
@@ -24,9 +18,6 @@ define('CAPA_SEGURIDAD', false);
 
 
 define('ENVIRONMENT', 'development');
-
-
-
 
 
 /*#############################################
@@ -50,4 +41,3 @@ if (MODO_LOCAL){
 } else {
 	define('DB_HOST', 'admin03');
 }
-

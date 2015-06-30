@@ -183,6 +183,14 @@ a.enlace_boton:hover  {
 	vertical-align: middle;
 }
 
+p.resaltar{
+	font-size: 1.5em;
+}
+
+p.resaltarx2{
+	font-size: 2em;
+}
+
 .rotulo {
 	display: inline-block;
 	width: 15%;
