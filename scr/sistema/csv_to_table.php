@@ -47,9 +47,9 @@
 	<body>
 
 <?php
-
+$archivo = $_REQUEST["archivo"];
 $row = 1;
-if (($handle = fopen("importar.csv", "r")) !== FALSE) {
+if (($handle = fopen($archivo, "r")) !== FALSE) {
 
     echo '<table border="1">';
 

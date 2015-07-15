@@ -99,7 +99,7 @@ $(function () {
 			min: 0
 		},
 		series: [{
-			name: 'Emresas',
+			name: 'Empresas',
 			data: [<?= $empresa_txt;  ?>]
 		}, {
 			name: 'Altas',

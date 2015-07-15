@@ -124,7 +124,7 @@
 
 				echo '<thead><tr>';
 				echo '<th class="al_derecha">Expediente</th>';
-				echo '<th Razón Social</th>';
+				echo '<th>Razón Social</th>';
 				echo '<th>Dominio</th>';
 				echo '<th>Fecha</th>';
 				echo '<th class="al_derecha columna2">Trámites RUTA</th>';

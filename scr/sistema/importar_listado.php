@@ -23,25 +23,20 @@ require 'header.php'; ?>
 				$contador++;
 				echo "<tr> <td> $contador </td>";
 				$expediente = $datos[0];
-				$nombre = $datos[1];
+				$fecha = $datos[1];
 				$cuit = $datos[2];
-				$dominio = $datos[3];
-				$tipo = $datos[4];
-				$fecha = $datos[5];
-				$rptc = $datos[6];
-				$lote = $datos[7];
+				$nombre = $datos[3];
+				$cerrado = $datos[4];
+				$form = $datos[5];
+				$lote = $datos[6];
 
-				$select = "INSERT INTO control (expediente, nombre, cuit, dominio, tipo, fecha, rptc, lote) VALUES ($expediente, '$nombre', $cuit, '$dominio', '$tipo', '$fecha', $rptc, $lote)";
+				$select = "INSERT INTO lista_expdientes (expediente, fecha, cuit, nombre, cerrado, formularios, lote) VALUES ($expediente, '$fecha', $cuit, '$nombre', '$cerrado', '$form', $lote)";
 				if($marcado = $mysqli->query("$select")) {
 					echo '<td class="pinta_verde">';
-					echo "Se importo correctamente $expediente - $dominio" ;
+					echo "Se importo correctamente $expediente" ;
 				}else{
 					echo '<td class="pinta_rojo">';
-					echo "<strong>No se importo correctamente $expediente - $dominio</strong>" ;
-				}
-
-				if (!validarCUIT($cuit)) {
-					echo "<br><strong>CUIT no valido - Verificar $cuit</strong>" ;
+					echo "<strong>No se importo correctamente $expediente</strong>" ;
 				}
 
 				echo '</td> </tr>';

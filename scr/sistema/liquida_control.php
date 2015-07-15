@@ -15,7 +15,6 @@ require 'header.php'; ?>
 
 	<div class="divisor">
 		<a class="enlace_boton" href="liquida_controlar.php?lote=<?php echo $nro_lote; ?>">Generar control</a>
-		<a class="enlace_boton" href="liquida_modifica.php?lote=<?php echo $nro_lote; ?>">Modifica Lote</a>
 		<a class="enlace_boton" href="liquida_listado.php?lote=<?php echo $nro_lote; ?>&sinordenar=SI">Procesar</a>
 		<a class="enlace_boton" href="liquida_imprime_rptc.php?lote=<?php echo $nro_lote; ?>&sinordenar=NO">Imprimir Liquidación</a>
 		<a class="enlace_boton" href="liquida_imprime.php?lote=<?php echo $nro_lote; ?>&sinordenar=SI">Imprimir Sin Ordenar</a>
@@ -36,9 +35,9 @@ require 'header.php'; ?>
 			echo 'Nº de liquidación: ' . $liquida['liquidacion'] . '<br>';
 			echo 'Lote altas: ' . $liquida['alta'] . '<br>';
 			echo 'Lote revalidas: ' . $liquida['revalida'] . '<br>';
-			echo 'Fecha de cierre: ' . $liquida['fecha'];
+			echo 'Fecha de cierre: ' . $liquida['fecha']. '<br>';
 		?>
-	</div>
+			<a class="enlace_boton" href="liquida_modifica.php?lote=<?php echo $nro_lote; ?>">Modifica Lote</a>	</div>
 
 <?php require 'liquida_totales.php'; ?>
 

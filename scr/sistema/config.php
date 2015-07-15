@@ -8,8 +8,17 @@
 		<legend>Importación</legend>
 		<p>
 			Antes de importar se debe generar el archivo <a href="importar.csv" target="_blank">importar.csv</a>. <br>
-			<a href="csv_to_table.php" class="enlace_boton">Ver</a>
+			<a href="csv_to_table.php?archivo=importar.csv" class="enlace_boton">Ver</a>
 			<a href="importar_control.php" class="enlace_boton" target="_blank">Importar Control</a>
+		</p>
+	</fieldset>
+
+	<fieldset>
+		<legend>Importación - listado_sistema.csv</legend>
+		<p>
+			Antes de importar se debe generar el archivo <a href="listado_sistema.csv" target="_blank">listado_sistema.csv</a>. <br>
+			<a href="csv_to_table.php?archivo=listado_sistema.csv" class="enlace_boton">Ver</a>
+			<a href="importar_listado.php" class="enlace_boton" target="_blank">Importar Listado</a>
 		</p>
 	</fieldset>
 

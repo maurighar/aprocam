@@ -1,1 +1,1 @@
-<?php header("Location: sistema/"); ?>
+<?php header("Location: sistema/"); ?> 
