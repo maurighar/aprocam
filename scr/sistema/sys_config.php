@@ -2,7 +2,7 @@
 
 
 /** El sistema esta trabajando en modo local */
-define('MODO_LOCAL', FALSE);
+define('MODO_LOCAL', false);
 
 /** Valor unitario de los tramites del RUTA */
 define('VALOR_TRAMITE', 120);
@@ -39,5 +39,5 @@ define('DB_PASSWORD', 'aprocam2010');
 if (MODO_LOCAL){
 	define('DB_HOST', 'localhost');
 } else {
-	define('DB_HOST', 'admin03');
+	define('DB_HOST', '192.168.1.102');
 }

@@ -1,6 +1,7 @@
 function mostrar_fecha( ) {
 	var cl = document.getElementById("fecha");
-	cl.innerHTML = new Date( );
+	//cl.innerHTML = new Date( );
+	cl.innerHTML = moment().format("DD/MM/YYYY HH:mm:ss") + ' (' + moment().week() + ')';
 }
 
 function inicializar() {

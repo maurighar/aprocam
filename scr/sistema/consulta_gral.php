@@ -30,7 +30,7 @@ if ($resultado->num_rows === 0) {
 }
 ?>
 
-<h1>Consulta de tramites ruta</h1>
+<h1>Consulta de tramites RUTA</h1>
 
 <table caption="control (11 rows)">
 	<thead>

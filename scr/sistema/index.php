@@ -106,7 +106,7 @@
 		<br /> <br />
 		<img src="../image/afip.png" alt="AFIP"  width=70px /><br />
 		<a href="https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaConstanciaAction.do" target="_blank">Constacia</a><br />
-		<a href="http://www.afip.gov.ar/mercurio/consultapadron/buscarcontribuyente.aspx" target="_blank">Padrón AFIP</a>
+		<a href="https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaActivEconomicaAction.do" target="_blank">Actividad economica</a>
 	</div>
 
 </section>

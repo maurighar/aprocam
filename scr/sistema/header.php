@@ -12,7 +12,8 @@
 		<meta name="author" content="Mauricio Antonio Ghilardi" />
 		<link rel="stylesheet" href="<?php sitio(); ?>css/normalize.css" />
 		<link rel="stylesheet" href="<?php sitio(); ?>css/main.css" />
-		<script type="text/javascript" src="<?php sitio(); ?>js/main.js"> </script>
+		<script src="<?php sitio(); ?>js/moment.min.js"></script>
+		<script src="<?php sitio(); ?>js/main.js"> </script>
 
 	</head>
 	<body onload="inicializar()">
