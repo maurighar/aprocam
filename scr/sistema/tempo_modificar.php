@@ -1,9 +1,7 @@
 <?php
 $titulo_pagina = 'RUTA - Modificación';
 require 'header.php';
-
 require 'select_tipo.php';
-
 require 'mensaje.php';
 
 if (isset( $_GET["mensaje"])){
@@ -20,7 +18,7 @@ if (isset( $_GET["mensaje"])){
 
 			require 'connect_db.php';
 
-			$resultado = $mysqli->query("SELECT *,(fecha+interval 70 day) AS vto,DATEDIFF(CURDATE(),fecha) as cant_dias FROM aprocam.control WHERE id = " . $valor_id);
+			$resultado = $mysqli->query("SELECT *,(fecha+interval 70 day) AS vto,DATEDIFF(CURDATE(),fecha) as cant_dias FROM aprocam.tempo_control WHERE id = " . $valor_id);
 			$fila = $resultado->fetch_assoc();
 				#Muestra el vencimiento del tramite en una celda
 				echo "Expediente: " . $fila['expediente'] ;
@@ -33,7 +31,7 @@ if (isset( $_GET["mensaje"])){
 </section>
 
 <section>
-	<form method="post" action="modificar_carga.php" enctype="application/x-www-form-urlencoded">
+	<form method="post" action="tempo_modif_carga.php" enctype="application/x-www-form-urlencoded">
 		<fieldset>
 			<legend>Carga de datos</legend>
 

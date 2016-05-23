@@ -2,9 +2,14 @@
 	APACHE WebServer + PHP + MySQL<br /><br />
 	Desarrollado por Mauricio A. Ghilardi <br />
 	Twitter: <a rel="author" href="http://twitter.com/maurighar" target="_blank">@maurighar</a><br />
-	2015
+	<script type="text/javascript"> document.write(new Date().getFullYear()); </script>
 </footer>
 
 </table>
+
+<!-- <script>
+	var navigation = $('#nav-main').okayNav();
+</script> -->
+
 </body>
 </html>

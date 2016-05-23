@@ -18,6 +18,7 @@ $modif_txt = '';
 		<legend>Opciones liquidación</legend>
 		<a class="enlace_boton" href="liquida_cabecera.php">Cargar</a>
 		<a class="enlace_boton" href="liquidacion_listado.php">Listado</a>
+		<a class="enlace_boton" href="liquida_no_liquidado.php">No Liquidado</a>
 	</fieldset>
 
 	<div class="divisor">
@@ -134,4 +135,3 @@ $(function () {
 </script>
 
 <?php require 'footer.php'; ?>
-

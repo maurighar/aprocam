@@ -2,7 +2,7 @@
 	/*  Archivo con las configuraciónes generales del sistema  */
 	require_once 'sys_config.php';
 
-	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	$mysqli = new \mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	if ($mysqli->connect_errno) {
 		$mensaje = "Fallo al contenctar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;

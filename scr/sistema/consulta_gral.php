@@ -1,13 +1,13 @@
 <?php
-$_selec = 'SELECT * FROM aprocam.control WHERE ';
+$_selec = 'SELECT *, DATEDIFF(CURDATE(),fecha) AS dias FROM aprocam.control WHERE ';
 switch ($tipo) {
 	case 1 :
-	$consulta = "SELECT *,GROUP_CONCAT(dominio SEPARATOR ' ') AS dominios FROM aprocam.control ORDER BY expediente,tipo,dominio GROUP BY expediente,tipo WHERE control.nombre like %$valor%";
+	$consulta = "SELECT *,GROUP_CONCAT(dominio SEPARATOR ' ') AS dominios, DATEDIFF(CURDATE(),fecha) AS dias  FROM aprocam.control ORDER BY expediente,tipo,dominio GROUP BY expediente,tipo WHERE control.nombre like %$valor%";
 	$resultado = $mysqli->query("$_selec ");
 	break;
-		case 2 :
-		$resultado = $mysqli->query("$_selec control.cuit = " . $valor );
-		break;
+	case 2 :
+	$resultado = $mysqli->query("$_selec control.cuit = " . $valor );
+	break;
 	case 3 :
 	$resultado = $mysqli->query("$_selec control.dominio =  '" . $valor . "'");
 	break;
@@ -41,6 +41,7 @@ if ($resultado->num_rows === 0) {
 			<th>dominio</th>
 			<th>tipo</th>
 			<th>fecha</th>
+			<th>dias</th>
 			<th>lote</th>
 			<th>certificado</th>
 			<th>entr.</th>
@@ -74,6 +75,8 @@ if ($resultado->num_rows === 0) {
 				<td class="fechas">
 					<?php convertir_fechas($linea->fecha,'normal');?>
 				</td>
+
+				<td class="al_derecha"> <?php echo $linea->dias;?> </td>
 
 				<td class="al_derecha">
 					<?php echo $linea->lote?>
@@ -149,7 +152,7 @@ if ($resultado->num_rows === 0) {
 	</tbody>
 
 	<tfoot>
-		<td align=right colspan="13" rowspan="1">
+		<td align=right colspan="14" rowspan="1">
 			Desarrollado por Mauricio A. Ghilardi
 		</td>
 	</tfoot>

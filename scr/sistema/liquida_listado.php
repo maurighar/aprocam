@@ -121,7 +121,7 @@ require 'header.php'; ?>
 				<?php
 					while ($fila = $resultado->fetch_assoc()) {
 						// Compruebo que cambio de expediente
-						if ($exped_anterior != $fila['expediente']) {
+						if ($exped_anterior != $fila['exped']) {
 							if ($exped_anterior != 0) {
 								imprime_columnas($porExpediente,$control);
 								$porExpediente = [

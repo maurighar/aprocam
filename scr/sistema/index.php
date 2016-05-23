@@ -99,14 +99,16 @@
 		<a href="http://ruta.cent.gov.ar/" target="_blank">
 			<img src="../image/ruta.png" alt="RUTA" width=70px />
 		</a>
-		<br /> <br />
+		<br> <br>
 		<a href="http://www.aprocam.org.ar/" target="_blank">
 			<img src="../image/aprocam_logo.png" alt="RUTA" width=70px />
 		</a>
-		<br /> <br />
-		<img src="../image/afip.png" alt="AFIP"  width=70px /><br />
-		<a href="https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaConstanciaAction.do" target="_blank">Constacia</a><br />
+		<br> <br>
+		<img src="../image/afip.png" alt="AFIP"  width=70px /><br>
+		<a href="https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaConstanciaAction.do" target="_blank">Constacia</a><br>
 		<a href="https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaActivEconomicaAction.do" target="_blank">Actividad economica</a>
+		<h1> <a href="tempo_control.php">Tempo</a></h1>
+		<a href="Doc_Necesaria.pdf" target="_blank">Doc. Necesaria</a>
 	</div>
 
 </section>

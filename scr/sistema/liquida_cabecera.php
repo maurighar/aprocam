@@ -32,8 +32,14 @@ require 'header.php'; ?>
 		</div>
 
 		<div class="flota">
-			<label for="fecha">Fecha de cierre: </label>
-			<input type="text" id="fecha" name="fecha_txt" placeholder="Fecha de cierre" title="Fecha de cierre" required />
+			<label for="fecha_cierre">Fecha de cierre: </label>
+			<input type="text" id="fecha_cierre" name="fecha_txt" placeholder="Fecha de cierre" title="Fecha de cierre" required />
+			<input type="button" name="boton" onclick="carga_fecha( );" value="Hoy">
+			<script>
+				function carga_fecha( ) {
+					document.getElementById("fecha_cierre").value = moment().format("YYYY-MM-DD");
+				}
+			</script>
 		</div>
 
 		<div class="clear"><input type="submit" id="envia-alta" name="enviar_btn" value=" Agregar " /></div>

@@ -1,6 +1,0 @@
-[02-Apr-2014 03:04:52 Europe/Berlin] PHP Warning:  mysqli::mysqli(): php_network_getaddresses: getaddrinfo failed: Host desconocido.  in C:\Mauricio\@Home\Dropbox\htdocs\aprocam\sistema\connect_db.php on line 9
-[02-Apr-2014 03:04:52 Europe/Berlin] PHP Warning:  mysqli::mysqli(): (HY000/2002): php_network_getaddresses: getaddrinfo failed: Host desconocido.  in C:\Mauricio\@Home\Dropbox\htdocs\aprocam\sistema\connect_db.php on line 9
-[02-Apr-2014 03:04:52 Europe/Berlin] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in C:\Mauricio\@Home\Dropbox\htdocs\aprocam\sistema\connect_db.php on line 16
-[02-Apr-2014 03:04:52 Europe/Berlin] PHP Warning:  main(): Couldn't fetch mysqli in C:\Mauricio\@Home\Dropbox\htdocs\aprocam\sistema\connect_db.php on line 17
-[02-Apr-2014 03:04:52 Europe/Berlin] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in C:\Mauricio\@Home\Dropbox\htdocs\aprocam\sistema\consulta.php on line 70
-[02-Apr-2014 03:04:52 Europe/Berlin] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in C:\Mauricio\@Home\Dropbox\htdocs\aprocam\sistema\consulta.php on line 113

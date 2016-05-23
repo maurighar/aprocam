@@ -48,6 +48,14 @@
 		</p>
 	</fieldset>
 
+
+	<fieldset>
+		<legend>Temporales</legend>
+		<p>
+			<a href="genera_numeros.php" class="enlace_boton" target="_blank">Genera Nº</a>
+		</p>
+	</fieldset>
+
 </section>
 
 

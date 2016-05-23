@@ -8,7 +8,11 @@ if (CAPA_SEGURIDAD){
 	require_once 'seguridad.php';
 }
 
+require 'vendor\autoload.php';
 
+$whoops = new Whoops\Run;
+$whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
+$whoops->register();
 
 /*
   herramientas para debugging en PHP
@@ -105,6 +109,7 @@ function convertir_fechas($fecha_original,$tipo){
  */
 
 
+
 function color_tipo($tramite) {
 	switch ($tramite) {
 		case 'ALTA' :
@@ -119,7 +124,12 @@ function color_tipo($tramite) {
 		case 'REVALIDA' :
 			return "FFFF99" ;
 			break;
-	}
+		case 'REIMPRE.' :
+			return "3484d6" ;
+			break;
+		case 'MODIF' :
+			return "8f55a6" ;
+			break;	}
 }
 
 
